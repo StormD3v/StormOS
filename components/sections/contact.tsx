@@ -4,17 +4,19 @@ import { motion } from 'framer-motion';
 import { Container } from '@/components/layout/container';
 import { Card } from '@/components/ui/card';
 import { ContactForm } from '@/components/sections/contact-form';
-import { Mail, Github, Twitter, MessageCircle } from 'lucide-react';
+import { Mail, Github, MessageCircle } from 'lucide-react';
+import { FaXTwitter } from 'react-icons/fa6';
 import { socialLinks } from '@/content/social-links';
 
 // [PLACEHOLDER: replace with real email before launch]
 const CONTACT_EMAIL = 'hello@example.com';
 
-// Icon map for homepage social icons
-// Discord doesn't have a lucide icon — using MessageCircle as the closest semantic fit
+// Icon map for homepage social icons.
+// Discord uses MessageCircle (no native lucide Discord icon).
+// X uses FaXTwitter from react-icons/fa6.
 const iconMap: Record<string, React.ElementType> = {
   github: Github,
-  twitter: Twitter,   // used for X
+  twitter: FaXTwitter,
   discord: MessageCircle,
 };
 

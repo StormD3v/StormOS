@@ -1,60 +1,92 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { PageWrapper } from '@/components/layout/page-wrapper';
 import { Container } from '@/components/layout/container';
-import { Card } from '@/components/ui/card';
-import { motion } from 'framer-motion';
+
+const entrance = {
+  initial: { opacity: 0, y: 30 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, ease: [0.215, 0.61, 0.355, 1] as const },
+};
+
+const stagger = (delay: number) => ({
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, delay, ease: [0.215, 0.61, 0.355, 1] as const },
+});
 
 export default function AboutPage() {
   return (
     <PageWrapper>
-      <Container className="py-24">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
-        >
-          <h1 className="text-5xl md:text-6xl font-bold text-neutral-100 mb-6">
-            About Me
-          </h1>
-          <p className="text-xl text-neutral-400 mb-12 max-w-3xl">
-            I&apos;m a software engineer passionate about building products that make a difference
-          </p>
+      <Container className="py-32 px-6">
+        <div className="max-w-2xl">
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <Card variant="elevated">
-              <h2 className="text-2xl font-semibold text-storm-blue mb-4">My Philosophy</h2>
-              <p className="text-neutral-400 leading-relaxed">
-                I believe in writing clean, maintainable code that scales. Every line of code should have a purpose, and every feature should solve a real problem. I strive for simplicity over cleverness, and I believe that the best code is code that others can easily understand and maintain.
-              </p>
-            </Card>
+          {/* Page label */}
+          <motion.p
+            {...stagger(0)}
+            className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-10"
+          >
+            About StormOS
+          </motion.p>
 
-            <Card variant="elevated">
-              <h2 className="text-2xl font-semibold text-storm-blue mb-4">My Background</h2>
-              <p className="text-neutral-400 leading-relaxed">
-                {/* [PLACEHOLDER: replace "years of experience" and "millions of people" with real figures] */}
-                With years of experience in software engineering, I&apos;ve worked on everything from early-stage startups to enterprise applications. I&apos;ve led teams, mentored junior developers, and shipped products used by millions of people. Technical excellence is only half the equation. Communication and collaboration matter just as much.
-              </p>
-            </Card>
-          </div>
+          {/* Page heading */}
+          <motion.h1
+            {...stagger(0.05)}
+            className="text-5xl md:text-6xl font-bold text-neutral-100 mb-14 leading-tight"
+          >
+            StormOS
+          </motion.h1>
 
-          <Card variant="elevated" className="mb-12">
-            <h2 className="text-2xl font-semibold text-storm-blue mb-4">My Approach</h2>
-            <p className="text-neutral-400 leading-relaxed">
-              I take a user-first approach to development. Before writing a single line of code, I seek to understand the problem deeply. I believe in iterative development, continuous feedback, and data-driven decisions. I&apos;m not just building software. I&apos;m building solutions that improve people&apos;s lives.
+          {/* Core narrative */}
+          <motion.div {...stagger(0.1)} className="space-y-6 mb-16">
+            <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
+              StormOS wasn&apos;t created to become a company.
             </p>
-          </Card>
-
-          <Card variant="elevated">
-            <h2 className="text-2xl font-semibold text-storm-blue mb-4">What I&apos;m Working On</h2>
-            <p className="text-neutral-400 leading-relaxed mb-4">
-              Currently, I&apos;m focused on WorldForge, my flagship project that aims to revolutionize how creators build and collaborate on immersive worlds. It&apos;s an ambitious project, but I believe it has the potential to change the landscape of creative tools.
+            <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
+              It began as a place where everything I build could finally live together.
+            </p>
+            <p className="text-neutral-400 leading-relaxed text-pretty">
+              Some ideas take weeks. Some take years. Some may never be finished.
+              That&apos;s okay.
+            </p>
+            <p className="text-neutral-400 leading-relaxed text-pretty">
+              I&apos;d rather spend years building something worth remembering than weeks
+              building something forgettable.
             </p>
             <p className="text-neutral-400 leading-relaxed">
-              When I&apos;m not coding, you can find me exploring new technologies, contributing to open source, or sharing my knowledge through writing and speaking.
+              Over time, this becomes the record.
             </p>
-          </Card>
-        </motion.div>
+          </motion.div>
+
+          {/* Identity sentence */}
+          <motion.p
+            {...stagger(0.2)}
+            className="text-base text-neutral-500 leading-relaxed mb-20"
+          >
+            I enjoy building the kinds of things people usually dismiss as impossible,
+            unnecessary, or too ambitious.
+          </motion.p>
+
+          {/* WorldForge context */}
+          <motion.div {...stagger(0.25)} className="border-t border-neutral-800/60 pt-16 space-y-6">
+            <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500">
+              Right now
+            </p>
+            <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
+              Most of my focus is on WorldForge.
+            </p>
+            <p className="text-neutral-400 leading-relaxed text-pretty">
+              It&apos;s a long-running project. Not the kind of thing that ships in a sprint
+              and gets called done. It&apos;s the kind of project that earns its way into
+              existence over time.
+            </p>
+            <p className="text-neutral-400 leading-relaxed text-pretty">
+              When I&apos;m not building, I&apos;m thinking about what to build next.
+            </p>
+          </motion.div>
+
+        </div>
       </Container>
     </PageWrapper>
   );
