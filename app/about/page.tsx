@@ -33,7 +33,7 @@ export default function AboutPage() {
               <h2 className="text-2xl font-semibold text-storm-blue mb-4">My Background</h2>
               <p className="text-neutral-400 leading-relaxed">
                 {/* [PLACEHOLDER: replace "years of experience" and "millions of people" with real figures] */}
-                With years of experience in software engineering, I&apos;ve worked on everything from early-stage startups to enterprise applications. I&apos;ve led teams, mentored junior developers, and shipped products used by millions of people. My journey has taught me that technical excellence is only half the equation—communication and collaboration are equally important.
+                With years of experience in software engineering, I&apos;ve worked on everything from early-stage startups to enterprise applications. I&apos;ve led teams, mentored junior developers, and shipped products used by millions of people. Technical excellence is only half the equation. Communication and collaboration matter just as much.
               </p>
             </Card>
           </div>
@@ -41,7 +41,7 @@ export default function AboutPage() {
           <Card variant="elevated" className="mb-12">
             <h2 className="text-2xl font-semibold text-storm-blue mb-4">My Approach</h2>
             <p className="text-neutral-400 leading-relaxed">
-              I take a user-first approach to development. Before writing a single line of code, I seek to understand the problem deeply. I believe in iterative development, continuous feedback, and data-driven decisions. I&apos;m not just building software—I&apos;m building solutions that improve people&apos;s lives.
+              I take a user-first approach to development. Before writing a single line of code, I seek to understand the problem deeply. I believe in iterative development, continuous feedback, and data-driven decisions. I&apos;m not just building software. I&apos;m building solutions that improve people&apos;s lives.
             </p>
           </Card>
 

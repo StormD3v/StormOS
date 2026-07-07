@@ -41,8 +41,8 @@ export function Contact() {
 
           {/* Framing — filters audience toward the right conversations */}
           <p className="text-lg text-neutral-400 mb-6 max-w-xl leading-relaxed text-pretty">
-            If something here connects with what you&apos;re building—or you&apos;re simply
-            curious about what comes next—I&apos;d love to hear from you.
+            If something here connects with what you&apos;re building, or you&apos;re simply
+            curious about what comes next, I&apos;d love to hear from you.
           </p>
           <p className="text-base text-neutral-500 mb-16 max-w-xl leading-relaxed">
             This isn&apos;t a place for generic project requests.
