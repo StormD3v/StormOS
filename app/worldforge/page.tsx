@@ -1,159 +1,277 @@
 'use client';
 
+import { useRef } from 'react';
+import { useReducedMotion, motion } from 'framer-motion';
 import { PageWrapper } from '@/components/layout/page-wrapper';
 import { Container } from '@/components/layout/container';
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { WaitlistForm } from '@/components/sections/waitlist-form';
-import { motion } from 'framer-motion';
-import { Sparkles, CheckCircle, Clock, Zap } from 'lucide-react';
+import Link from 'next/link';
+
+const stagger = (delay: number) => ({
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, delay, ease: [0.215, 0.61, 0.355, 1] as const },
+});
 
 export default function WorldForgePage() {
-  const features = [
-    {
-      icon: Zap,
-      title: 'Real-Time Collaboration',
-      description: 'Work together with your team in real-time, seeing changes as they happen.',
-    },
-    {
-      icon: Sparkles,
-      title: 'Procedural Generation',
-      description: 'Generate vast, unique worlds with our advanced procedural generation algorithms.',
-    },
-    {
-      icon: CheckCircle,
-      title: 'Cross-Platform',
-      description: 'Access your worlds from any device, anywhere, with full feature parity.',
-    },
-  ];
+  const reducedMotion = useReducedMotion();
+  const waitlistRef = useRef<HTMLDivElement>(null);
 
-  const roadmap = [
-    {
-      phase: 'Phase 1',
-      status: 'completed',
-      title: 'Foundation',
-      items: ['Core architecture', 'Basic world generation', 'User authentication'],
-    },
-    {
-      phase: 'Phase 2',
-      status: 'in-progress',
-      title: 'Collaboration',
-      items: ['Real-time sync', 'Multiplayer support', 'Chat system'],
-    },
-    {
-      phase: 'Phase 3',
-      status: 'planned',
-      title: 'AI Integration',
-      items: ['AI-assisted creation', 'Smart suggestions', 'Automated testing'],
-    },
-  ];
+  function handleJoinClick() {
+    if (!waitlistRef.current) return;
+    waitlistRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => {
+      const input = waitlistRef.current?.querySelector<HTMLInputElement>('input[type="email"]');
+      input?.focus({ preventScroll: true });
+    }, 400);
+  }
 
   return (
     <PageWrapper>
-      <Container className="py-24">
+
+      {/* Hero — purple ambient environment */}
+      <section className="relative pt-40 pb-32 px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-neutral-950 -z-20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/12 via-accent-purple/3 to-transparent -z-10" />
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
-        >
-          {/* Badge */}
-          <Badge variant="info" className="bg-accent-purple/20 text-accent-purple border-accent-purple/30 mb-6">
-            <Sparkles size={14} className="mr-1" />
-            Flagship Project
-          </Badge>
+          className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-accent-purple/8 rounded-full blur-3xl -z-10"
+          initial={{ opacity: 0.3 }}
+          animate={reducedMotion ? { opacity: 0.3 } : { opacity: [0.3, 0.5, 0.3] }}
+          transition={reducedMotion ? {} : { duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+        />
 
-          <h1 className="text-5xl md:text-6xl font-bold text-accent-purple mb-6">
-            WorldForge
-          </h1>
-          <p className="text-xl text-neutral-400 mb-12 max-w-3xl">
-            Building the future of collaborative world-building. Create, share, and collaborate on immersive worlds together.
-          </p>
+        <Container>
+          <div className="max-w-2xl">
+            <motion.p
+              {...stagger(0)}
+              className="text-xs font-semibold tracking-widest uppercase text-accent-purple/70 mb-8"
+            >
+              Flagship Project
+            </motion.p>
 
-          {/* Vision */}
-          <Card variant="elevated" className="border-accent-purple/30 mb-12">
-            <h2 className="text-2xl font-semibold text-accent-purple mb-4">Our Vision</h2>
-            <p className="text-neutral-400 leading-relaxed">
-              WorldForge is a revolutionary platform that enables creators to build, share, and collaborate on immersive worlds together. We believe that creativity is a collaborative process, and our tools are designed to bring people together to create something greater than the sum of its parts.
-            </p>
-          </Card>
+            <motion.h1
+              {...stagger(0.08)}
+              className="text-6xl md:text-7xl font-bold text-accent-purple mb-10 leading-tight"
+            >
+              WorldForge
+            </motion.h1>
 
-          {/* Features */}
-          <h2 className="text-3xl font-bold text-neutral-100 mb-6">Key Features</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1, ease: [0.215, 0.61, 0.355, 1] }}
-              >
-                <Card variant="elevated" className="border-accent-purple/30 h-full">
-                  <feature.icon className="w-8 h-8 text-accent-purple mb-4" />
-                  <h3 className="text-xl font-semibold text-neutral-100 mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-neutral-400">{feature.description}</p>
-                </Card>
-              </motion.div>
-            ))}
+            <motion.div {...stagger(0.16)} className="space-y-5">
+              <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed text-pretty">
+                Most platforms ask you to build a profile.
+              </p>
+              <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed text-pretty">
+                WorldForge asks you to build a life.
+              </p>
+              <p className="text-lg text-neutral-400 leading-relaxed text-pretty">
+                Every decision becomes history. Every alliance matters.
+                Every citizen leaves a legacy.
+              </p>
+              <p className="text-lg text-neutral-400 leading-relaxed">
+                Because people don&apos;t simply use WorldForge.
+                <br />
+                They live inside it.
+              </p>
+            </motion.div>
           </div>
+        </Container>
+      </section>
 
-          {/* Roadmap */}
-          <h2 className="text-3xl font-bold text-neutral-100 mb-6">Roadmap</h2>
-          <div className="space-y-6 mb-12">
-            {roadmap.map((item, index) => (
-              <motion.div
-                key={item.phase}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1, ease: [0.215, 0.61, 0.355, 1] }}
-              >
-                <Card variant="elevated" className="border-accent-purple/30">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0">
-                      {item.status === 'completed' && (
-                        <CheckCircle className="w-6 h-6 text-success" />
-                      )}
-                      {item.status === 'in-progress' && (
-                        <Clock className="w-6 h-6 text-warning" />
-                      )}
-                      {item.status === 'planned' && (
-                        <div className="w-6 h-6 rounded-full border-2 border-neutral-600" />
-                      )}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-xl font-semibold text-neutral-100">
-                          {item.title}
-                        </h3>
-                        <Badge variant="default">{item.phase}</Badge>
-                      </div>
-                      <ul className="space-y-1 text-neutral-400">
-                        {item.items.map((roadmapItem) => (
-                          <li key={roadmapItem}>• {roadmapItem}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
+      {/* What it is */}
+      <section className="py-32 px-6 border-t border-neutral-800/60">
+        <Container>
+          <div className="max-w-2xl">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
+              className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-10"
+            >
+              What it is
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.215, 0.61, 0.355, 1] }}
+              className="space-y-6"
+            >
+              <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
+                WorldForge is a world-building platform built around permanence.
+              </p>
+              <p className="text-neutral-400 leading-relaxed text-pretty">
+                Not the kind of world you build in an afternoon and abandon by the weekend.
+                The kind of world that accumulates. Where a decision made in the first month
+                still matters in the third year. Where civilizations rise, collapse, and leave
+                traces that future players inherit.
+              </p>
+              <p className="text-neutral-400 leading-relaxed text-pretty">
+                Identity is the foundation. Who you are inside WorldForge is defined by
+                what you do, not what you claim. Your legacy is written by the choices you make,
+                the alliances you build, and the things you leave behind.
+              </p>
+              <p className="text-neutral-400 leading-relaxed text-pretty">
+                There are no resets. There is only history.
+              </p>
+            </motion.div>
           </div>
+        </Container>
+      </section>
 
-          {/* CTA */}
-          <Card variant="elevated" className="border-accent-purple/30 text-center">
-            <h2 className="text-2xl font-semibold text-accent-purple mb-4">
-              Join the Waitlist
-            </h2>
-            <p className="text-neutral-400 mb-6 max-w-2xl mx-auto">
-              Be the first to know when WorldForge launches. Get early access and exclusive updates.
-            </p>
-            <div className="flex justify-center">
+      {/* Where it is now */}
+      <section className="py-32 px-6 bg-neutral-900/30 border-t border-neutral-800/60">
+        <Container>
+          <div className="max-w-2xl">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
+              className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-10"
+            >
+              Where it is now
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.215, 0.61, 0.355, 1] }}
+              className="space-y-6"
+            >
+              <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
+                WorldForge is in active development. It is not finished. It may not be
+                finished for a long time.
+              </p>
+              <p className="text-neutral-400 leading-relaxed text-pretty">
+                The core systems are being designed and built to support the permanence
+                model. That means getting the foundations right before anything else.
+                World state. History. Identity. The mechanics that make consequences real.
+              </p>
+              <p className="text-neutral-400 leading-relaxed text-pretty">
+                There is no beta date yet. There is no launch window. What exists right
+                now is a growing system being built with the patience the concept requires.
+              </p>
+              <p className="text-neutral-400 leading-relaxed">
+                The First Crossing is the name for the initial group of people who will
+                enter WorldForge before it opens to the public. That group is small by
+                design. The list below is how you get on it.
+              </p>
+            </motion.div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Waitlist */}
+      <section
+        id="waitlist"
+        className="relative py-36 px-6 overflow-hidden border-t border-neutral-800/60"
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/8 via-transparent to-transparent -z-10" />
+        <Container>
+          <div className="max-w-xl">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
+              className="text-xs font-semibold tracking-widest uppercase text-accent-purple/70 mb-10"
+            >
+              The First Crossing
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.215, 0.61, 0.355, 1] }}
+              className="space-y-5 mb-12"
+            >
+              <p className="text-2xl md:text-3xl font-bold text-accent-purple leading-tight">
+                Join the First Crossing.
+              </p>
+              <p className="text-neutral-400 leading-relaxed text-pretty">
+                A small group of people will enter WorldForge before it opens publicly.
+                They will shape the first histories, build the first civilizations,
+                and leave the first legacies.
+              </p>
+              <p className="text-neutral-400 leading-relaxed">
+                Leave your email. We&apos;ll reach out when the time comes.
+              </p>
+            </motion.div>
+
+            <motion.div
+              ref={waitlistRef}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               <WaitlistForm />
-            </div>
-          </Card>
-        </motion.div>
-      </Container>
+            </motion.div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Follow development */}
+      <section className="py-32 px-6 border-t border-neutral-800/60">
+        <Container>
+          <div className="max-w-xl">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
+              className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-10"
+            >
+              Follow development
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.215, 0.61, 0.355, 1] }}
+              className="space-y-5 mb-12"
+            >
+              <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
+                WorldForge is being built in public, slowly and seriously.
+              </p>
+              <p className="text-neutral-400 leading-relaxed text-pretty">
+                Not a steady stream of updates. Not a newsletter. Just occasional signals
+                when something real happens. If you want to watch it grow without
+                committing to anything, the contact page is the right place.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <Button
+                size="lg"
+                variant="primary"
+                onClick={handleJoinClick}
+                className="bg-accent-purple hover:bg-accent-purple-dark focus:ring-accent-purple"
+              >
+                Join the First Crossing
+              </Button>
+              <Link href="/contact">
+                <Button size="lg" variant="secondary" className="w-full sm:w-auto">
+                  Get in touch
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </Container>
+      </section>
+
     </PageWrapper>
   );
 }

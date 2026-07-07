@@ -16,19 +16,22 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'StormOS | Premium Portfolio',
-  description: 'A premium portfolio operating system for Storm, a software engineer specializing in building exceptional digital experiences.',
-  keywords: ['portfolio', 'software engineer', 'developer', 'StormOS', 'Storm'],
+  title: {
+    default: 'StormD3v',
+    template: '%s | StormD3v',
+  },
+  description: 'StormOS is the long-term home of everything I build. Ambitious ideas, serious execution, no shortcuts.',
+  keywords: ['StormD3v', 'StormOS', 'WorldForge', 'software engineer', 'developer', 'indie projects'],
   authors: [{ name: 'Storm' }],
   openGraph: {
-    title: 'StormOS | Premium Portfolio',
-    description: 'A premium portfolio operating system for Storm, a software engineer.',
+    title: 'StormD3v',
+    description: 'StormOS is the long-term home of everything I build. Ambitious ideas, serious execution, no shortcuts.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'StormOS | Premium Portfolio',
-    description: 'A premium portfolio operating system for Storm, a software engineer.',
+    title: 'StormD3v',
+    description: 'StormOS is the long-term home of everything I build. Ambitious ideas, serious execution, no shortcuts.',
   },
   robots: {
     index: true,
