@@ -1,13 +1,14 @@
 import Link from 'next/link';
-import { Github, Linkedin, Twitter, MessageCircle } from 'lucide-react';
+import { Github, Linkedin, MessageCircle } from 'lucide-react';
+import { FaXTwitter } from 'react-icons/fa6';
 import { socialLinks } from '@/content/social-links';
 import { cn } from '@/lib/utils';
 
 // Icon map — footer shows all social links regardless of showOnHomepage flag.
-// Discord uses MessageCircle as the closest semantic icon in lucide-react.
+// Discord uses MessageCircle. X uses FaXTwitter from react-icons/fa6.
 const iconMap: Record<string, React.ElementType> = {
   github: Github,
-  twitter: Twitter,
+  twitter: FaXTwitter,
   discord: MessageCircle,
   linkedin: Linkedin,
 };
