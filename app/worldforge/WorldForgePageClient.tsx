@@ -208,6 +208,37 @@ export function WorldForgePageClient() {
                     </div>
                 </Container>
             </section>
+
+            {/* Enter WorldForge */}
+            <section className="relative py-36 px-6 overflow-hidden border-t border-neutral-800/60">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/8 via-transparent to-transparent -z-10" aria-hidden="true" />
+                <Container>
+                    <div className="max-w-xl">
+                        <motion.h2 {...inView()} className="text-4xl md:text-5xl font-bold text-accent-purple mb-6 leading-tight">
+                            Enter WorldForge
+                        </motion.h2>
+                        <motion.p {...inView(0.1)} className="text-neutral-400 leading-relaxed text-pretty mb-12">
+                            The current build is live. Explore the world as it exists today — unfinished,
+                            growing, and already permanent.
+                        </motion.p>
+                        <motion.div {...inView(0.2)}>
+                            <a
+                                href="https://worldforge-phi.vercel.app/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Button
+                                    size="lg"
+                                    variant="primary"
+                                    className="bg-accent-purple hover:bg-accent-purple-dark focus:ring-accent-purple"
+                                >
+                                    Enter WorldForge
+                                </Button>
+                            </a>
+                        </motion.div>
+                    </div>
+                </Container>
+            </section>
         </>
     );
 }

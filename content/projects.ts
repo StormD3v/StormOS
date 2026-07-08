@@ -31,15 +31,15 @@ export const projects: Project[] = [
     startDate: '2024-01-01',
   },
   {
-    id: 'real-weather',
-    title: 'Real Weather',
-    displayName: 'Real Weather',
+    id: 'lumicast',
+    title: 'LumiCast',
+    displayName: 'LumiCast',
     description: 'Weather forecasts presented as actionable daily decisions.',
     tags: [],
     technologies: [],
     links: {},
     featured: true,
     status: 'completed',
-    // No route — LumiCast does not yet have a dedicated page
+    route: '/lumicast',
   },
 ];

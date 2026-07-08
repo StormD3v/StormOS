@@ -108,25 +108,18 @@ export function Building() {
                                     className="flex-1 opacity-70"
                                     data-project-id={project.id}
                                 >
-                                    <div className="h-full min-h-[140px] rounded-2xl bg-neutral-900 border border-neutral-800 p-7" role="article">
-                                        <div className="mb-5">
-                                            <span
-                                                className={cn(
-                                                    'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium',
-                                                    badge.className
-                                                )}
-                                                role="status"
-                                            >
-                                                {badge.label}
-                                            </span>
+                                    {project.route ? (
+                                        <Link
+                                            href={project.route}
+                                            className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 rounded-2xl"
+                                        >
+                                            <SecondaryCard project={project} badge={badge} navigable />
+                                        </Link>
+                                    ) : (
+                                        <div className="h-full" role="article">
+                                            <SecondaryCard project={project} badge={badge} navigable={false} />
                                         </div>
-                                        <h3 className="text-xl font-semibold text-neutral-100 mb-3">
-                                            {project.displayName ?? project.title}
-                                        </h3>
-                                        <p className="text-neutral-500 text-sm leading-relaxed">
-                                            {project.description}
-                                        </p>
-                                    </div>
+                                    )}
                                 </motion.div>
                             );
                         })}
@@ -196,6 +189,52 @@ function FlagshipCard({ project }: { project: typeof projects[0] }) {
                     {project.description}
                 </p>
             </div>
+        </div>
+    );
+}
+
+// Secondary card — used by non-flagship items
+function SecondaryCard({
+    project,
+    badge,
+    navigable,
+}: {
+    project: typeof projects[0];
+    badge: ReturnType<typeof getStatusBadge>;
+    navigable: boolean;
+}) {
+    return (
+        <div
+            className={cn(
+                'group h-full min-h-[140px] rounded-2xl bg-neutral-900 border border-neutral-800 p-7',
+                navigable && 'transition-all duration-300 group-hover:border-accent-purple/40 group-hover:-translate-y-0.5'
+            )}
+            role={navigable ? undefined : 'article'}
+        >
+            <div className="mb-5 flex items-center justify-between">
+                <span
+                    className={cn(
+                        'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium',
+                        badge.className
+                    )}
+                    role="status"
+                >
+                    {badge.label}
+                </span>
+                {navigable && (
+                    <ArrowUpRight
+                        size={16}
+                        className="text-neutral-600 group-hover:text-accent-purple transition-colors duration-200"
+                        aria-hidden="true"
+                    />
+                )}
+            </div>
+            <h3 className="text-xl font-semibold text-neutral-100 mb-3">
+                {project.displayName ?? project.title}
+            </h3>
+            <p className="text-neutral-500 text-sm leading-relaxed">
+                {project.description}
+            </p>
         </div>
     );
 }
