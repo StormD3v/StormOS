@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: '%s | StormD3v',
   },
   description:
-    'StormD3v is the studio of Friday Gift Chinecherem Azunda. Ambitious ideas, built with patience.',
+    'StormD3v is the public identity of Friday Gift Chinechenum Azunda. Long-term ideas, designed and built inside Storm-OS.',
   keywords: [
     'StormD3v',
     'WorldForge',
@@ -37,14 +37,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'StormD3v',
     description:
-      'StormD3v is the studio of Friday Gift Chinecherem Azunda. Ambitious ideas, built with patience.',
+      'StormD3v is the public identity of Friday Gift Chinechenum Azunda. Long-term ideas, designed and built inside Storm-OS.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'StormD3v',
     description:
-      'StormD3v is the studio of Friday Gift Chinecherem Azunda. Ambitious ideas, built with patience.',
+      'StormD3v is the public identity of Friday Gift Chinechenum Azunda. Long-term ideas, designed and built inside Storm-OS.',
   },
   robots: {
     index: true,

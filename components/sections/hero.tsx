@@ -44,7 +44,7 @@ export function Hero() {
           {...entrance(0.15)}
           className="text-xl md:text-2xl text-neutral-400 mb-12 max-w-xl mx-auto leading-relaxed text-pretty"
         >
-          Some ideas deserve years. This is where they get them.
+          Long-term ideas, designed and built inside Storm-OS.
         </motion.p>
 
         {/* CTAs */}

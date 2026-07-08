@@ -42,14 +42,13 @@ export function ContactPageContent() {
                 {...reveal(0.05)}
                 className="text-5xl md:text-6xl font-bold text-neutral-100 mb-6 leading-tight"
             >
-                Say hello
+                Open a channel
             </motion.h1>
 
             {/* Framing — an invitation, not a pitch */}
             <motion.div {...reveal(0.1)} className="mb-16 max-w-lg space-y-4">
                 <p className="text-lg text-neutral-400 leading-relaxed text-pretty">
-                    If something here caught your attention, reach out. Conversations about
-                    real ideas are always welcome.
+                    If something here is worth a conversation, start one.
                 </p>
             </motion.div>
 
