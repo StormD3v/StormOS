@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Github, Mail, MessageCircle } from 'lucide-react';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -24,6 +25,20 @@ export function AboutPageContent() {
                 >
                     Identity
                 </motion.p>
+
+                {/* Portrait */}
+                <motion.div {...reveal(0.04)} className="mb-12">
+                    <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border border-neutral-800">
+                        <Image
+                            src="/images/friday-gift-azunda.jpg"
+                            alt="Portrait of Friday Gift Chinechenum Azunda, known online as StormD3v"
+                            width={176}
+                            height={176}
+                            className="w-full h-full object-cover object-top"
+                            priority
+                        />
+                    </div>
+                </motion.div>
 
                 {/* Page heading */}
                 <motion.h1
