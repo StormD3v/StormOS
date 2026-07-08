@@ -17,6 +17,7 @@ const FOOTER_SOCIALS = ['GitHub', 'X', 'Discord'];
 const navLinks = [
   { name: 'Projects', href: '/#building' },
   { name: 'WorldForge', href: '/worldforge' },
+  { name: 'LumiCast', href: '/lumicast' },
   { name: 'Identity', href: '/about' },
   { name: 'Contact', href: '/contact' },
 ];
