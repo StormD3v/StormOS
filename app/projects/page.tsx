@@ -9,8 +9,7 @@ export default function ProjectsPage() {
       <Container className="py-24">
         <h1 className="text-5xl md:text-6xl font-bold text-neutral-100 mb-6">Projects</h1>
         <p className="text-xl text-neutral-400 mb-12 max-w-3xl">
-          A collection of my work, showcasing my skills and passion for building exceptional
-          software
+          Work from the studio.
         </p>
         <ProjectsGrid />
       </Container>

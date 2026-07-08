@@ -60,29 +60,28 @@ export function WorldForge() {
             WorldForge
           </motion.h2>
 
-          {/* Core emotional copy */}
+          {/* Core copy — describe a place, not software */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.7, delay: 0.15, ease: [0.215, 0.61, 0.355, 1] }}
-            className="space-y-6 mb-14"
+            className="space-y-7 mb-14"
           >
             <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed text-pretty">
-              Most platforms ask you to build a profile.
-            </p>
-            <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed text-pretty">
-              WorldForge asks you to build a life.
+              WorldForge is a living world, built around permanence.
             </p>
             <p className="text-lg text-neutral-400 leading-relaxed text-pretty">
-              Every decision becomes history.
-              Every alliance matters.
-              Every citizen leaves a legacy.
+              Every decision you make becomes part of its history, and every person who
+              enters leaves a legacy that outlasts them. Civilizations rise, collapse, and
+              leave traces that future people inherit. Nothing is erased. Nothing resets.
             </p>
             <p className="text-lg text-neutral-400 leading-relaxed text-pretty">
-              Because people don&apos;t simply use WorldForge.
-              <br />
-              They live inside it.
+              Identity here is not what you claim. It is what you do, over time,
+              in a world that remembers.
+            </p>
+            <p className="text-base text-neutral-500 leading-relaxed">
+              Some worlds deserve to last. WorldForge is being built to be one of them.
             </p>
           </motion.div>
 

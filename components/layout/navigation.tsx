@@ -6,18 +6,25 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useActiveSection } from '@/hooks/use-active-section';
 
 const navLinks = [
-  { name: 'What I\'m Building', href: '/#building' },
-  { name: 'WorldForge', href: '/worldforge' },
-  { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
+  { name: "What I'm Building", href: '/#building', sectionId: 'building' },
+  { name: 'WorldForge', href: '/worldforge', sectionId: undefined },
+  { name: 'About', href: '/about', sectionId: undefined },
+  { name: 'Contact', href: '/contact', sectionId: undefined },
 ];
 
-// Determines active state — handles both page routes and hash anchors on homepage
-function isActivePath(linkHref: string, pathname: string): boolean {
-  if (linkHref === '/#building') return pathname === '/';
-  return pathname === linkHref;
+// Determines active state — uses section intersection on homepage, pathname elsewhere.
+// When on the homepage and no section is active yet (null), no link is highlighted
+// until the observer fires. This is intentional — the arrival overlay covers the
+// page briefly, after which the hero section becomes active naturally.
+function isActive(link: typeof navLinks[0], pathname: string, activeSection: string | null): boolean {
+  if (pathname === '/' && link.sectionId) {
+    return activeSection === link.sectionId;
+  }
+  if (link.href.startsWith('/#')) return pathname === '/';
+  return pathname === link.href;
 }
 
 export function Navigation() {
@@ -25,6 +32,7 @@ export function Navigation() {
   const pathname = usePathname();
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const activeSection = useActiveSection(['hero', 'building', 'worldforge', 'about', 'contact']);
 
   // Body scroll lock when mobile menu is open
   useEffect(() => {
@@ -75,16 +83,16 @@ export function Navigation() {
           {/* Logo */}
           <Link
             href="/"
-            aria-label="StormOS — home"
-            className="text-lg font-bold text-neutral-100 tracking-tight hover:text-storm-blue transition-colors duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-storm-blue focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 rounded-sm"
+            aria-label="StormD3v — home"
+            className="text-lg font-bold text-neutral-100 tracking-tight hover:text-neutral-100 transition-colors duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 rounded-sm"
           >
-            StormOS
+            StormD3v
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
-              const isActive = isActivePath(link.href, pathname);
+              const active = isActive(link, pathname, activeSection);
               return (
                 <Link
                   key={link.name}
@@ -92,14 +100,14 @@ export function Navigation() {
                   className={cn(
                     'text-sm font-medium transition-colors duration-fast',
                     'hover:text-neutral-100',
-                    'focus:outline-none focus-visible:ring-2 focus-visible:ring-storm-blue',
+                    'focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400',
                     'focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 rounded-sm',
                     'pb-0.5',
-                    isActive
-                      ? 'text-neutral-100 border-b border-neutral-400'
+                    active
+                      ? 'text-neutral-100 border-b border-neutral-500'
                       : 'text-neutral-500'
                   )}
-                  aria-current={isActive ? 'page' : undefined}
+                  aria-current={active ? 'page' : undefined}
                 >
                   {link.name}
                 </Link>
@@ -111,7 +119,7 @@ export function Navigation() {
           <button
             ref={menuButtonRef}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-md text-neutral-400 hover:text-neutral-100 transition-colors duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-storm-blue focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
+            className="md:hidden p-2 rounded-md text-neutral-400 hover:text-neutral-100 transition-colors duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
@@ -137,22 +145,22 @@ export function Navigation() {
           >
             <div className="px-6 py-5 space-y-1">
               {navLinks.map((link) => {
-                const isActive = isActivePath(link.href, pathname);
+                const active = isActive(link, pathname, activeSection);
                 return (
                   <Link
                     key={link.name}
                     href={link.href}
                     role="menuitem"
                     onClick={() => setIsOpen(false)}
-                    aria-current={isActive ? 'page' : undefined}
+                    aria-current={active ? 'page' : undefined}
                     className={cn(
                       'block px-3 py-2.5 rounded-lg text-sm font-medium',
                       'transition-colors duration-fast',
                       'hover:text-neutral-100 hover:bg-neutral-900',
-                      'focus:outline-none focus-visible:ring-2 focus-visible:ring-storm-blue',
+                      'focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400',
                       'focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950',
-                      isActive
-                        ? 'text-neutral-100 bg-neutral-900/60 border-l-2 border-neutral-400'
+                      active
+                        ? 'text-neutral-100 bg-neutral-900/60 border-l-2 border-neutral-500'
                         : 'text-neutral-500'
                     )}
                   >

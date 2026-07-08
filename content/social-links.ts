@@ -3,14 +3,13 @@ import { SocialLink } from '@/types';
 /**
  * Social links content.
  *
- * Each entry follows the SocialLink interface from @/types.
- * Fields marked [PLACEHOLDER] must be replaced with real URLs before launch.
+ * This is the single source of truth for all social presence.
  *
- * - icon: lucide-react icon name (used in footer and contact section)
- * - platform: display name (used in aria-label as "View {platform} profile")
- * - showOnHomepage: when false, the link is available in the footer but not
- *   shown in the homepage contact section. Set LinkedIn to true when the
- *   profile is ready to expose publicly.
+ * - url: null when no public profile URL exists. Discord has no linkable
+ *   profile URL — the username is displayed as plain text instead.
+ * - username: the display name for platforms without a linkable URL.
+ * - showOnHomepage: false entries are excluded from the homepage Contact
+ *   section and the Footer social row.
  */
 
 export interface SocialLinkExtended extends SocialLink {
@@ -20,26 +19,27 @@ export interface SocialLinkExtended extends SocialLink {
 export const socialLinks: SocialLinkExtended[] = [
   {
     platform: 'GitHub',
-    url: 'https://github.com', // [PLACEHOLDER: replace with https://github.com/yourusername]
+    url: 'https://github.com/StormD3v',
     icon: 'github',
     showOnHomepage: true,
   },
   {
     platform: 'X',
-    url: 'https://x.com', // [PLACEHOLDER: replace with https://x.com/yourusername]
+    url: 'https://x.com/Storm_D3V',
     icon: 'twitter',
     showOnHomepage: true,
   },
   {
     platform: 'Discord',
-    url: 'https://discord.com', // [PLACEHOLDER: replace with your Discord server or profile invite URL]
+    url: null,
+    username: 'storm_d3v',
     icon: 'discord',
     showOnHomepage: true,
   },
   {
     platform: 'LinkedIn',
-    url: 'https://linkedin.com', // [PLACEHOLDER: replace with https://linkedin.com/in/yourusername]
+    url: 'https://linkedin.com/in/stormd3v',
     icon: 'linkedin',
-    showOnHomepage: false, // Set to true when LinkedIn profile is ready
+    showOnHomepage: false, // Set to true when LinkedIn profile is ready to share publicly
   },
 ];

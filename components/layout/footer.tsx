@@ -1,17 +1,18 @@
 import Link from 'next/link';
-import { Github, Linkedin, MessageCircle } from 'lucide-react';
+import { Github, Mail, MessageCircle } from 'lucide-react';
 import { FaXTwitter } from 'react-icons/fa6';
 import { socialLinks } from '@/content/social-links';
+import { CONTACT_EMAIL } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 
-// Icon map — footer shows all social links regardless of showOnHomepage flag.
-// Discord uses MessageCircle. X uses FaXTwitter from react-icons/fa6.
+// Icon map — footer shows GitHub, X, and Discord only. LinkedIn excluded per VOICE.md.
 const iconMap: Record<string, React.ElementType> = {
   github: Github,
   twitter: FaXTwitter,
   discord: MessageCircle,
-  linkedin: Linkedin,
 };
+
+const FOOTER_SOCIALS = ['GitHub', 'X', 'Discord'];
 
 const navLinks = [
   { name: 'What I\'m Building', href: '/#building' },
@@ -34,10 +35,9 @@ export function Footer({ className }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand */}
           <div>
-            <p className="text-base font-bold text-neutral-100 tracking-tight mb-3">StormOS</p>
+            <p className="text-base font-bold text-neutral-100 tracking-tight mb-3">StormD3v</p>
             <p className="text-neutral-500 text-sm leading-relaxed">
-              {/* [PLACEHOLDER: replace with final tagline] */}
-              Everything I build, in one place.
+              Ambitious ideas, built with patience.
             </p>
           </div>
 
@@ -60,38 +60,57 @@ export function Footer({ className }: FooterProps) {
             </ul>
           </div>
 
-          {/* Social — footer shows all links including LinkedIn */}
+          {/* Social — GitHub, X, Discord only. Discord has no public URL so renders as a span. */}
           <div>
             <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-4">
               Elsewhere
             </p>
-            <div className="flex gap-3">
-              {socialLinks.map((link) => {
-                const Icon = iconMap[link.icon.toLowerCase()];
-                if (!Icon) return null;
-                return (
-                  <a
-                    key={link.platform}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View ${link.platform} profile`}
-                    className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-storm-blue focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
-                  >
-                    <Icon size={18} aria-hidden="true" />
-                  </a>
-                );
-              })}
+            <div className="flex gap-3 items-center">
+              {socialLinks
+                .filter((link) => FOOTER_SOCIALS.includes(link.platform))
+                .map((link) => {
+                  const Icon = iconMap[link.icon.toLowerCase()];
+                  if (!Icon) return null;
+
+                  if (link.url === null) {
+                    return (
+                      <span
+                        key={link.platform}
+                        aria-label={`Discord username: ${link.username ?? link.platform}`}
+                        className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 cursor-default"
+                      >
+                        <Icon size={18} aria-hidden="true" />
+                      </span>
+                    );
+                  }
+
+                  return (
+                    <a
+                      key={link.platform}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View ${link.platform} profile`}
+                      className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
+                    >
+                      <Icon size={18} aria-hidden="true" />
+                    </a>
+                  );
+                })}
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                aria-label={`Send email to ${CONTACT_EMAIL}`}
+                className="text-neutral-500 hover:text-neutral-100 text-sm transition-colors duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 rounded-sm"
+              >
+                {CONTACT_EMAIL}
+              </a>
             </div>
           </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-neutral-800/60 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-neutral-600 text-sm">
-            © {new Date().getFullYear()} Storm. All rights reserved.
-          </p>
-          <p className="text-neutral-700 text-xs">
-            {/* [PLACEHOLDER: add privacy policy / legal link before launch] */}
+            © {new Date().getFullYear()} StormD3v. All rights reserved.
           </p>
         </div>
       </div>

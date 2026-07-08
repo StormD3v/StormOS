@@ -1,29 +1,23 @@
 import { Skill } from '@/types';
 
 /**
- * Skills content.
+ * Technology stack content.
  *
- * Each entry follows the Skill interface from @/types.
- * Fields marked [PLACEHOLDER] must be replaced with real data before launch.
+ * This is the single source of truth for the technologies shown on the site.
+ * These are the tools Friday Gift Chinecherem Azunda actually builds with,
+ * not the technologies used to build this website.
  *
- * - proficiency: 0–100 (shown as a progress bar)
- * - years: optional, shown as secondary context
- * - category: used to group skills into columns
+ * Components read from this array. Adding, removing, or renaming an entry
+ * here automatically updates every consumer without code changes.
+ *
+ * proficiency and years are intentionally omitted — they require constant
+ * maintenance and add noise rather than signal.
  */
 export const skills: Skill[] = [
-  // Frontend
-  { id: 'react', name: 'React', category: 'Frontend', proficiency: 90, years: 4 }, // [PLACEHOLDER: update with real values]
-  { id: 'typescript', name: 'TypeScript', category: 'Frontend', proficiency: 85, years: 3 }, // [PLACEHOLDER]
-  { id: 'nextjs', name: 'Next.js', category: 'Frontend', proficiency: 85, years: 3 }, // [PLACEHOLDER]
-  { id: 'tailwind', name: 'Tailwind CSS', category: 'Frontend', proficiency: 90, years: 3 }, // [PLACEHOLDER]
-
-  // Backend
-  { id: 'nodejs', name: 'Node.js', category: 'Backend', proficiency: 80, years: 4 }, // [PLACEHOLDER]
-  { id: 'python', name: 'Python', category: 'Backend', proficiency: 75, years: 3 }, // [PLACEHOLDER]
-  { id: 'postgresql', name: 'PostgreSQL', category: 'Backend', proficiency: 70, years: 2 }, // [PLACEHOLDER]
-
-  // Tools & DevOps
-  { id: 'git', name: 'Git', category: 'Tools & DevOps', proficiency: 90, years: 5 }, // [PLACEHOLDER]
-  { id: 'docker', name: 'Docker', category: 'Tools & DevOps', proficiency: 75, years: 2 }, // [PLACEHOLDER]
-  { id: 'aws', name: 'AWS', category: 'Tools & DevOps', proficiency: 70, years: 2 }, // [PLACEHOLDER]
+  { id: 'react', name: 'React', category: 'Frontend' },
+  { id: 'django', name: 'Django', category: 'Backend' },
+  { id: 'fastapi', name: 'FastAPI', category: 'Backend' },
+  { id: 'pytorch', name: 'PyTorch', category: 'AI/ML' },
+  { id: 'huggingface', name: 'HuggingFace', category: 'AI/ML' },
+  { id: 'postgresql', name: 'PostgreSQL', category: 'Backend' },
 ];

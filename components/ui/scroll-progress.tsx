@@ -16,7 +16,7 @@ export function ScrollProgress() {
         return (
             <div
                 aria-hidden="true"
-                className="fixed top-0 left-0 right-0 h-[2px] bg-storm-blue z-[9999]"
+                className="fixed top-0 left-0 right-0 h-[2px] bg-neutral-600 z-[9999]"
             />
         );
     }
@@ -24,7 +24,7 @@ export function ScrollProgress() {
     return (
         <div
             aria-hidden="true"
-            className="fixed top-0 left-0 h-[2px] bg-storm-blue z-[9999] transition-[width] duration-100 ease-out"
+            className="fixed top-0 left-0 h-[2px] bg-neutral-600 z-[9999] transition-[width] duration-100 ease-out"
             style={{ width: `${progress * 100}%` }}
         />
     );

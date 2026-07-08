@@ -20,18 +20,31 @@ export const metadata: Metadata = {
     default: 'StormD3v',
     template: '%s | StormD3v',
   },
-  description: 'StormOS is the long-term home of everything I build. Ambitious ideas, serious execution, no shortcuts.',
-  keywords: ['StormD3v', 'StormOS', 'WorldForge', 'software engineer', 'developer', 'indie projects'],
-  authors: [{ name: 'Storm' }],
+  description:
+    'StormD3v is the studio of Friday Gift Chinecherem Azunda. Ambitious ideas, built with patience.',
+  keywords: [
+    'StormD3v',
+    'WorldForge',
+    'Friday Gift Azunda',
+    'software engineer',
+    'developer',
+    'indie projects',
+    'React',
+    'Django',
+    'FastAPI',
+  ],
+  authors: [{ name: 'Friday Gift Chinecherem Azunda' }],
   openGraph: {
     title: 'StormD3v',
-    description: 'StormOS is the long-term home of everything I build. Ambitious ideas, serious execution, no shortcuts.',
+    description:
+      'StormD3v is the studio of Friday Gift Chinecherem Azunda. Ambitious ideas, built with patience.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'StormD3v',
-    description: 'StormOS is the long-term home of everything I build. Ambitious ideas, serious execution, no shortcuts.',
+    description:
+      'StormD3v is the studio of Friday Gift Chinecherem Azunda. Ambitious ideas, built with patience.',
   },
   robots: {
     index: true,
