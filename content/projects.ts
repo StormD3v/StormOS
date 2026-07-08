@@ -3,26 +3,43 @@ import { Project } from '@/types';
 /**
  * Projects content.
  *
- * Each entry follows the Project interface from @/types.
- * Fields marked [PLACEHOLDER] must be replaced with real data before launch.
+ * This is the single source of truth for factual project data.
+ * Descriptions are concise and factual — suitable for cards, metadata,
+ * and future API surfaces. Narrative and emotional framing belong in
+ * the components that render this data.
  *
- * Status values: 'completed' | 'in-progress' | 'planned'
- * - featured: true  → shown on the homepage section
- * - featured: false → shown only on /projects
+ * Flagship detection: the Building Section computes the visually dominant
+ * item at render time as the entry where featured === true and
+ * status === 'in-progress'. When that changes here, the layout adapts
+ * automatically without any component modification.
+ *
+ * route: only set when a dedicated page exists. Items without a route
+ * are displayed but not navigable.
  */
 export const projects: Project[] = [
   {
-    id: 'stormos', // [PLACEHOLDER: replace id with a real slug]
-    title: 'StormOS', // [PLACEHOLDER: replace with real project title]
-    description: 'A premium portfolio operating system built with Next.js, TypeScript, and Tailwind CSS.', // [PLACEHOLDER]
-    longDescription: 'StormOS is the portfolio itself — a demonstration of design system thinking, component architecture, and motion design applied to a personal brand.', // [PLACEHOLDER]
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
-    technologies: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    links: {
-      github: 'https://github.com', // [PLACEHOLDER: replace with real GitHub URL]
-    },
+    id: 'worldforge',
+    title: 'WorldForge',
+    displayName: 'WorldForge',
+    description: 'A persistent digital world where identity, history, and consequence are permanent.',
+    tags: ['React', 'Django', 'FastAPI', 'PostgreSQL', 'PyTorch'],
+    technologies: ['React', 'Django', 'FastAPI', 'PostgreSQL', 'PyTorch'],
+    links: {},
     featured: true,
     status: 'in-progress',
-    startDate: '2024-01-01', // [PLACEHOLDER]
+    route: '/worldforge',
+    startDate: '2024-01-01',
+  },
+  {
+    id: 'real-weather',
+    title: 'Real Weather',
+    displayName: 'Real Weather',
+    description: 'Weather forecasts presented as actionable daily decisions.',
+    tags: [],
+    technologies: [],
+    links: {},
+    featured: true,
+    status: 'completed',
+    // No route — LumiCast does not yet have a dedicated page
   },
 ];

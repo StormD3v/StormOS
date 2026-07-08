@@ -10,37 +10,24 @@ const byCategory = Object.fromEntries(
   categories.map((cat) => [cat, skills.filter((s) => s.category === cat)])
 );
 
+/**
+ * Skills section.
+ * Displays the real tech stack from content/skills.ts.
+ * Not currently used on any page — available when needed.
+ */
 export function Skills() {
-  if (skills.length === 0) {
-    return (
-      <section id="skills" className="py-24 px-4">
-        <Container>
-          <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 mb-4">
-            Skills &amp; Expertise
-          </h2>
-          <p className="text-neutral-400 text-lg mt-8">Skills coming soon</p>
-        </Container>
-      </section>
-    );
-  }
+  if (skills.length === 0) return null;
 
   return (
-    <section id="skills" className="py-24 px-4">
+    <section id="skills" className="py-24 px-6">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
+          transition={{ duration: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 mb-4">
-            Skills &amp; Expertise
-          </h2>
-          <p className="text-xl text-neutral-400 mb-12 max-w-2xl">
-            Technologies and tools I work with
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {categories.map((category, categoryIndex) => (
               <motion.div
                 key={category}
@@ -53,38 +40,20 @@ export function Skills() {
                   ease: [0.215, 0.61, 0.355, 1],
                 }}
               >
-                {/* h3 — correct hierarchy below the h2 section heading */}
-                <h3 className="text-xl font-semibold text-storm-blue mb-6">{category}</h3>
-                <div className="space-y-4">
-                  {byCategory[category].map((skill, skillIndex) => (
-                    <div key={skill.id}>
-                      <div className="flex justify-between mb-2">
-                        <span className="text-neutral-300 text-sm">{skill.name}</span>
-                        <span className="text-neutral-500 text-sm">{skill.proficiency}%</span>
-                      </div>
-                      <div
-                        className="h-1.5 bg-neutral-800 rounded-full overflow-hidden"
-                        role="progressbar"
-                        aria-valuenow={skill.proficiency}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                        aria-label={`${skill.name} proficiency`}
-                      >
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.proficiency}%` }}
-                          viewport={{ once: true }}
-                          transition={{
-                            duration: 1,
-                            delay: categoryIndex * 0.1 + skillIndex * 0.05,
-                            ease: [0.215, 0.61, 0.355, 1],
-                          }}
-                          className="h-full bg-storm-blue rounded-full"
-                        />
-                      </div>
-                    </div>
+                <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-6">
+                  {category}
+                </p>
+                <ul className="space-y-3">
+                  {byCategory[category].map((skill) => (
+                    <li
+                      key={skill.id}
+                      data-skill-name={skill.name}
+                      className="text-neutral-300 text-sm"
+                    >
+                      {skill.name}
+                    </li>
                   ))}
-                </div>
+                </ul>
               </motion.div>
             ))}
           </div>

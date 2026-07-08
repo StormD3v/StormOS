@@ -4,8 +4,8 @@
 export interface Project {
   id: string;
   title: string;
-  description: string;
-  longDescription?: string;
+  displayName?: string;         // Public-facing name shown in UI
+  description: string;          // Concise factual description — suitable for cards, metadata, APIs
   image?: string;
   tags: string[];
   technologies: string[];
@@ -16,6 +16,7 @@ export interface Project {
   };
   featured: boolean;
   status: 'completed' | 'in-progress' | 'planned';
+  route?: string;               // Optional navigation route — only set when a dedicated page exists
   startDate?: string;
   endDate?: string;
 }
@@ -27,8 +28,8 @@ export interface Skill {
   id: string;
   name: string;
   category: string;
-  proficiency: number; // 0-100
-  years?: number;
+  proficiency?: number; // 0–100, optional — not displayed in current UI
+  years?: number;       // optional — not displayed in current UI
 }
 
 /**
@@ -65,8 +66,9 @@ export interface BlogPost {
  */
 export interface SocialLink {
   platform: string;
-  url: string;
+  url: string | null;   // null when no public URL exists (e.g. Discord username-only)
   icon: string;
+  username?: string;    // Display name for platforms without a linkable URL
 }
 
 /**
