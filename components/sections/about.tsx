@@ -20,10 +20,10 @@ export function About() {
             transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
             className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-10"
           >
-            About StormD3v
+            Identity
           </motion.p>
 
-          {/* Why StormD3v exists — first and primary */}
+          {/* Identity — person first, alias second, philosophy third */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -32,15 +32,15 @@ export function About() {
             className="space-y-6 mb-16"
           >
             <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
-              My name is Friday Gift Chinechenum Azunda. Online, I go by StormD3v.
+              Friday Gift Chinechenum Azunda. Known online as StormD3v.
             </p>
             <p className="text-neutral-400 leading-relaxed text-pretty">
-              I build under StormOS, a personal philosophy and working environment for ideas
-              that deserve more than a sprint. WorldForge and LumiCast are the current work.
-              More will come when they are ready.
+              Storm-OS is the personal environment through which long-term ideas are designed,
+              built and maintained. WorldForge and LumiCast are the active projects within it.
+              Future work appears when it is ready.
             </p>
             <p className="text-neutral-400 leading-relaxed text-pretty">
-              There is no roadmap here, and no release schedule. Work earns its way into existence.
+              No roadmap. No release schedule. Work earns its way into existence.
             </p>
           </motion.div>
 

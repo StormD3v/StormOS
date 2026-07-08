@@ -22,7 +22,7 @@ export function AboutPageContent() {
                     {...reveal(0)}
                     className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-10"
                 >
-                    About
+                    Identity
                 </motion.p>
 
                 {/* Page heading */}
@@ -36,17 +36,16 @@ export function AboutPageContent() {
                 {/* Identity — person first, alias second, philosophy third */}
                 <motion.div {...reveal(0.1)} className="space-y-6 mb-16">
                     <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
-                        Online, I go by StormD3v.
+                        Known online as StormD3v.
                     </p>
                     <p className="text-neutral-400 leading-relaxed text-pretty">
-                        I build under StormOS, a personal philosophy for giving ambitious ideas
-                        the time and space they actually require. Some ideas cannot be rushed
-                        without losing what makes them worth building. StormOS is the working
-                        environment that makes patience possible.
+                        Storm-OS is the personal environment through which long-term ideas are designed,
+                        built and maintained. Some ideas cannot be rushed without losing what makes them
+                        worth building. Storm-OS is the framework that makes patience possible.
                     </p>
                     <p className="text-neutral-400 leading-relaxed text-pretty">
-                        WorldForge and LumiCast are the current work within that environment.
-                        More will come when they are ready, not before.
+                        WorldForge and LumiCast are the active projects within that environment.
+                        Future work appears when it is ready, not before.
                     </p>
                 </motion.div>
 

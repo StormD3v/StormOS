@@ -181,7 +181,7 @@ export function ArrivalOverlay() {
                         ease: 'easeOut',
                     }}
                 >
-                    Built by StormD3v
+                    Storm-OS ready
                 </motion.p>
             </div>
         </motion.div>

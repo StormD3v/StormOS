@@ -15,9 +15,9 @@ const iconMap: Record<string, React.ElementType> = {
 const FOOTER_SOCIALS = ['GitHub', 'X', 'Discord'];
 
 const navLinks = [
-  { name: 'What I\'m Building', href: '/#building' },
+  { name: 'Projects', href: '/#building' },
   { name: 'WorldForge', href: '/worldforge' },
-  { name: 'About', href: '/about' },
+  { name: 'Identity', href: '/about' },
   { name: 'Contact', href: '/contact' },
 ];
 
@@ -37,7 +37,7 @@ export function Footer({ className }: FooterProps) {
           <div>
             <p className="text-base font-bold text-neutral-100 tracking-tight mb-3">StormD3v</p>
             <p className="text-neutral-500 text-sm leading-relaxed">
-              Ambitious ideas, built with patience.
+              Long-term ideas. Built inside Storm-OS.
             </p>
           </div>
 

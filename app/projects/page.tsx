@@ -9,7 +9,7 @@ export default function ProjectsPage() {
       <Container className="py-24">
         <h1 className="text-5xl md:text-6xl font-bold text-neutral-100 mb-6">Projects</h1>
         <p className="text-xl text-neutral-400 mb-12 max-w-3xl">
-          Work from the studio.
+          Projects active within Storm-OS.
         </p>
         <ProjectsGrid />
       </Container>

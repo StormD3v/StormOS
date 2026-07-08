@@ -48,6 +48,17 @@ export function WorldForge() {
 
       <Container>
         <div className="max-w-2xl">
+          {/* Module label */}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
+            className="text-xs font-semibold tracking-widest uppercase text-accent-purple/60 mb-8"
+          >
+            Flagship
+          </motion.p>
+
           {/* Heading */}
           <motion.h2
             id="worldforge-heading"

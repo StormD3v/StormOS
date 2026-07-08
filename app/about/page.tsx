@@ -5,7 +5,7 @@ import { AboutPageContent } from './AboutPageContent';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'StormD3v is the studio of Friday Gift Chinecherem Azunda. Ambitious ideas, built with patience.',
+    'Friday Gift Chinechenum Azunda, known as StormD3v. Building WorldForge and LumiCast inside Storm-OS.',
 };
 
 export default function AboutPage() {

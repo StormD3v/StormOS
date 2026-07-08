@@ -9,9 +9,9 @@ import { cn } from '@/lib/utils';
 import { useActiveSection } from '@/hooks/use-active-section';
 
 const navLinks = [
-  { name: "What I'm Building", href: '/#building', sectionId: 'building' },
+  { name: 'Projects', href: '/#building', sectionId: 'building' },
   { name: 'WorldForge', href: '/worldforge', sectionId: undefined },
-  { name: 'About', href: '/about', sectionId: undefined },
+  { name: 'Identity', href: '/about', sectionId: undefined },
   { name: 'Contact', href: '/contact', sectionId: undefined },
 ];
 

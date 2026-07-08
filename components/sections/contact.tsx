@@ -34,13 +34,12 @@ export function Contact() {
         >
           {/* Heading */}
           <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 mb-6 leading-tight">
-            Say hello
+            Open a channel
           </h2>
 
           {/* One short paragraph — an invitation, not a pitch */}
           <p className="text-lg text-neutral-400 mb-16 max-w-lg leading-relaxed text-pretty">
-            If something here caught your attention, reach out. Conversations about
-            real ideas are always welcome.
+            If something here is worth a conversation, start one.
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
