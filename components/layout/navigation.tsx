@@ -11,6 +11,7 @@ import { useActiveSection } from '@/hooks/use-active-section';
 const navLinks = [
   { name: 'Projects', href: '/#building', sectionId: 'building' },
   { name: 'WorldForge', href: '/worldforge', sectionId: undefined },
+  { name: 'LumiCast', href: '/lumicast', sectionId: undefined },
   { name: 'Identity', href: '/about', sectionId: undefined },
   { name: 'Contact', href: '/contact', sectionId: undefined },
 ];
