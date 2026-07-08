@@ -125,7 +125,7 @@ export function LumiCastPageClient() {
                         <motion.div {...inView(0.1)} className="space-y-6">
                             <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
                                 LumiCast is live and working. It is not under heavy active development
-                                right now — the focus of the studio is WorldForge.
+                                right now. Most of the current focus is on WorldForge.
                             </p>
                             <p className="text-neutral-400 leading-relaxed text-pretty">
                                 That said, the core idea has room to grow. Location-aware defaults,
