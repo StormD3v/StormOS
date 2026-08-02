@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { Github, Mail, MessageCircle } from 'lucide-react';
+import { Github, Mail } from 'lucide-react';
 import { FaXTwitter } from 'react-icons/fa6';
+import { SiDiscord } from 'react-icons/si';
 import { socialLinks } from '@/content/social-links';
 import { CONTACT_EMAIL } from '@/lib/constants';
 import { cn } from '@/lib/utils';
@@ -9,7 +10,7 @@ import { cn } from '@/lib/utils';
 const iconMap: Record<string, React.ElementType> = {
   github: Github,
   twitter: FaXTwitter,
-  discord: MessageCircle,
+  discord: SiDiscord,
 };
 
 const FOOTER_SOCIALS = ['GitHub', 'X', 'Discord'];

@@ -2,8 +2,9 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Github, Mail, MessageCircle } from 'lucide-react';
+import { Github, Mail } from 'lucide-react';
 import { FaXTwitter } from 'react-icons/fa6';
+import { SiDiscord } from 'react-icons/si';
 import { Container } from '@/components/layout/container';
 import { CONTACT_EMAIL } from '@/lib/constants';
 import { socialLinks } from '@/content/social-links';
@@ -14,7 +15,7 @@ const IDENTITY_SOCIALS = ['GitHub', 'X', 'Discord'];
 const iconMap: Record<string, React.ElementType> = {
   github: Github,
   twitter: FaXTwitter,
-  discord: MessageCircle,
+  discord: SiDiscord,
 };
 
 const visibleSocials = IDENTITY_SOCIALS

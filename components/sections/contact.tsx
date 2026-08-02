@@ -1,8 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, Github, MessageCircle } from 'lucide-react';
+import { Mail, Github } from 'lucide-react';
 import { FaXTwitter } from 'react-icons/fa6';
+import { SiDiscord } from 'react-icons/si';
 import { Container } from '@/components/layout/container';
 import { ContactForm } from '@/components/sections/contact-form';
 import { CONTACT_EMAIL } from '@/lib/constants';
@@ -14,7 +15,7 @@ const CONTACT_SOCIALS = ['GitHub', 'X', 'Discord'];
 const iconMap: Record<string, React.ElementType> = {
   github: Github,
   twitter: FaXTwitter,
-  discord: MessageCircle,
+  discord: SiDiscord,
 };
 
 const visibleSocials = CONTACT_SOCIALS
