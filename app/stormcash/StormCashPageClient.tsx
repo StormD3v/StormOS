@@ -5,7 +5,7 @@ import { useReducedMotion } from 'framer-motion';
 import { Container } from '@/components/layout/container';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Github } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 
 const reveal = (delay: number) => ({
   initial: { opacity: 0, y: 24 },
@@ -149,9 +149,9 @@ export function StormCashPageClient() {
             <motion.p {...inView(0.1)} className="text-neutral-400 leading-relaxed text-pretty mb-12">
               The entire prototype is open source. Explore the architecture, see how the settlement engine works, and understand the design decisions.
             </motion.p>
-            <motion.div {...inView(0.2)}>
+            <motion.div {...inView(0.2)} className="flex flex-col sm:flex-row gap-4">
               <a
-                href="https://github.com/StormD3v/StormCash"
+                href="https://stormcash.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2"
@@ -160,6 +160,21 @@ export function StormCashPageClient() {
                   size="lg"
                   variant="primary"
                   className="bg-accent-purple hover:bg-accent-purple-dark focus:ring-accent-purple"
+                >
+                  <ExternalLink size={18} className="mr-2" />
+                  Create an Account
+                </Button>
+              </a>
+              <a
+                href="https://github.com/StormD3v/StormCash"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2"
+              >
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="border border-neutral-700 hover:border-neutral-600"
                 >
                   <Github size={18} className="mr-2" />
                   GitHub Repository
