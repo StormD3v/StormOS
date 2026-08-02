@@ -6,6 +6,20 @@ import { Github, Mail, MessageCircle } from 'lucide-react';
 import { FaXTwitter } from 'react-icons/fa6';
 import { Container } from '@/components/layout/container';
 import { CONTACT_EMAIL } from '@/lib/constants';
+import { socialLinks } from '@/content/social-links';
+
+// Display order for Identity page social links
+const IDENTITY_SOCIALS = ['GitHub', 'X', 'Discord'];
+
+const iconMap: Record<string, React.ElementType> = {
+  github: Github,
+  twitter: FaXTwitter,
+  discord: MessageCircle,
+};
+
+const visibleSocials = IDENTITY_SOCIALS
+  .map((name) => socialLinks.find((l) => l.platform === name && l.showOnHomepage))
+  .filter(Boolean) as typeof socialLinks;
 
 const reveal = (delay: number) => ({
     initial: { opacity: 0, y: 20 },
@@ -78,38 +92,43 @@ export function AboutPageContent() {
                     </p>
                 </motion.div>
 
-                {/* Contact row */}
+                {/* Contact row — from content configuration */}
                 <motion.div
                     {...reveal(0.25)}
                     className="flex flex-wrap items-center gap-3"
                     aria-label="Contact and social links"
                 >
-                    <a
-                        href="https://github.com/StormD3v"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="View GitHub profile"
-                        className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
-                    >
-                        <Github size={18} aria-hidden="true" />
-                    </a>
-                    <a
-                        href="https://x.com/Storm_D3V"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="View X profile"
-                        className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
-                    >
-                        <FaXTwitter size={18} aria-hidden="true" />
-                    </a>
-                    {/* Discord: username only, no public profile URL */}
-                    <span
-                        aria-label="Discord username: storm_d3v"
-                        className="flex items-center gap-2 p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 cursor-default"
-                    >
-                        <MessageCircle size={18} aria-hidden="true" />
-                        <span className="text-sm text-neutral-500">storm_d3v</span>
-                    </span>
+                    {visibleSocials.map((link) => {
+                      const Icon = iconMap[link.icon.toLowerCase()];
+                      if (!Icon) return null;
+
+                      // Discord now has a public URL
+                      if (link.url === null) {
+                        return (
+                          <span
+                            key={link.platform}
+                            aria-label={`Discord username: ${link.username ?? link.platform}`}
+                            className="flex items-center gap-2 p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 cursor-default"
+                          >
+                            <Icon size={18} aria-hidden="true" />
+                            <span className="text-sm text-neutral-500">{link.username}</span>
+                          </span>
+                        );
+                      }
+
+                      return (
+                        <a
+                          key={link.platform}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`View ${link.platform} profile`}
+                          className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
+                        >
+                          <Icon size={18} aria-hidden="true" />
+                        </a>
+                      );
+                    })}
                     <a
                         href={`mailto:${CONTACT_EMAIL}`}
                         aria-label={`Send email to ${CONTACT_EMAIL}`}

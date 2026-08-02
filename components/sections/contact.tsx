@@ -74,7 +74,7 @@ export function Contact() {
                     const Icon = iconMap[link.icon.toLowerCase()];
                     if (!Icon) return null;
 
-                    // Discord has no public URL — render as non-interactive span
+                    // Discord now has a public URL
                     if (link.url === null) {
                       return (
                         <span

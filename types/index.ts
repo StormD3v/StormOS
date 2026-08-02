@@ -66,9 +66,9 @@ export interface BlogPost {
  */
 export interface SocialLink {
   platform: string;
-  url: string | null;   // null when no public URL exists (e.g. Discord username-only)
+  url: string | null;   // Public profile URL (null when no public URL exists)
   icon: string;
-  username?: string;    // Display name for platforms without a linkable URL
+  username?: string;    // Display name (optional, for reference)
 }
 
 /**

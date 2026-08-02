@@ -61,7 +61,7 @@ export function Footer({ className }: FooterProps) {
             </ul>
           </div>
 
-          {/* Social — GitHub, X, Discord only. Discord has no public URL so renders as a span. */}
+          {/* Social — GitHub, X, Discord only */}
           <div>
             <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-4">
               Elsewhere
@@ -73,6 +73,7 @@ export function Footer({ className }: FooterProps) {
                   const Icon = iconMap[link.icon.toLowerCase()];
                   if (!Icon) return null;
 
+                  // Discord now has a public URL
                   if (link.url === null) {
                     return (
                       <span

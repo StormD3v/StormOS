@@ -5,9 +5,8 @@ import { SocialLink } from '@/types';
  *
  * This is the single source of truth for all social presence.
  *
- * - url: null when no public profile URL exists. Discord has no linkable
- *   profile URL — the username is displayed as plain text instead.
- * - username: the display name for platforms without a linkable URL.
+ * - url: the public profile URL for the platform.
+ * - username: the display name for platforms (optional, for reference).
  * - showOnHomepage: false entries are excluded from the homepage Contact
  *   section and the Footer social row.
  */
@@ -31,7 +30,7 @@ export const socialLinks: SocialLinkExtended[] = [
   },
   {
     platform: 'Discord',
-    url: null,
+    url: 'https://discord.com/users/1134320474126561322',
     username: 'storm_d3v',
     icon: 'discord',
     showOnHomepage: true,
