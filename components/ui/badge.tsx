@@ -4,7 +4,7 @@ import { HTMLAttributes, forwardRef } from 'react';
 import { cn } from '@/lib/utils';
 
 interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
-  variant?: 'default' | 'success' | 'warning' | 'error' | 'info';
+  variant?: 'default' | 'success' | 'warning' | 'error' | 'info' | 'neutral';
   /** Set true when the badge communicates a live status (e.g. project state).
    *  Adds role="status" so screen readers announce the value. */
   asStatus?: boolean;
@@ -18,10 +18,11 @@ const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
       warning: 'bg-warning/20 text-warning-dark border border-warning/30',
       error: 'bg-error/20 text-error border border-error/30',
       info: 'bg-info/20 text-info border border-info/30',
+      neutral: 'bg-neutral-700/50 text-neutral-400 border border-neutral-600/50',
     };
 
     // role="status" when the badge conveys state information
-    const isStatus = asStatus || variant === 'success' || variant === 'warning' || variant === 'error';
+    const isStatus = asStatus || variant === 'success' || variant === 'warning' || variant === 'error' || variant === 'neutral';
 
     return (
       <span

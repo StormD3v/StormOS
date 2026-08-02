@@ -33,6 +33,11 @@ export function ProjectsGrid() {
                                 In development
                             </Badge>
                         )}
+                        {project.status === 'prototype' && (
+                            <Badge variant="neutral" asStatus className="self-start mb-3">
+                                Prototype
+                            </Badge>
+                        )}
 
                         <div className="flex items-start justify-between mb-2">
                             <h3 className="text-xl font-semibold text-neutral-100">{project.displayName ?? project.title}</h3>

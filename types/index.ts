@@ -15,7 +15,7 @@ export interface Project {
     demo?: string;
   };
   featured: boolean;
-  status: 'completed' | 'in-progress' | 'planned';
+  status: 'completed' | 'in-progress' | 'planned' | 'prototype';
   route?: string;               // Optional navigation route — only set when a dedicated page exists
   startDate?: string;
   endDate?: string;

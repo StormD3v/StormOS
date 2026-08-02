@@ -72,7 +72,7 @@ export function About() {
             </p>
             <p className="text-neutral-400 leading-relaxed text-pretty">
               Storm-OS is the personal environment through which long-term ideas are designed,
-              built and maintained. WorldForge and LumiCast are the active projects within it.
+              built and maintained. WorldForge, LumiCast, and StormCash are the active projects within it.
               Future work appears when it is ready.
             </p>
             <p className="text-neutral-400 leading-relaxed text-pretty">

@@ -42,4 +42,19 @@ export const projects: Project[] = [
     status: 'completed',
     route: '/lumicast',
   },
+  {
+    id: 'stormcash',
+    title: 'StormCash',
+    displayName: 'StormCash',
+    description: 'A payment prototype built around settlement finality — a transfer either completes fully or never starts.',
+    tags: ['React', 'Django', 'FastAPI', 'PostgreSQL'],
+    technologies: ['React', 'Django', 'FastAPI', 'PostgreSQL'],
+    links: {
+      github: 'https://github.com/StormD3v/StormCash',
+    },
+    featured: true,
+    status: 'prototype',
+    route: '/stormcash',
+    startDate: '2024-07-01',
+  },
 ];

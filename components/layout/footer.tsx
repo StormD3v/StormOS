@@ -19,6 +19,7 @@ const navLinks = [
   { name: 'Projects', href: '/#building' },
   { name: 'WorldForge', href: '/worldforge' },
   { name: 'LumiCast', href: '/lumicast' },
+  { name: 'StormCash', href: '/stormcash' },
   { name: 'Identity', href: '/about' },
   { name: 'Contact', href: '/contact' },
 ];

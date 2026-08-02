@@ -74,7 +74,7 @@ export function AboutPageContent() {
                         worth building. Storm-OS is the framework that makes patience possible.
                     </p>
                     <p className="text-neutral-400 leading-relaxed text-pretty">
-                        WorldForge and LumiCast are the active projects within that environment.
+                        WorldForge, LumiCast, and StormCash are the active projects within that environment.
                         Future work appears when it is ready, not before.
                     </p>
                 </motion.div>
