@@ -20,6 +20,13 @@ const inView = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.215, 0.61, 0.355, 1] as const },
 });
 
+// Text constants to avoid JSX apostrophe escaping
+const TRANSFER_PROBLEM_TEXT = "Modern bank transfers were built around 1970s batch processing infrastructure. The result is a gap that affects every person who has ever sent money internationally: money leaves the sender's account before it arrives at the destination, users have no visibility into where their money is during transit, and a failed transfer can leave funds in an indeterminate state for days.";
+
+const WHATS_REAL_SECTION_TITLE = "What's real vs simulated";
+
+const WHAT_DOESNT_TEXT = "What doesn't: real blockchain connectivity, real fiat on/off ramps, and multi-currency support. These are explicitly marked as vision items in the project roadmap.";
+
 export function StormCashPageClient() {
   const reducedMotion = useReducedMotion();
 
@@ -74,7 +81,7 @@ export function StormCashPageClient() {
                 StormCash is a financial technology prototype exploring what payment infrastructure would look like if settlement finality were the primary design constraint.
               </p>
               <p className="text-neutral-400 leading-relaxed text-pretty">
-                Modern bank transfers were built around 1970s batch processing infrastructure. The result is a gap that affects every person who has ever sent money internationally: money leaves the sender's account before it arrives at the destination, users have no visibility into where their money is during transit, and a failed transfer can leave funds in an indeterminate state for days.
+                {TRANSFER_PROBLEM_TEXT}
               </p>
               <p className="text-neutral-400 leading-relaxed text-pretty">
                 StormCash prototypes an architecture that treats this as a solvable problem: atomic transfers, observable settlement stages, and an experience that approaches the simplicity of sending a message.
@@ -111,7 +118,7 @@ export function StormCashPageClient() {
         <Container>
           <div className="max-w-2xl">
             <motion.p {...inView()} className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-10">
-              What's real vs simulated
+              {WHATS_REAL_SECTION_TITLE}
             </motion.p>
             <motion.div {...inView(0.1)} className="space-y-6">
               <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
@@ -121,7 +128,7 @@ export function StormCashPageClient() {
                 What works: user authentication, account creation, deposits, withdrawals, cross-user transfers, concurrent transfer safety, double-entry ledger, and real-time settlement UI. The transaction explorer shows blockchain settlement details, but the blockchain itself is simulated.
               </p>
               <p className="text-neutral-400 leading-relaxed text-pretty">
-                What doesn't: real blockchain connectivity, real fiat on/off ramps, and multi-currency support. These are explicitly marked as vision items in the project roadmap.
+                {WHAT_DOESNT_TEXT}
               </p>
             </motion.div>
           </div>
