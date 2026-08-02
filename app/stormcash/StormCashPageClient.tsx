@@ -73,8 +73,9 @@ export function StormCashPageClient() {
       <section className="py-32 px-6 border-t border-neutral-800/60">
         <Container>
           <div className="max-w-2xl">
-            <motion.p {...inView()} className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-10">
-              What it is
+            <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 mb-10 flex items-center gap-3">
+              <span className="w-8 h-px bg-accent-purple/50"></span>
+              <span>What it is</span>
             </motion.p>
             <motion.div {...inView(0.1)} className="space-y-6">
               <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
@@ -95,8 +96,9 @@ export function StormCashPageClient() {
       <section className="py-32 px-6 bg-neutral-900/30 border-t border-neutral-800/60">
         <Container>
           <div className="max-w-2xl">
-            <motion.p {...inView()} className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-10">
-              Architecture
+            <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 mb-10 flex items-center gap-3">
+              <span className="w-8 h-px bg-accent-purple/50"></span>
+              <span>Architecture</span>
             </motion.p>
             <motion.div {...inView(0.1)} className="space-y-6">
               <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
@@ -117,8 +119,9 @@ export function StormCashPageClient() {
       <section className="py-32 px-6 border-t border-neutral-800/60">
         <Container>
           <div className="max-w-2xl">
-            <motion.p {...inView()} className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-10">
-              {WHATS_REAL_SECTION_TITLE}
+            <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 mb-10 flex items-center gap-3">
+              <span className="w-8 h-px bg-accent-purple/50"></span>
+              <span>{WHATS_REAL_SECTION_TITLE}</span>
             </motion.p>
             <motion.div {...inView(0.1)} className="space-y-6">
               <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
