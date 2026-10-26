@@ -20,7 +20,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center px-6 pt-32 pb-40 relative overflow-hidden bg-neutral-950"
+      className="min-h-screen flex flex-col px-6 relative overflow-hidden bg-neutral-950"
       aria-labelledby="hero-headline"
     >
       {/* Ambient glow — near-invisible purple atmosphere */}
@@ -30,7 +30,7 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      <div className="max-w-3xl mx-auto text-center">
+      <div className="max-w-3xl mx-auto text-center mt-[33vh] sm:mt-[40vh]">
         {/* Headline */}
         <motion.h1
           id="hero-headline"
