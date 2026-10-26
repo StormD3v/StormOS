@@ -28,7 +28,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-neutral-950 -z-30" />
 
       {/* Mobile background image with seamless blending */}
-      <MobileBackground src="/images/hero-mobile.webp" objectPosition="bottom" />
+      <MobileBackground src="/images/hero-mobile.webp" objectPosition="bottom" priority />
 
       {/* Ambient glow — near-invisible purple atmosphere */}
       <div

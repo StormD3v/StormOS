@@ -7,6 +7,7 @@ interface MobileBackgroundProps {
   src: string;
   objectPosition?: 'center' | 'bottom';
   effects?: 'glow' | 'glow-embers' | 'none';
+  priority?: boolean;
 }
 
 /**
@@ -19,7 +20,7 @@ interface MobileBackgroundProps {
  * - Pauses when off-screen (IntersectionObserver)
  * - Respects prefers-reduced-motion
  */
-export function MobileBackground({ src, objectPosition = 'center', effects = 'none' }: MobileBackgroundProps) {
+export function MobileBackground({ src, objectPosition = 'center', effects = 'none', priority = false }: MobileBackgroundProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useRef(false);
 
@@ -58,6 +59,8 @@ export function MobileBackground({ src, objectPosition = 'center', effects = 'no
           alt=""
           aria-hidden="true"
           fill
+          priority={priority}
+          sizes="100vw"
           className={`object-cover pointer-events-none ${
             objectPosition === 'bottom' ? 'object-bottom' : 'object-center'
           }`}
@@ -81,6 +84,8 @@ export function MobileBackground({ src, objectPosition = 'center', effects = 'no
         alt=""
         aria-hidden="true"
         fill
+        priority={priority}
+        sizes="100vw"
         className={`object-cover pointer-events-none ${
           objectPosition === 'bottom' ? 'object-bottom' : 'object-center'
         }`}
