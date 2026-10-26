@@ -80,6 +80,8 @@ export function MobileBackground({ src, objectPosition = 'center', effects = 'no
       className={`absolute inset-0 sm:hidden -z-20 ${extend ? '-top-24 -bottom-24' : ''}`}
       style={{ animationPlayState: 'paused' }}
     >
+      {/* Subtle dark overlay for text contrast */}
+      <div className="absolute inset-0 bg-neutral-950/35 -z-10" aria-hidden="true" />
       <Image
         src={src}
         alt=""

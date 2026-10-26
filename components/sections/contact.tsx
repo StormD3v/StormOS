@@ -55,7 +55,7 @@ export function Contact() {
           </h2>
 
           {/* One short paragraph — an invitation, not a pitch */}
-          <p className="text-lg text-neutral-400 mb-16 max-w-lg leading-relaxed text-pretty">
+          <p className="text-lg text-neutral-400 mb-16 max-w-lg leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
             If something here is worth a conversation, start one.
           </p>
 
@@ -68,13 +68,13 @@ export function Contact() {
 
               {/* Email */}
               <div>
-                <p className="text-xs font-semibold tracking-widest uppercase text-neutral-600 mb-3">
+                <p className="text-xs font-semibold tracking-widest uppercase text-neutral-600 sm:text-neutral-600 mb-3">
                   Email
                 </p>
                 <a
                   href={`mailto:${CONTACT_EMAIL}`}
                   aria-label={`Send email to ${CONTACT_EMAIL}`}
-                  className="inline-flex items-center gap-2.5 text-neutral-400 hover:text-neutral-100 transition-colors duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 rounded-sm"
+                  className="inline-flex items-center gap-2.5 text-neutral-400 hover:text-neutral-100 transition-colors duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 rounded-sm sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]"
                 >
                   <Mail size={16} aria-hidden="true" />
                   <span className="text-sm">{CONTACT_EMAIL}</span>
@@ -83,7 +83,7 @@ export function Contact() {
 
               {/* Social — from content configuration */}
               <div>
-                <p className="text-xs font-semibold tracking-widest uppercase text-neutral-600 mb-3">
+                <p className="text-xs font-semibold tracking-widest uppercase text-neutral-600 sm:text-neutral-600 mb-3">
                   Elsewhere
                 </p>
                 <div className="flex items-center gap-2.5" role="list" aria-label="Social profiles">

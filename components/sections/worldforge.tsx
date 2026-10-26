@@ -33,6 +33,9 @@ export function WorldForge() {
       {/* Mobile background image with seamless blending and effects */}
       <MobileBackground src="/images/hollow-world.webp" effects="glow-embers" />
 
+      {/* Subtle dark overlay for text contrast */}
+      <div className="absolute inset-0 sm:hidden bg-neutral-950/35 -z-10" aria-hidden="true" />
+
       {/* Dark purple ambient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/12 via-accent-purple/3 to-transparent -z-20" />
 
@@ -69,7 +72,7 @@ export function WorldForge() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
-            className="text-xs font-semibold tracking-widest uppercase text-accent-purple/60 mb-8"
+            className="text-xs font-semibold tracking-widest uppercase text-accent-purple/60 sm:text-accent-purple/60 mb-8"
           >
             Flagship
           </motion.p>
@@ -94,19 +97,19 @@ export function WorldForge() {
             transition={{ duration: 0.7, delay: 0.15, ease: [0.215, 0.61, 0.355, 1] }}
             className="space-y-7 mb-14"
           >
-            <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed text-pretty">
+            <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
               WorldForge is a living world, built around permanence.
             </p>
-            <p className="text-lg text-neutral-400 leading-relaxed text-pretty">
+            <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
               Every decision you make becomes part of its history, and every person who
               enters leaves a legacy that outlasts them. Civilizations rise, collapse, and
               leave traces that future people inherit. Nothing is erased. Nothing resets.
             </p>
-            <p className="text-lg text-neutral-400 leading-relaxed text-pretty">
+            <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
               Identity here is not what you claim. It is what you do, over time,
               in a world that remembers.
             </p>
-            <p className="text-base text-neutral-500 leading-relaxed">
+            <p className="text-base text-neutral-500 leading-relaxed sm:text-neutral-500 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
               Some worlds deserve to last. WorldForge is being built to be one of them.
             </p>
           </motion.div>

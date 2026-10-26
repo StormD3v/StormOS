@@ -53,7 +53,7 @@ export function ContactForm({ className }: ContactFormProps) {
             className={cn('space-y-6', className)}
         >
             <div>
-                <label htmlFor="contact-name" className="block text-sm font-medium text-neutral-300 mb-2">
+                <label htmlFor="contact-name" className="block text-sm font-medium text-neutral-300 sm:text-neutral-300 mb-2">
                     Name
                 </label>
                 <Input
@@ -66,7 +66,7 @@ export function ContactForm({ className }: ContactFormProps) {
             </div>
 
             <div>
-                <label htmlFor="contact-email" className="block text-sm font-medium text-neutral-300 mb-2">
+                <label htmlFor="contact-email" className="block text-sm font-medium text-neutral-300 sm:text-neutral-300 mb-2">
                     Email
                 </label>
                 <Input
@@ -80,7 +80,7 @@ export function ContactForm({ className }: ContactFormProps) {
             </div>
 
             <div>
-                <label htmlFor="contact-message" className="block text-sm font-medium text-neutral-300 mb-2">
+                <label htmlFor="contact-message" className="block text-sm font-medium text-neutral-300 sm:text-neutral-300 mb-2">
                     Message
                 </label>
                 <Textarea

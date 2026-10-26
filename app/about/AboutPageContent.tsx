@@ -44,7 +44,7 @@ export function AboutPageContent() {
                 {/* Page label */}
                 <motion.p
                     {...reveal(0)}
-                    className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-10"
+                    className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500 mb-10"
                 >
                     Identity
                 </motion.p>
@@ -73,15 +73,15 @@ export function AboutPageContent() {
 
                 {/* Identity — person first, alias second, philosophy third */}
                 <motion.div {...reveal(0.1)} className="space-y-6 mb-16">
-                    <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
+                    <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
                         Known online as StormD3v.
                     </p>
-                    <p className="text-neutral-400 leading-relaxed text-pretty">
+                    <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
                         Storm-OS is the personal environment through which long-term ideas are designed,
                         built and maintained. Some ideas cannot be rushed without losing what makes them
                         worth building. Storm-OS is the framework that makes patience possible.
                     </p>
-                    <p className="text-neutral-400 leading-relaxed text-pretty">
+                    <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
                         WorldForge, LumiCast, and StormCash are the active projects within that environment.
                         Future work appears when it is ready, not before.
                     </p>
@@ -89,13 +89,13 @@ export function AboutPageContent() {
 
                 {/* Right now */}
                 <motion.div {...reveal(0.18)} className="border-t border-neutral-800/60 pt-12 space-y-6 mb-16">
-                    <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500">
+                    <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500">
                         Right now
                     </p>
-                    <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
+                    <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
                         Most of the current focus is on WorldForge.
                     </p>
-                    <p className="text-neutral-400 leading-relaxed text-pretty">
+                    <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
                         It is a long-running project, the kind that cannot be rushed without losing
                         what makes it worth building. When it is ready, it will feel that way.
                     </p>
@@ -117,10 +117,10 @@ export function AboutPageContent() {
                           <span
                             key={link.platform}
                             aria-label={`Discord username: ${link.username ?? link.platform}`}
-                            className="flex items-center gap-2 p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 cursor-default"
+                            className="flex items-center gap-2 p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 sm:text-neutral-500 cursor-default"
                           >
                             <Icon size={18} aria-hidden="true" />
-                            <span className="text-sm text-neutral-500">{link.username}</span>
+                            <span className="text-sm text-neutral-500 sm:text-neutral-500">{link.username}</span>
                           </span>
                         );
                       }

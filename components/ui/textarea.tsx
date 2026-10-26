@@ -20,7 +20,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           aria-describedby={errorId}
           className={cn(
             'w-full px-4 py-2 bg-neutral-900 border border-neutral-700 rounded-md',
-            'text-neutral-100 placeholder-neutral-500',
+            'text-neutral-100 placeholder-neutral-400 sm:placeholder-neutral-500',
             'transition-colors duration-fast',
             'focus:outline-none focus:ring-2 focus:ring-storm-blue focus:border-transparent',
             'focus:shadow-[0_0_0_3px_rgba(10,132,255,0.2)]',

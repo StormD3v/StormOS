@@ -50,7 +50,7 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
-            className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-10"
+            className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500 mb-10"
           >
             Identity
           </motion.p>
@@ -83,15 +83,15 @@ export function About() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.215, 0.61, 0.355, 1] }}
             className="space-y-6 mb-16"
           >
-            <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
+            <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
               Friday Gift Chinechenum Azunda. Known online as StormD3v.
             </p>
-            <p className="text-neutral-400 leading-relaxed text-pretty">
+            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
               Storm-OS is the personal environment through which long-term ideas are designed,
               built and maintained. WorldForge, LumiCast, and StormCash are the active projects within it.
               Future work appears when it is ready.
             </p>
-            <p className="text-neutral-400 leading-relaxed text-pretty">
+            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
               No roadmap. No release schedule. Work earns its way into existence.
             </p>
           </motion.div>
@@ -115,10 +115,10 @@ export function About() {
                   <span
                     key={link.platform}
                     aria-label={`Discord username: ${link.username ?? link.platform}`}
-                    className="flex items-center gap-2 p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 cursor-default"
+                    className="flex items-center gap-2 p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 sm:text-neutral-500 cursor-default"
                   >
                     <Icon size={18} aria-hidden="true" />
-                    <span className="text-sm text-neutral-500">{link.username}</span>
+                    <span className="text-sm text-neutral-500 sm:text-neutral-500">{link.username}</span>
                   </span>
                 );
               }

@@ -66,10 +66,10 @@ export function StormCashPageClient() {
               StormCash
             </motion.h1>
             <motion.div {...reveal(0.16)} className="space-y-5">
-              <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed text-pretty">
+              <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
                 A payment prototype built around settlement finality.
               </p>
-              <p className="text-lg text-neutral-400 leading-relaxed text-pretty">
+              <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
                 A transfer either completes fully or never starts.
               </p>
             </motion.div>
@@ -81,18 +81,18 @@ export function StormCashPageClient() {
       <section className="py-32 px-6 border-t border-neutral-800/60">
         <Container>
           <div className="max-w-2xl">
-            <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 mb-10 flex items-center gap-3">
+            <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 sm:text-neutral-300 mb-10 flex items-center gap-3">
               <span className="w-8 h-px bg-accent-purple/50"></span>
               <span>What it is</span>
             </motion.p>
             <motion.div {...inView(0.1)} className="space-y-6">
-              <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
+              <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
                 StormCash is a financial technology prototype exploring what payment infrastructure would look like if settlement finality were the primary design constraint.
               </p>
-              <p className="text-neutral-400 leading-relaxed text-pretty">
+              <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
                 {TRANSFER_PROBLEM_TEXT}
               </p>
-              <p className="text-neutral-400 leading-relaxed text-pretty">
+              <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
                 StormCash prototypes an architecture that treats this as a solvable problem: atomic transfers, observable settlement stages, and an experience that approaches the simplicity of sending a message.
               </p>
             </motion.div>
@@ -104,18 +104,18 @@ export function StormCashPageClient() {
       <section className="py-32 px-6 bg-neutral-900/30 border-t border-neutral-800/60">
         <Container>
           <div className="max-w-2xl">
-            <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 mb-10 flex items-center gap-3">
+            <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 sm:text-neutral-300 mb-10 flex items-center gap-3">
               <span className="w-8 h-px bg-accent-purple/50"></span>
               <span>Architecture</span>
             </motion.p>
             <motion.div {...inView(0.1)} className="space-y-6">
-              <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
+              <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
                 Django handles identity. FastAPI handles money. Both services share one PostgreSQL database and the same JWT secret — tokens issued by Django are validated by FastAPI on every request.
               </p>
-              <p className="text-neutral-400 leading-relaxed text-pretty">
+              <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
                 Balances are never stored. They are always computed from the sum of ledger entries. This mirrors how real bank ledgers work and ensures consistency across all operations.
               </p>
-              <p className="text-neutral-400 leading-relaxed text-pretty">
+              <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
                 The system supports user authentication, account creation, deposits, withdrawals, and cross-user transfers with real-time settlement UI. Concurrent transfer safety is enforced through database-level locking.
               </p>
             </motion.div>
@@ -127,18 +127,18 @@ export function StormCashPageClient() {
       <section className="py-32 px-6 border-t border-neutral-800/60">
         <Container>
           <div className="max-w-2xl">
-            <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 mb-10 flex items-center gap-3">
+            <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 sm:text-neutral-300 mb-10 flex items-center gap-3">
               <span className="w-8 h-px bg-accent-purple/50"></span>
               <span>{WHATS_REAL_SECTION_TITLE}</span>
             </motion.p>
             <motion.div {...inView(0.1)} className="space-y-6">
-              <p className="text-lg text-neutral-300 leading-relaxed text-pretty">
+              <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
                 This is a concept demonstrator and portfolio project. It does not move real money and is not a regulated financial service.
               </p>
-              <p className="text-neutral-400 leading-relaxed text-pretty">
+              <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
                 What works: user authentication, account creation, deposits, withdrawals, cross-user transfers, concurrent transfer safety, double-entry ledger, and real-time settlement UI. The transaction explorer shows blockchain settlement details, but the blockchain itself is simulated.
               </p>
-              <p className="text-neutral-400 leading-relaxed text-pretty">
+              <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
                 {WHAT_DOESNT_TEXT}
               </p>
             </motion.div>
@@ -154,7 +154,7 @@ export function StormCashPageClient() {
             <motion.h2 {...inView()} className="text-4xl md:text-5xl font-bold text-accent-purple mb-6 leading-tight">
               View the code
             </motion.h2>
-            <motion.p {...inView(0.1)} className="text-neutral-400 leading-relaxed text-pretty mb-12">
+            <motion.p {...inView(0.1)} className="text-neutral-400 leading-relaxed text-pretty mb-12 sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
               The entire prototype is open source. Explore the architecture, see how the settlement engine works, and understand the design decisions.
             </motion.p>
             <motion.div {...inView(0.2)} className="flex flex-col sm:flex-row gap-4">
