@@ -39,7 +39,7 @@ export function Hero() {
       </div>
 
       {/* Bottom fade to page background */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-neutral-950 to-transparent -z-10 sm:hidden" aria-hidden="true" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-neutral-950 via-neutral-950/80 to-transparent -z-10 sm:hidden" aria-hidden="true" />
 
       {/* Ambient glow — near-invisible purple atmosphere */}
       <div
@@ -51,9 +51,9 @@ export function Hero() {
       <div className="max-w-3xl mx-auto text-center mt-[33vh] sm:mt-[40vh] relative z-10">
         {/* Soft dark radial gradient behind text block on mobile */}
         <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] sm:hidden -z-10"
+          className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"
           style={{
-            background: 'radial-gradient(circle, rgba(7,6,11,0.7) 0%, transparent 75%)',
+            background: 'radial-gradient(closest-side, rgba(7,6,11,0.65) 0%, transparent 100%)',
           }}
           aria-hidden="true"
         />
