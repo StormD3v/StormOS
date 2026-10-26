@@ -31,7 +31,15 @@ const reveal = (delay: number) => ({
 export function AboutPageContent() {
     return (
         <Container className="py-32 px-6">
-            <div className="max-w-2xl">
+            <div className="max-w-2xl relative">
+                {/* Soft dark radial gradient behind content on mobile */}
+                <div
+                    className="absolute inset-0 sm:hidden -z-10"
+                    style={{
+                        background: 'radial-gradient(closest-side, rgba(7,6,11,0.6) 0%, transparent 100%)',
+                    }}
+                    aria-hidden="true"
+                />
 
                 {/* Page label */}
                 <motion.p

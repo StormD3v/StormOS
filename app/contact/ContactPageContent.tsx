@@ -30,13 +30,22 @@ const reveal = (delay: number) => ({
 export function ContactPageContent() {
     return (
         <Container className="py-32 px-6">
-            {/* Page label */}
-            <motion.p
-                {...reveal(0)}
-                className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-10"
-            >
-                Contact
-            </motion.p>
+            <div className="max-w-2xl relative">
+                {/* Soft dark radial gradient behind content on mobile */}
+                <div
+                    className="absolute inset-0 sm:hidden -z-10"
+                    style={{
+                        background: 'radial-gradient(closest-side, rgba(7,6,11,0.6) 0%, transparent 100%)',
+                    }}
+                    aria-hidden="true"
+                />
+                {/* Page label */}
+                <motion.p
+                    {...reveal(0)}
+                    className="text-xs font-semibold tracking-widest uppercase text-neutral-500 mb-10"
+                >
+                    Contact
+                </motion.p>
 
             {/* Heading */}
             <motion.h1
@@ -118,6 +127,7 @@ export function ContactPageContent() {
                     </div>
                 </div>
             </motion.div>
+            </div>
         </Container>
     );
 }

@@ -8,6 +8,7 @@ import { Container } from '@/components/layout/container';
 import { ContactForm } from '@/components/sections/contact-form';
 import { CONTACT_EMAIL } from '@/lib/constants';
 import { socialLinks } from '@/content/social-links';
+import { MobileBackground } from '@/components/ui/mobile-background';
 
 // Display order for homepage contact social links
 const CONTACT_SOCIALS = ['GitHub', 'X', 'Discord'];
@@ -24,14 +25,29 @@ const visibleSocials = CONTACT_SOCIALS
 
 export function Contact() {
   return (
-    <section id="contact" className="py-20 px-6">
+    <section id="contact" className="py-20 px-6 relative">
+      {/* Solid dark background fallback */}
+      <div className="absolute inset-0 bg-neutral-950 -z-30" />
+
+      {/* Mobile background image */}
+      <MobileBackground src="/images/inner-code.webp" effects="glow" />
+
+      {/* Soft dark radial gradient behind content on mobile */}
+      <div
+        className="absolute inset-0 sm:hidden -z-10"
+        style={{
+          background: 'radial-gradient(closest-side, rgba(7,6,11,0.6) 0%, transparent 100%)',
+        }}
+        aria-hidden="true"
+      />
+
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
-          className="max-w-2xl"
+          className="max-w-2xl relative z-10"
         >
           {/* Heading */}
           <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 mb-6 leading-tight">

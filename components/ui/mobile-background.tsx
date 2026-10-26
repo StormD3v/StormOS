@@ -8,6 +8,7 @@ interface MobileBackgroundProps {
   objectPosition?: 'center' | 'bottom';
   effects?: 'glow' | 'glow-embers' | 'none';
   priority?: boolean;
+  extend?: boolean;
 }
 
 /**
@@ -15,12 +16,12 @@ interface MobileBackgroundProps {
  *
  * Wraps a background image with:
  * - CSS mask for seamless top/bottom fading
- * - 96px extension past section boundaries for crossfade
+ * - 96px extension past section boundaries for crossfade (optional)
  * - Subtle living animations (breathing, glow, embers)
  * - Pauses when off-screen (IntersectionObserver)
  * - Respects prefers-reduced-motion
  */
-export function MobileBackground({ src, objectPosition = 'center', effects = 'none', priority = false }: MobileBackgroundProps) {
+export function MobileBackground({ src, objectPosition = 'center', effects = 'none', priority = false, extend = true }: MobileBackgroundProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useRef(false);
 
@@ -53,7 +54,7 @@ export function MobileBackground({ src, objectPosition = 'center', effects = 'no
 
   if (reducedMotion.current) {
     return (
-      <div className="absolute inset-0 sm:hidden -z-20 -top-24 -bottom-24">
+      <div className={`absolute inset-0 sm:hidden -z-20 ${extend ? '-top-24 -bottom-24' : ''}`}>
         <Image
           src={src}
           alt=""
@@ -76,7 +77,7 @@ export function MobileBackground({ src, objectPosition = 'center', effects = 'no
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 sm:hidden -z-20 -top-24 -bottom-24"
+      className={`absolute inset-0 sm:hidden -z-20 ${extend ? '-top-24 -bottom-24' : ''}`}
       style={{ animationPlayState: 'paused' }}
     >
       <Image

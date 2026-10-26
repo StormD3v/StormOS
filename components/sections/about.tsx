@@ -8,6 +8,7 @@ import { SiDiscord } from 'react-icons/si';
 import { Container } from '@/components/layout/container';
 import { CONTACT_EMAIL } from '@/lib/constants';
 import { socialLinks } from '@/content/social-links';
+import { MobileBackground } from '@/components/ui/mobile-background';
 
 // Display order for Identity section social links
 const IDENTITY_SOCIALS = ['GitHub', 'X', 'Discord'];
@@ -24,9 +25,24 @@ const visibleSocials = IDENTITY_SOCIALS
 
 export function About() {
   return (
-    <section id="about" className="py-24 px-6">
+    <section id="about" className="py-24 px-6 relative">
+      {/* Solid dark background fallback */}
+      <div className="absolute inset-0 bg-neutral-950 -z-30" />
+
+      {/* Mobile background image */}
+      <MobileBackground src="/images/inner-code.webp" effects="glow" />
+
+      {/* Soft dark radial gradient behind content on mobile */}
+      <div
+        className="absolute inset-0 sm:hidden -z-10"
+        style={{
+          background: 'radial-gradient(closest-side, rgba(7,6,11,0.6) 0%, transparent 100%)',
+        }}
+        aria-hidden="true"
+      />
+
       <Container>
-        <div className="max-w-2xl">
+        <div className="max-w-2xl relative z-10">
 
           {/* Section label */}
           <motion.p
