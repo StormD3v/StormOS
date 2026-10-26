@@ -62,9 +62,9 @@ export function ArrivalOverlay() {
             return () => clearTimeout(t);
         }
         // Trigger exit after the full sequence: glow (0.8s) + text (0.6s) +
-        // pulse (8 letters × 0.08s + 0.6s = 1.24s) + subtitle (0.4s) + hold (0.3s)
-        // = ~3.3s total, capped at 2.6s so it feels swift not slow
-        const t = setTimeout(() => setPhase('exiting'), 2600);
+        // pulse (8 letters × 0.08s + 0.6s = 1.24s) + subtitle (0.3s) + hold (0.5s)
+        // = ~3.4s total, capped at 3.1s so it feels swift not slow
+        const t = setTimeout(() => setPhase('exiting'), 3100);
         return () => clearTimeout(t);
     }, [reducedMotion]);
 
@@ -172,11 +172,11 @@ export function ArrivalOverlay() {
 
                 {/* "Built by StormD3v" */}
                 <motion.p
-                    className="text-xs tracking-[0.25em] uppercase text-neutral-600"
+                    className="text-[0.875rem] sm:text-[0.9375rem] tracking-[0.25em] uppercase text-[#E9D5FF]"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{
-                        duration: reducedMotion ? 0.15 : 0.45,
+                        duration: reducedMotion ? 0.15 : 0.3,
                         delay: reducedMotion ? 0.05 : 1.95,
                         ease: 'easeOut',
                     }}
