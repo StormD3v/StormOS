@@ -2,6 +2,7 @@
 
 import { useReducedMotion, motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { LetterGlowSweep } from '@/components/ui/letter-glow-sweep';
 
 const entrance = (delay: number) => ({
   initial: { opacity: 0, y: 20 },
@@ -34,9 +35,9 @@ export function Hero() {
         <motion.h1
           id="hero-headline"
           {...entrance(0)}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-neutral-100 mb-8 leading-[1.05] tracking-tight"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-[1.05] tracking-tight"
         >
-          StormD3v
+          <LetterGlowSweep text="StormD3v" />
         </motion.h1>
 
         {/* Subline */}

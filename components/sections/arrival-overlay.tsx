@@ -2,11 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-
-// Exported so property tests can verify stagger is strictly increasing
-export function getLetterDelay(index: number): number {
-    return 1.1 + index * 0.08;
-}
+import { getLetterDelay } from '@/components/ui/letter-glow-sweep';
 
 interface Particle {
     id: number;
