@@ -132,11 +132,10 @@ export function AboutPageContent() {
                     })}
                     <a
                         href={`mailto:${CONTACT_EMAIL}`}
-                        aria-label={`Send email to ${CONTACT_EMAIL}`}
-                        className="flex items-center gap-2 p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
+                        aria-label="Email Storm"
+                        className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
                     >
                         <Mail size={18} aria-hidden="true" />
-                        <span className="text-sm">{CONTACT_EMAIL}</span>
                     </a>
                 </motion.div>
 

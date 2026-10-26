@@ -34,7 +34,7 @@ export function Footer({ className }: FooterProps) {
       role="contentinfo"
       className={cn('bg-neutral-950 border-t border-neutral-800/60', className)}
     >
-      <div className="mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl py-14">
+      <div className="mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl py-14 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand */}
           <div>
@@ -103,10 +103,10 @@ export function Footer({ className }: FooterProps) {
                 })}
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
-                aria-label={`Send email to ${CONTACT_EMAIL}`}
-                className="text-neutral-500 hover:text-neutral-100 text-sm transition-colors duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 rounded-sm"
+                aria-label="Email Storm"
+                className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
               >
-                {CONTACT_EMAIL}
+                <Mail size={18} aria-hidden="true" />
               </a>
             </div>
           </div>
