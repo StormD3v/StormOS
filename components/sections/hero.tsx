@@ -1,6 +1,7 @@
 'use client';
 
 import { useReducedMotion, motion } from 'framer-motion';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { LetterGlowSweep } from '@/components/ui/letter-glow-sweep';
 
@@ -20,9 +21,26 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col px-6 relative overflow-hidden bg-neutral-950"
+      className="min-h-screen flex flex-col px-6 relative overflow-hidden"
       aria-labelledby="hero-headline"
     >
+      {/* Solid dark background fallback */}
+      <div className="absolute inset-0 bg-neutral-950 -z-30" />
+
+      {/* Mobile background image */}
+      <div className="absolute inset-0 sm:hidden -z-20">
+        <Image
+          src="/images/hero-mobile.webp"
+          alt=""
+          aria-hidden="true"
+          fill
+          className="object-cover object-bottom pointer-events-none"
+        />
+      </div>
+
+      {/* Bottom fade to page background */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-neutral-950 to-transparent -z-10 sm:hidden" aria-hidden="true" />
+
       {/* Ambient glow — near-invisible purple atmosphere */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[32rem] h-[32rem] bg-accent-purple/6 rounded-full blur-3xl -z-10"
@@ -30,7 +48,15 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      <div className="max-w-3xl mx-auto text-center mt-[33vh] sm:mt-[40vh]">
+      <div className="max-w-3xl mx-auto text-center mt-[33vh] sm:mt-[40vh] relative z-10">
+        {/* Soft dark radial gradient behind text block on mobile */}
+        <div
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] sm:hidden -z-10"
+          style={{
+            background: 'radial-gradient(circle, rgba(7,6,11,0.7) 0%, transparent 75%)',
+          }}
+          aria-hidden="true"
+        />
         {/* Headline */}
         <motion.h1
           id="hero-headline"
@@ -43,9 +69,14 @@ export function Hero() {
         {/* Subline */}
         <motion.p
           {...entrance(0.15)}
-          className="text-xl md:text-2xl text-neutral-400 mb-12 max-w-xl mx-auto leading-relaxed text-pretty"
+          className="text-xl md:text-2xl mb-12 max-w-xl mx-auto leading-relaxed text-pretty"
         >
-          Long-term ideas, designed and built inside Storm-OS.
+          <span className="text-neutral-200 sm:hidden" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}>
+            Long-term ideas, designed and built inside Storm-OS.
+          </span>
+          <span className="hidden sm:block text-neutral-400">
+            Long-term ideas, designed and built inside Storm-OS.
+          </span>
         </motion.p>
 
         {/* CTAs */}
