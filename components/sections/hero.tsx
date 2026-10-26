@@ -1,9 +1,9 @@
 'use client';
 
 import { useReducedMotion, motion } from 'framer-motion';
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { LetterGlowSweep } from '@/components/ui/letter-glow-sweep';
+import { MobileBackground } from '@/components/ui/mobile-background';
 
 const entrance = (delay: number) => ({
   initial: { opacity: 0, y: 20 },
@@ -21,25 +21,14 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col px-6 relative overflow-hidden"
+      className="min-h-screen flex flex-col px-6 relative"
       aria-labelledby="hero-headline"
     >
       {/* Solid dark background fallback */}
       <div className="absolute inset-0 bg-neutral-950 -z-30" />
 
-      {/* Mobile background image */}
-      <div className="absolute inset-0 sm:hidden -z-20">
-        <Image
-          src="/images/hero-mobile.webp"
-          alt=""
-          aria-hidden="true"
-          fill
-          className="object-cover object-bottom pointer-events-none"
-        />
-      </div>
-
-      {/* Bottom fade to page background */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-neutral-950 via-neutral-950/80 to-transparent -z-10 sm:hidden" aria-hidden="true" />
+      {/* Mobile background image with seamless blending */}
+      <MobileBackground src="/images/hero-mobile.webp" objectPosition="bottom" />
 
       {/* Ambient glow — near-invisible purple atmosphere */}
       <div

@@ -2,10 +2,10 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Container } from '@/components/layout/container';
 import { ArrowUpRight } from 'lucide-react';
+import { MobileBackground } from '@/components/ui/mobile-background';
 import { projects } from '@/content/projects';
 
 // Section entrance
@@ -61,20 +61,12 @@ export function Building() {
     const others = projects.filter(p => p !== flagship);
 
     return (
-        <section id="building" className="py-28 px-6 relative overflow-hidden">
-            {/* Mobile background image */}
-            <div className="absolute inset-0 sm:hidden -z-20">
-                <Image
-                    src="/images/descent-projects.webp"
-                    alt=""
-                    aria-hidden="true"
-                    fill
-                    className="object-cover object-center pointer-events-none"
-                />
-            </div>
-
+        <section id="building" className="py-28 px-6 relative">
             {/* Solid dark background fallback */}
             <div className="absolute inset-0 bg-neutral-950 -z-30" />
+
+            {/* Mobile background image with seamless blending and effects */}
+            <MobileBackground src="/images/descent-projects.webp" effects="glow" />
 
             {/* Soft dark gradient behind project cards on mobile */}
             <div

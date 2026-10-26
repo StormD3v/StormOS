@@ -16,7 +16,7 @@ export function PageWrapper({ children }: PageWrapperProps) {
         Skip to main content
       </a>
       <Navigation />
-      <main id="main-content" role="main" className="flex-1 pt-16">
+      <main id="main-content" role="main" className="flex-1 pt-16 overflow-x-clip">
         {children}
       </main>
       <Footer />

@@ -2,10 +2,10 @@
 
 import { useRef } from 'react';
 import { useReducedMotion, motion } from 'framer-motion';
-import Image from 'next/image';
 import { Container } from '@/components/layout/container';
 import { Button } from '@/components/ui/button';
 import { WaitlistForm } from '@/components/sections/waitlist-form';
+import { MobileBackground } from '@/components/ui/mobile-background';
 
 export function WorldForge() {
   const reducedMotion = useReducedMotion();
@@ -24,22 +24,14 @@ export function WorldForge() {
   return (
     <section
       id="worldforge"
-      className="relative py-36 px-6 overflow-hidden"
+      className="relative py-36 px-6"
       aria-labelledby="worldforge-heading"
     >
-      {/* Mobile background image */}
-      <div className="absolute inset-0 sm:hidden -z-20">
-        <Image
-          src="/images/hollow-world.webp"
-          alt=""
-          aria-hidden="true"
-          fill
-          className="object-cover object-center pointer-events-none"
-        />
-      </div>
-
       {/* Solid dark background fallback */}
       <div className="absolute inset-0 bg-neutral-950 -z-30" />
+
+      {/* Mobile background image with seamless blending and effects */}
+      <MobileBackground src="/images/hollow-world.webp" effects="glow-embers" />
 
       {/* Dark purple ambient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/12 via-accent-purple/3 to-transparent -z-20" />
