@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { useReducedMotion, motion } from 'framer-motion';
+import Image from 'next/image';
 import { Container } from '@/components/layout/container';
 import { Button } from '@/components/ui/button';
 import { WaitlistForm } from '@/components/sections/waitlist-form';
@@ -26,9 +27,31 @@ export function WorldForge() {
       className="relative py-36 px-6 overflow-hidden"
       aria-labelledby="worldforge-heading"
     >
+      {/* Mobile background image */}
+      <div className="absolute inset-0 sm:hidden -z-20">
+        <Image
+          src="/images/hollow-world.webp"
+          alt=""
+          aria-hidden="true"
+          fill
+          className="object-cover object-center pointer-events-none"
+        />
+      </div>
+
+      {/* Solid dark background fallback */}
+      <div className="absolute inset-0 bg-neutral-950 -z-30" />
+
       {/* Dark purple ambient background */}
-      <div className="absolute inset-0 bg-neutral-950 -z-20" />
-      <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/12 via-accent-purple/3 to-transparent -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/12 via-accent-purple/3 to-transparent -z-20" />
+
+      {/* Soft dark gradient behind text block and form on mobile */}
+      <div
+        className="absolute inset-0 sm:hidden -z-10"
+        style={{
+          background: 'radial-gradient(closest-side, rgba(7,6,11,0.65) 0%, transparent 100%)',
+        }}
+        aria-hidden="true"
+      />
 
       {/* Deep ambient glow — positioned top-left, stays out of the way of text */}
       <motion.div
