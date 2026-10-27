@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, useRef } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { getLetterDelay } from '@/components/ui/letter-glow-sweep';
 
@@ -45,11 +45,68 @@ const LETTERS = 'StormD3v'.split('');
 export function ArrivalOverlay() {
     const reducedMotion = useReducedMotion();
     const [phase, setPhase] = useState<'visible' | 'exiting' | 'gone'>('visible');
+    const overlayRef = useRef<HTMLDivElement>(null);
 
     const particles = useMemo(
         () => (reducedMotion ? [] : generateParticles(22)),
         [reducedMotion]
     );
+
+    // Scroll lock and release
+    useEffect(() => {
+        const lockScroll = () => {
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
+        };
+
+        const releaseScroll = () => {
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
+        };
+
+        const handleTouchMove = (e: TouchEvent) => {
+            e.preventDefault();
+        };
+
+        const handleWheel = (e: WheelEvent) => {
+            e.preventDefault();
+        };
+
+        // Lock scroll immediately when overlay mounts
+        lockScroll();
+
+        // Add event listeners to block scroll on the overlay
+        const currentOverlay = overlayRef.current;
+        if (currentOverlay) {
+            currentOverlay.addEventListener('touchmove', handleTouchMove, { passive: false });
+            currentOverlay.addEventListener('wheel', handleWheel, { passive: false } as any);
+        }
+
+        // Safety timeout to release scroll if intro never completes
+        const safetyTimeout = setTimeout(() => {
+            releaseScroll();
+        }, 10000); // 10 second safety timeout
+
+        return () => {
+            // Cleanup on unmount
+            releaseScroll();
+            if (currentOverlay) {
+                currentOverlay.removeEventListener('touchmove', handleTouchMove);
+                currentOverlay.removeEventListener('wheel', handleWheel);
+            }
+            clearTimeout(safetyTimeout);
+        };
+    }, []);
+
+    // Release scroll when phase changes to gone
+    useEffect(() => {
+        if (phase === 'gone') {
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
+            // Scroll to top when intro ends
+            window.scrollTo(0, 0);
+        }
+    }, [phase]);
 
     useEffect(() => {
         if (reducedMotion) {
@@ -68,9 +125,10 @@ export function ArrivalOverlay() {
 
     return (
         <motion.div
+            ref={overlayRef}
             aria-hidden="true"
-            className="fixed inset-0 z-[9998] flex items-center justify-center overflow-hidden"
-            style={{ backgroundColor: '#030303' }}
+            className="fixed inset-0 z-[99999] flex items-center justify-center overflow-hidden"
+            style={{ backgroundColor: '#0a0a0a', height: '100dvh' }}
             animate={phase === 'exiting' ? { opacity: 0 } : { opacity: 1 }}
             transition={
                 phase === 'exiting'

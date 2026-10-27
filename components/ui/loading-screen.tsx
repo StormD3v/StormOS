@@ -4,15 +4,13 @@ import { useEffect, useState } from 'react';
 
 interface LoadingScreenProps {
   pageLabel: string;
-  showOnFirstVisit?: boolean;
 }
 
-export function LoadingScreen({ pageLabel, showOnFirstVisit = false }: LoadingScreenProps) {
+export function LoadingScreen({ pageLabel }: LoadingScreenProps) {
   const [ready, setReady] = useState(false);
   const [step, setStep] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const [pageAlreadyLoaded, setPageAlreadyLoaded] = useState(false);
 
   const lines = [
     '> storm-os initializing',
@@ -26,21 +24,9 @@ export function LoadingScreen({ pageLabel, showOnFirstVisit = false }: LoadingSc
       return;
     }
 
-    // Check if this is the first visit
-    const isFirstVisit = !sessionStorage.getItem('storm-os-first-visit');
-    if (isFirstVisit) {
-      sessionStorage.setItem('storm-os-first-visit', 'true');
-      if (!showOnFirstVisit) {
-        // Skip loading screen on first visit - arrival overlay will show instead
-        setIsVisible(false);
-        return;
-      }
-    }
-
     // Check if document is already loaded and page is visible
     if (document.readyState === 'complete') {
       // Page already loaded, skip loading screen entirely
-      setPageAlreadyLoaded(true);
       setIsVisible(false);
       return;
     }
@@ -98,7 +84,7 @@ export function LoadingScreen({ pageLabel, showOnFirstVisit = false }: LoadingSc
       clearInterval(progressInterval);
       window.removeEventListener('load', handleLoad);
     };
-  }, [lines.length, showOnFirstVisit]);
+  }, [lines.length]);
 
   if (!isVisible) return null;
 
