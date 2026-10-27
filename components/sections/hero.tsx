@@ -28,21 +28,83 @@ export function Hero() {
       {/* Solid dark background fallback */}
       <div className="absolute inset-0 bg-neutral-950 -z-30 sm:hidden" />
 
-      {/* Desktop background image - wide hero background */}
-      <div className="hidden sm:block absolute inset-0 pointer-events-none -z-20">
-        <Image
-          src="/images/hero-desktop.webp"
-          alt=""
-          fill
-          sizes="100vw"
-          priority
-          className="object-cover object-center pointer-events-none"
-          style={{
-            maskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
-          }}
-        />
+      {/* Desktop background image - wide hero background with living animation */}
+      <div className="hidden sm:block absolute inset-0 pointer-events-none -z-20 overflow-hidden">
+        <motion.div
+          className="absolute inset-0"
+          animate={
+            reducedMotion
+              ? {}
+              : {
+                  scale: [1, 1.09, 1],
+                }
+          }
+          transition={
+            reducedMotion
+              ? {}
+              : {
+                  duration: 18,
+                  ease: 'easeInOut',
+                  repeat: Infinity,
+                }
+          }
+          style={{ transformOrigin: 'center' }}
+        >
+          <Image
+            src="/images/hero-desktop.webp"
+            alt=""
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover object-center pointer-events-none"
+            style={{
+              maskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
+            }}
+          />
+        </motion.div>
       </div>
+
+      {/* Desktop floating particles - above background, below scrim */}
+      {!reducedMotion && (
+        <div className="hidden sm:block absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: -15 }}>
+          {Array.from({ length: 24 }).map((_, i) => {
+            const isLeft = i % 2 === 0;
+            const leftPos = isLeft ? `${8 + Math.random() * 24}%` : `${68 + Math.random() * 24}%`;
+            const topPos = `${40 + Math.random() * 55}%`;
+            const size = 4 + Math.random() * 2;
+            const duration = 12 + Math.random() * 8;
+            const delay = Math.random() * 5;
+            const color = Math.random() > 0.5 ? 'rgba(167, 139, 250,' : 'rgba(96, 165, 250,';
+            const opacity = 0.5 + Math.random() * 0.5;
+            const floatDistance = 250 + Math.random() * 200;
+            return (
+              <motion.div
+                key={i}
+                className="absolute rounded-full pointer-events-none"
+                style={{
+                  left: leftPos,
+                  top: topPos,
+                  width: `${size}px`,
+                  height: `${size}px`,
+                  backgroundColor: `${color}${opacity})`,
+                  boxShadow: `0 0 10px 2px ${color}${opacity})`,
+                }}
+                animate={{
+                  y: [-floatDistance, -floatDistance - 250],
+                  opacity: [0, opacity, 0],
+                }}
+                transition={{
+                  duration,
+                  delay,
+                  repeat: Infinity,
+                  ease: 'easeOut',
+                }}
+              />
+            );
+          })}
+        </div>
+      )}
 
       {/* Mobile background image with seamless blending */}
       <div className="sm:hidden">

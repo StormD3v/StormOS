@@ -34,6 +34,10 @@ export function Footer({ className }: FooterProps) {
       role="contentinfo"
       className={cn('bg-neutral-950/80 backdrop-blur-sm sm:bg-neutral-950 sm:backdrop-blur-none border-t border-neutral-800/60', className)}
     >
+      {/* Desktop gradient fade at top for soft transition */}
+      <div className="hidden sm:block absolute top-0 left-0 right-0 h-10 pointer-events-none -z-10" style={{
+        background: 'linear-gradient(to bottom, transparent 0%, #0a0a0a 100%)',
+      }} aria-hidden="true" />
       <div className="mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl py-14 pb-8 relative">
         {/* Soft dark gradient behind footer text on mobile */}
         <div
