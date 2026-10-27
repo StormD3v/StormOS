@@ -10,9 +10,9 @@ import { useEffect, useRef } from 'react';
  *
  * Features:
  * - Base: #0a0a0a
- * - Violet radial glow (#6D28D9 at 22% opacity) at 50% 25% (70% viewport width)
- * - Indigo radial glow (#4338CA at 16% opacity) at 85% 75% (smaller)
- * - Computational grid: thin lines (1px), 9% opacity (violet-tinted), 64px spacing
+ * - Violet radial glow (#6D28D9 at 32% opacity) at 50% 25% (70% viewport width)
+ * - Indigo radial glow (#4338CA at 24% opacity) at 85% 75% (smaller)
+ * - Computational grid: thin lines (1px), 14% opacity (violet-tinted), 64px spacing
  * - Radial mask to fade grid toward edges
  * - Slow drift animation (30s duration) - transform and opacity only
  * - Respects prefers-reduced-motion (no animation)
@@ -58,10 +58,10 @@ export function DesktopBackground() {
         style={{
           backgroundColor: '#0a0a0a',
           backgroundImage: `
-            radial-gradient(ellipse 70% 70% at 50% 25%, rgba(109, 40, 217, 0.22) 0%, transparent 70%),
-            radial-gradient(ellipse 50% 50% at 85% 75%, rgba(67, 56, 202, 0.16) 0%, transparent 60%),
-            linear-gradient(rgba(109, 40, 217, 0.09) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(109, 40, 217, 0.09) 1px, transparent 1px)
+            radial-gradient(ellipse 70% 70% at 50% 25%, rgba(109, 40, 217, 0.32) 0%, transparent 70%),
+            radial-gradient(ellipse 50% 50% at 85% 75%, rgba(67, 56, 202, 0.24) 0%, transparent 60%),
+            linear-gradient(rgba(109, 40, 217, 0.14) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(109, 40, 217, 0.14) 1px, transparent 1px)
           `,
           backgroundSize: '100% 100%, 100% 100%, 64px 64px, 64px 64px',
           maskImage: 'radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%)',
@@ -79,10 +79,10 @@ export function DesktopBackground() {
       style={{
         backgroundColor: '#0a0a0a',
         backgroundImage: `
-          radial-gradient(ellipse 70% 70% at 50% 25%, rgba(109, 40, 217, 0.22) 0%, transparent 70%),
-          radial-gradient(ellipse 50% 50% at 85% 75%, rgba(67, 56, 202, 0.16) 0%, transparent 60%),
-          linear-gradient(rgba(109, 40, 217, 0.09) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(109, 40, 217, 0.09) 1px, transparent 1px)
+          radial-gradient(ellipse 70% 70% at 50% 25%, rgba(109, 40, 217, 0.32) 0%, transparent 70%),
+          radial-gradient(ellipse 50% 50% at 85% 75%, rgba(67, 56, 202, 0.24) 0%, transparent 60%),
+          linear-gradient(rgba(109, 40, 217, 0.14) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(109, 40, 217, 0.14) 1px, transparent 1px)
         `,
         backgroundSize: '100% 100%, 100% 100%, 64px 64px, 64px 64px',
         maskImage: 'radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%)',
