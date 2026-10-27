@@ -14,8 +14,6 @@ export function PageWrapper({ children, mobileBackgrounds }: PageWrapperProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useRef(false);
   const [tileCount, setTileCount] = useState(2);
-  const parallaxRef = useRef<number | null>(null);
-  const parallaxContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     reducedMotion.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -42,8 +40,9 @@ export function PageWrapper({ children, mobileBackgrounds }: PageWrapperProps) {
     const updateTileCount = () => {
       const pageHeight = document.documentElement.scrollHeight;
       const vh = window.innerHeight;
-      const tilesNeeded = Math.ceil(pageHeight / (vh * 0.9)) + 1;
-      setTileCount(Math.max(tilesNeeded, 2));
+      const tileHeight = vh;
+      const tilesNeeded = Math.ceil(pageHeight / tileHeight);
+      setTileCount(Math.max(tilesNeeded, 1));
     };
 
     const resizeObserver = new ResizeObserver(() => {
@@ -56,30 +55,7 @@ export function PageWrapper({ children, mobileBackgrounds }: PageWrapperProps) {
     return () => resizeObserver.disconnect();
   }, [mobileBackgrounds]);
 
-  // Parallax effect for inner pages
-  useEffect(() => {
-    if (!mobileBackgrounds || mobileBackgrounds.length === 0 || reducedMotion.current || !parallaxContainerRef.current) return;
-
-    let ticking = false;
-
-    const updateParallax = () => {
-      const scrollY = window.scrollY;
-      if (parallaxContainerRef.current) {
-        parallaxContainerRef.current.style.transform = `translateY(${scrollY * 0.15}px)`;
-      }
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(updateParallax);
-      }
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [mobileBackgrounds]);
+  // Parallax effect removed to prevent extending scroll height beyond footer
 
   return (
     <div className="min-h-screen flex flex-col relative isolate overflow-x-clip">
@@ -87,11 +63,8 @@ export function PageWrapper({ children, mobileBackgrounds }: PageWrapperProps) {
         <>
           {/* Solid dark fallback */}
           <div className="fixed inset-0 z-0 bg-neutral-950" />
-          {/* Tiled wallpaper stack for inner pages - mobile only */}
-          <div
-            ref={parallaxContainerRef}
-            className="absolute inset-0 sm:hidden z-0 overflow-hidden"
-          >
+          {/* Tiled wallpaper stack container - positioned absolutely to not affect document height */}
+          <div className="absolute top-0 left-0 right-0 bottom-0 sm:hidden z-0 overflow-hidden pointer-events-none">
             <div className="absolute inset-0">
               {Array.from({ length: tileCount }).map((_, i) => {
                 const imageIndex = i % mobileBackgrounds.length;
