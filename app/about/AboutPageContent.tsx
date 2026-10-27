@@ -30,11 +30,11 @@ const reveal = (delay: number) => ({
 
 export function AboutPageContent() {
     return (
-        <Container className="py-32 px-6">
+        <Container className="py-10 sm:py-32 px-6">
             <div className="max-w-2xl relative">
                 {/* Soft dark radial gradient behind content on mobile */}
                 <div
-                    className="absolute inset-0 sm:hidden -z-10"
+                    className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"
                     style={{
                         background: 'radial-gradient(closest-side, rgba(7,6,11,0.6) 0%, transparent 100%)',
                     }}
@@ -44,7 +44,7 @@ export function AboutPageContent() {
                 {/* Page label */}
                 <motion.p
                     {...reveal(0)}
-                    className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500 mb-10"
+                    className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500 mb-10 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]"
                 >
                     Identity
                 </motion.p>
@@ -88,7 +88,7 @@ export function AboutPageContent() {
                 </motion.div>
 
                 {/* Right now */}
-                <motion.div {...reveal(0.18)} className="border-t border-neutral-800/60 pt-12 space-y-6 mb-16">
+                <motion.div {...reveal(0.18)} className="pt-12 space-y-6 mb-16">
                     <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500">
                         Right now
                     </p>

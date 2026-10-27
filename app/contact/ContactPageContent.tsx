@@ -29,11 +29,11 @@ const reveal = (delay: number) => ({
 
 export function ContactPageContent() {
     return (
-        <Container className="py-32 px-6">
+        <Container className="py-10 sm:py-32 px-6">
             <div className="max-w-2xl relative">
                 {/* Soft dark radial gradient behind content on mobile */}
                 <div
-                    className="absolute inset-0 sm:hidden -z-10"
+                    className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"
                     style={{
                         background: 'radial-gradient(closest-side, rgba(7,6,11,0.6) 0%, transparent 100%)',
                     }}
@@ -70,16 +70,24 @@ export function ContactPageContent() {
                 <ContactForm />
 
                 {/* Direct contact */}
-                <div className="flex flex-col gap-8 pt-1">
+                <div className="flex flex-col gap-8 pt-1 relative">
+                    {/* Soft dark radial gradient behind contact info on mobile */}
+                    <div
+                        className="absolute inset-0 sm:hidden -z-10"
+                        style={{
+                            background: 'radial-gradient(closest-side, rgba(7,6,11,0.65) 0%, transparent 100%)',
+                        }}
+                        aria-hidden="true"
+                    />
                     {/* Email */}
-                    <div>
-                        <p className="text-xs font-semibold tracking-widest uppercase text-neutral-600 sm:text-neutral-600 mb-3">
+                    <div className="relative z-10">
+                        <p className="text-xs font-semibold tracking-widest uppercase text-neutral-600 sm:text-neutral-600 mb-3 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                             Email
                         </p>
                         <a
                             href={`mailto:${CONTACT_EMAIL}`}
                             aria-label={`Send email to ${CONTACT_EMAIL}`}
-                            className="inline-flex items-center gap-2.5 text-neutral-400 hover:text-neutral-100 transition-colors duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 rounded-sm sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]"
+                            className="inline-flex items-center gap-2.5 text-neutral-400 hover:text-neutral-100 transition-colors duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 rounded-sm sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]"
                         >
                             <Mail size={16} aria-hidden="true" />
                             <span className="text-sm">{CONTACT_EMAIL}</span>
@@ -87,8 +95,8 @@ export function ContactPageContent() {
                     </div>
 
                     {/* Social */}
-                    <div>
-                        <p className="text-xs font-semibold tracking-widest uppercase text-neutral-600 sm:text-neutral-600 mb-3">
+                    <div className="relative z-10">
+                        <p className="text-xs font-semibold tracking-widest uppercase text-neutral-600 sm:text-neutral-600 mb-3 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                             Elsewhere
                         </p>
                         <div className="flex items-center gap-2.5" role="list" aria-label="Social profiles">

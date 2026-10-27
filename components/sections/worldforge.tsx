@@ -31,17 +31,14 @@ export function WorldForge() {
       <div className="absolute inset-0 bg-neutral-950 -z-30" />
 
       {/* Mobile background image with seamless blending and effects */}
-      <MobileBackground src="/images/hollow-world.webp" effects="glow-embers" />
-
-      {/* Subtle dark overlay for text contrast */}
-      <div className="absolute inset-0 sm:hidden bg-neutral-950/35 -z-10" aria-hidden="true" />
+      <MobileBackground src="/images/hollow-world.webp" effects="embers" />
 
       {/* Dark purple ambient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/12 via-accent-purple/3 to-transparent -z-20" />
 
       {/* Soft dark gradient behind text block and form on mobile */}
       <div
-        className="absolute inset-0 sm:hidden -z-10"
+        className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"
         style={{
           background: 'radial-gradient(closest-side, rgba(7,6,11,0.65) 0%, transparent 100%)',
         }}
@@ -109,7 +106,7 @@ export function WorldForge() {
               Identity here is not what you claim. It is what you do, over time,
               in a world that remembers.
             </p>
-            <p className="text-base text-neutral-500 leading-relaxed sm:text-neutral-500 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+            <p className="text-base text-neutral-500 leading-relaxed sm:text-neutral-500 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
               Some worlds deserve to last. WorldForge is being built to be one of them.
             </p>
           </motion.div>

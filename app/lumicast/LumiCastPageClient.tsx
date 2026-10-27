@@ -24,8 +24,8 @@ export function LumiCastPageClient() {
     return (
         <>
             {/* Hero */}
-            <section className="relative pt-40 pb-32 px-6 overflow-hidden">
-                <div className="absolute inset-0 bg-neutral-950 -z-20" />
+            <section className="relative pt-10 sm:pt-40 pb-32 px-6 overflow-hidden">
+                <div className="absolute inset-0 bg-neutral-950 -z-20 sm:hidden" />
                 <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/12 via-accent-purple/3 to-transparent -z-10" />
                 <motion.div
                     className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-accent-purple/8 rounded-full blur-3xl -z-10"
@@ -38,7 +38,7 @@ export function LumiCastPageClient() {
                     <div className="max-w-2xl relative">
                         {/* Soft dark radial gradient behind content on mobile */}
                         <div
-                            className="absolute inset-0 sm:hidden -z-10"
+                            className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"
                             style={{
                                 background: 'radial-gradient(closest-side, rgba(7,6,11,0.6) 0%, transparent 100%)',
                             }}
@@ -70,7 +70,7 @@ export function LumiCastPageClient() {
             </section>
 
             {/* What it is */}
-            <section className="py-32 px-6 border-t border-neutral-800/60">
+            <section className="py-32 px-6">
                 <Container>
                     <div className="max-w-2xl">
                         <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 sm:text-neutral-300 mb-10 flex items-center gap-3">
@@ -98,7 +98,7 @@ export function LumiCastPageClient() {
             </section>
 
             {/* Why it exists */}
-            <section className="py-32 px-6 bg-neutral-900/30 border-t border-neutral-800/60">
+            <section className="py-32 px-6">
                 <Container>
                     <div className="max-w-2xl">
                         <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 sm:text-neutral-300 mb-10 flex items-center gap-3">
@@ -126,7 +126,7 @@ export function LumiCastPageClient() {
             </section>
 
             {/* Where it is going */}
-            <section className="py-32 px-6 border-t border-neutral-800/60">
+            <section className="py-32 px-6">
                 <Container>
                     <div className="max-w-2xl">
                         <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 sm:text-neutral-300 mb-10 flex items-center gap-3">
@@ -152,7 +152,7 @@ export function LumiCastPageClient() {
             </section>
 
             {/* Launch LumiCast */}
-            <section className="relative py-36 px-6 overflow-hidden border-t border-neutral-800/60">
+            <section className="relative py-36 px-6 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/8 via-transparent to-transparent -z-10" aria-hidden="true" />
                 <Container>
                     <div className="max-w-xl">

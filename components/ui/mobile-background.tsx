@@ -6,7 +6,7 @@ import Image from 'next/image';
 interface MobileBackgroundProps {
   src: string;
   objectPosition?: 'center' | 'bottom';
-  effects?: 'glow' | 'glow-embers' | 'none';
+  effects?: 'embers' | 'none';
   priority?: boolean;
   extend?: boolean;
 }
@@ -80,8 +80,7 @@ export function MobileBackground({ src, objectPosition = 'center', effects = 'no
       className={`absolute inset-0 sm:hidden -z-20 ${extend ? '-top-24 -bottom-24' : ''}`}
       style={{ animationPlayState: 'paused' }}
     >
-      {/* Subtle dark overlay for text contrast */}
-      <div className="absolute inset-0 bg-neutral-950/35 -z-10" aria-hidden="true" />
+      {/* Base image with breathing animation */}
       <Image
         src={src}
         alt=""
@@ -98,53 +97,29 @@ export function MobileBackground({ src, objectPosition = 'center', effects = 'no
           animation: 'breathe 24s ease-in-out infinite',
         }}
       />
-      {effects === 'glow' && (
+
+      {/* Waterfall shimmer - only for embers effect */}
+      {effects === 'embers' && (
         <>
           <div
-            className="absolute w-32 h-32 rounded-full blur-3xl mix-blend-screen"
+            className="absolute w-1 h-20 rounded-full blur-sm mix-blend-screen"
             style={{
-              background: 'radial-gradient(circle, rgba(191,90,242,0.6) 0%, transparent 70%)',
-              top: '60%',
-              left: '30%',
-              animation: 'glowPulse 5s ease-in-out infinite',
+              background: 'linear-gradient(to bottom, rgba(255,255,255,0.8), transparent)',
+              top: '20%',
+              left: '15%',
+              animation: 'waterfallShimmer 4s ease-in-out infinite',
               animationDelay: '0s',
             }}
             aria-hidden="true"
           />
           <div
-            className="absolute w-24 h-24 rounded-full blur-2xl mix-blend-screen"
+            className="absolute w-1 h-16 rounded-full blur-sm mix-blend-screen"
             style={{
-              background: 'radial-gradient(circle, rgba(191,90,242,0.5) 0%, transparent 70%)',
-              top: '70%',
-              left: '60%',
-              animation: 'glowPulse 6s ease-in-out infinite',
-              animationDelay: '2s',
-            }}
-            aria-hidden="true"
-          />
-        </>
-      )}
-      {effects === 'glow-embers' && (
-        <>
-          <div
-            className="absolute w-40 h-40 rounded-full blur-3xl mix-blend-screen"
-            style={{
-              background: 'radial-gradient(circle, rgba(191,90,242,0.6) 0%, transparent 70%)',
-              top: '50%',
-              left: '40%',
-              animation: 'glowPulse 5s ease-in-out infinite',
-              animationDelay: '0s',
-            }}
-            aria-hidden="true"
-          />
-          <div
-            className="absolute w-28 h-28 rounded-full blur-2xl mix-blend-screen"
-            style={{
-              background: 'radial-gradient(circle, rgba(191,90,242,0.5) 0%, transparent 70%)',
-              top: '65%',
-              left: '65%',
-              animation: 'glowPulse 6s ease-in-out infinite',
-              animationDelay: '2.5s',
+              background: 'linear-gradient(to bottom, rgba(255,255,255,0.7), transparent)',
+              top: '35%',
+              left: '18%',
+              animation: 'waterfallShimmer 4s ease-in-out infinite',
+              animationDelay: '1.5s',
             }}
             aria-hidden="true"
           />
@@ -176,12 +151,14 @@ export function MobileBackground({ src, objectPosition = 'center', effects = 'no
             transform: scale(1.04);
           }
         }
-        @keyframes glowPulse {
-          0%, 100% {
-            opacity: 0.3;
-          }
-          50% {
+        @keyframes waterfallShimmer {
+          0% {
+            transform: translateY(0);
             opacity: 0.8;
+          }
+          100% {
+            transform: translateY(60px);
+            opacity: 0;
           }
         }
         @keyframes emberFloat {

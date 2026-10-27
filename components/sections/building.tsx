@@ -66,14 +66,11 @@ export function Building() {
             <div className="absolute inset-0 bg-neutral-950 -z-30" />
 
             {/* Mobile background image with seamless blending and effects */}
-            <MobileBackground src="/images/descent-projects.webp" effects="glow" />
-
-            {/* Subtle dark overlay for text contrast */}
-            <div className="absolute inset-0 sm:hidden bg-neutral-950/35 -z-10" aria-hidden="true" />
+            <MobileBackground src="/images/descent-projects.webp" effects="none" />
 
             {/* Soft dark gradient behind project cards on mobile */}
             <div
-                className="absolute inset-0 sm:hidden -z-10"
+                className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"
                 style={{
                     background: 'radial-gradient(closest-side, rgba(7,6,11,0.6) 0%, transparent 100%)',
                 }}
@@ -86,7 +83,7 @@ export function Building() {
                     <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 mb-5 leading-tight">
                         Active Projects
                     </h2>
-                    <p className="text-lg text-neutral-500 max-w-xl leading-relaxed sm:text-neutral-500 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                    <p className="text-lg text-neutral-500 max-w-xl leading-relaxed sm:text-neutral-500 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                         Two projects in active development. Others are forming.
                     </p>
                 </motion.div>
@@ -145,11 +142,19 @@ export function Building() {
 
                         {/* Quiet future-ideas placeholder */}
                         <motion.div {...cardEntrance(others.length + 1)}>
-                            <div className="rounded-2xl border border-dashed border-neutral-800 p-7 opacity-50">
-                                <h3 className="text-base font-medium text-neutral-500 sm:text-neutral-500 mb-2">
+                            <div className="rounded-2xl border border-dashed border-neutral-800 p-7 relative">
+                                {/* Soft dark radial gradient behind text on mobile */}
+                                <div
+                                    className="absolute inset-0 sm:hidden -z-10"
+                                    style={{
+                                        background: 'radial-gradient(closest-side, rgba(7,6,11,0.65) 0%, transparent 100%)',
+                                    }}
+                                    aria-hidden="true"
+                                />
+                                <h3 className="text-base font-medium text-neutral-500 sm:text-neutral-500 mb-2 relative z-10 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                                     More coming
                                 </h3>
-                                <p className="text-neutral-600 text-sm leading-relaxed sm:text-neutral-600 sm:!text-shadow-none max-sm:text-neutral-400 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                                <p className="text-neutral-600 text-sm leading-relaxed sm:text-neutral-600 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)] relative z-10">
                                     Some things need more time.
                                 </p>
                             </div>
@@ -251,7 +256,7 @@ function SecondaryCard({
             <h3 className="text-xl font-semibold text-neutral-100 mb-3">
                 {project.displayName ?? project.title}
             </h3>
-            <p className="text-neutral-500 text-sm leading-relaxed sm:text-neutral-500 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+            <p className="text-neutral-500 text-sm leading-relaxed sm:text-neutral-500 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                 {project.description}
             </p>
         </div>

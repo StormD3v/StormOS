@@ -78,7 +78,7 @@ export function Navigation() {
   return (
     <nav
       aria-label="Main navigation"
-      className="fixed top-0 left-0 right-0 z-sticky bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800/60"
+      className="fixed top-0 left-0 right-0 w-full z-sticky bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800/60"
     >
       <div className="mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl">
         <div className="flex items-center justify-between h-16">

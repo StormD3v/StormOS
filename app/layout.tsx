@@ -63,8 +63,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+    <html lang="en" className="dark" style={{ overscrollBehaviorY: 'none', backgroundColor: '#0a0a0a', overflowX: 'clip', maxWidth: '100%' }}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`} style={{ overscrollBehaviorY: 'none', backgroundColor: '#0a0a0a', overflowX: 'clip', maxWidth: '100%' }}>
         <ScrollProgress />
         {children}
       </body>

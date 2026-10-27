@@ -14,11 +14,13 @@ export default function HomePage() {
           then lifts. No blocking. No loading screen. */}
       <ArrivalOverlay />
       <PageWrapper>
-        <Hero />
-        <Building />
-        <WorldForge />
-        <About />
-        <Contact />
+        <div className="overflow-x-clip">
+          <Hero />
+          <Building />
+          <WorldForge />
+          <About />
+          <Contact />
+        </div>
       </PageWrapper>
     </>
   );

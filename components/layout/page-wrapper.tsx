@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
+import Image from 'next/image';
 import { Navigation } from './navigation';
 import { Footer } from './footer';
-import { MobileBackground } from '@/components/ui/mobile-background';
 
 interface PageWrapperProps {
   children: ReactNode;
@@ -10,11 +10,22 @@ interface PageWrapperProps {
 
 export function PageWrapper({ children, mobileBackground }: PageWrapperProps) {
   return (
-    <div className="min-h-screen flex flex-col relative">
+    <div className="min-h-screen flex flex-col relative bg-neutral-950 overflow-x-clip">
       {mobileBackground && (
         <>
-          <div className="absolute inset-0 bg-neutral-950 -z-30" />
-          <MobileBackground src={mobileBackground} effects="glow" extend={false} />
+          {/* Fixed full-screen wallpaper with dark tint - only for inner pages */}
+          <div className="fixed inset-0 sm:hidden -z-10">
+            <Image
+              src={mobileBackground}
+              alt=""
+              aria-hidden="true"
+              fill
+              sizes="100vw"
+              className="object-cover object-center pointer-events-none"
+            />
+            {/* Light dark tint */}
+            <div className="absolute inset-0 bg-neutral-950/25" aria-hidden="true" />
+          </div>
         </>
       )}
       <a

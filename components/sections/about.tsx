@@ -30,11 +30,11 @@ export function About() {
       <div className="absolute inset-0 bg-neutral-950 -z-30" />
 
       {/* Mobile background image */}
-      <MobileBackground src="/images/inner-code.webp" effects="glow" />
+      <MobileBackground src="/images/inner-code.webp" effects="none" />
 
       {/* Soft dark radial gradient behind content on mobile */}
       <div
-        className="absolute inset-0 sm:hidden -z-10"
+        className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"
         style={{
           background: 'radial-gradient(closest-side, rgba(7,6,11,0.6) 0%, transparent 100%)',
         }}
@@ -50,7 +50,7 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
-            className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500 mb-10"
+            className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500 mb-10 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]"
           >
             Identity
           </motion.p>

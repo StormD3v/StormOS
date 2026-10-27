@@ -30,9 +30,6 @@ export function Hero() {
       {/* Mobile background image with seamless blending */}
       <MobileBackground src="/images/hero-mobile.webp" objectPosition="bottom" priority />
 
-      {/* Subtle dark overlay for text contrast */}
-      <div className="absolute inset-0 sm:hidden bg-neutral-950/35 -z-10" aria-hidden="true" />
-
       {/* Ambient glow — near-invisible purple atmosphere */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[32rem] h-[32rem] bg-accent-purple/6 rounded-full blur-3xl -z-10"
