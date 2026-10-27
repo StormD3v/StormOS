@@ -20,6 +20,7 @@ interface MobileBackgroundProps {
  * - Subtle living animations (breathing, glow, embers)
  * - Pauses when off-screen (IntersectionObserver)
  * - Respects prefers-reduced-motion
+ * - Desktop: centered column with horizontal edge fade
  */
 export function MobileBackground({ src, objectPosition = 'center', effects = 'none', priority = false, extend = true }: MobileBackgroundProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -54,7 +55,90 @@ export function MobileBackground({ src, objectPosition = 'center', effects = 'no
 
   if (reducedMotion.current) {
     return (
-      <div className={`absolute inset-0 sm:hidden -z-20 ${extend ? '-top-24 -bottom-24' : ''}`}>
+      <div className={`absolute inset-0 -z-20 ${extend ? '-top-24 -bottom-24' : ''}`}>
+        {/* Desktop: centered column with horizontal fade */}
+        <div className="hidden sm:block absolute inset-0 max-w-[900px] mx-auto">
+          <Image
+            src={src}
+            alt=""
+            aria-hidden="true"
+            fill
+            priority={priority}
+            sizes="900px"
+            className={`object-cover pointer-events-none ${
+              objectPosition === 'bottom' ? 'object-bottom' : 'object-center'
+            }`}
+            style={{
+              maskImage: `
+                linear-gradient(to right, transparent 0%, black 22%, black 78%, transparent 100%),
+                linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)
+              `,
+              WebkitMaskImage: `
+                linear-gradient(to right, transparent 0%, black 22%, black 78%, transparent 100%),
+                linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)
+              `,
+              maskComposite: 'intersect',
+              WebkitMaskComposite: 'source-in',
+            }}
+          />
+        </div>
+        {/* Mobile: full-width */}
+        <div className="sm:hidden absolute inset-0">
+          <Image
+            src={src}
+            alt=""
+            aria-hidden="true"
+            fill
+            priority={priority}
+            sizes="100vw"
+            className={`object-cover pointer-events-none ${
+              objectPosition === 'bottom' ? 'object-bottom' : 'object-center'
+            }`}
+            style={{
+              maskImage: 'linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)',
+            }}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      ref={containerRef}
+      className={`absolute inset-0 -z-20 ${extend ? '-top-24 -bottom-24' : ''}`}
+      style={{ animationPlayState: 'paused' }}
+    >
+      {/* Desktop: centered column with horizontal fade */}
+      <div className="hidden sm:block absolute inset-0 max-w-[900px] mx-auto">
+        <Image
+          src={src}
+          alt=""
+          aria-hidden="true"
+          fill
+          priority={priority}
+          sizes="900px"
+          className={`object-cover pointer-events-none ${
+            objectPosition === 'bottom' ? 'object-bottom' : 'object-center'
+          }`}
+          style={{
+            maskImage: `
+              linear-gradient(to right, transparent 0%, black 22%, black 78%, transparent 100%),
+              linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)
+            `,
+            WebkitMaskImage: `
+              linear-gradient(to right, transparent 0%, black 22%, black 78%, transparent 100%),
+              linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)
+            `,
+            maskComposite: 'intersect',
+            WebkitMaskComposite: 'source-in',
+            animation: 'breathe 16s ease-in-out infinite',
+          }}
+        />
+      </div>
+      {/* Mobile: full-width */}
+      <div className="sm:hidden absolute inset-0">
         <Image
           src={src}
           alt=""
@@ -68,35 +152,10 @@ export function MobileBackground({ src, objectPosition = 'center', effects = 'no
           style={{
             maskImage: 'linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)',
+            animation: 'breathe 16s ease-in-out infinite',
           }}
         />
       </div>
-    );
-  }
-
-  return (
-    <div
-      ref={containerRef}
-      className={`absolute inset-0 sm:hidden -z-20 ${extend ? '-top-24 -bottom-24' : ''}`}
-      style={{ animationPlayState: 'paused' }}
-    >
-      {/* Base image with breathing animation */}
-      <Image
-        src={src}
-        alt=""
-        aria-hidden="true"
-        fill
-        priority={priority}
-        sizes="100vw"
-        className={`object-cover pointer-events-none ${
-          objectPosition === 'bottom' ? 'object-bottom' : 'object-center'
-        }`}
-        style={{
-          maskImage: 'linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)',
-          animation: 'breathe 16s ease-in-out infinite',
-        }}
-      />
 
       {/* Waterfall shimmer - only for embers effect */}
       {effects === 'embers' && (

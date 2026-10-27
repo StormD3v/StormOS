@@ -4,6 +4,7 @@ import { useReducedMotion, motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { LetterGlowSweep } from '@/components/ui/letter-glow-sweep';
 import { MobileBackground } from '@/components/ui/mobile-background';
+import Image from 'next/image';
 
 const entrance = (delay: number) => ({
   initial: { opacity: 0, y: 20 },
@@ -27,8 +28,26 @@ export function Hero() {
       {/* Solid dark background fallback */}
       <div className="absolute inset-0 bg-neutral-950 -z-30 sm:hidden" />
 
+      {/* Desktop background image - wide hero background */}
+      <div className="hidden sm:block absolute inset-0 pointer-events-none -z-20">
+        <Image
+          src="/images/hero-desktop.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover object-center pointer-events-none"
+          style={{
+            maskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
+          }}
+        />
+      </div>
+
       {/* Mobile background image with seamless blending */}
-      <MobileBackground src="/images/hero-mobile.webp" objectPosition="bottom" priority />
+      <div className="sm:hidden">
+        <MobileBackground src="/images/hero-mobile.webp" objectPosition="bottom" priority />
+      </div>
 
       {/* Ambient glow — near-invisible purple atmosphere */}
       <div
@@ -43,6 +62,14 @@ export function Hero() {
           className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"
           style={{
             background: 'radial-gradient(closest-side, rgba(7,6,11,0.65) 0%, transparent 100%)',
+          }}
+          aria-hidden="true"
+        />
+        {/* Dark radial scrim behind text block on desktop */}
+        <div
+          className="hidden sm:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] pointer-events-none -z-10"
+          style={{
+            background: 'radial-gradient(ellipse at center, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.35) 45%, transparent 75%)',
           }}
           aria-hidden="true"
         />
@@ -63,7 +90,7 @@ export function Hero() {
           <span className="text-neutral-200 sm:hidden" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}>
             Long-term ideas, designed and built inside Storm-OS.
           </span>
-          <span className="hidden sm:block text-neutral-400">
+          <span className="hidden sm:block text-neutral-400" style={{ textShadow: '0 2px 16px rgba(0,0,0,0.8)' }}>
             Long-term ideas, designed and built inside Storm-OS.
           </span>
         </motion.p>
