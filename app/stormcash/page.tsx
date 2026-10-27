@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function StormCashPage() {
   return (
-    <PageWrapper mobileBackground="/images/inner-code.webp">
+    <PageWrapper mobileBackground="/images/wallpaper-stormcash.webp">
       <StormCashPageClient />
     </PageWrapper>
   );

@@ -30,7 +30,7 @@ export function Contact() {
       <div className="absolute inset-0 bg-neutral-950 -z-30" />
 
       {/* Mobile background image */}
-      <MobileBackground src="/images/inner-code.webp" effects="none" />
+      <MobileBackground src="/images/wallpaper-contact.webp" effects="none" />
 
       {/* Soft dark radial gradient behind content on mobile */}
       <div
