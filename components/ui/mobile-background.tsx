@@ -94,7 +94,7 @@ export function MobileBackground({ src, objectPosition = 'center', effects = 'no
         style={{
           maskImage: 'linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)',
           WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)',
-          animation: 'breathe 24s ease-in-out infinite',
+          animation: 'breathe 16s ease-in-out infinite',
         }}
       />
 
@@ -148,7 +148,7 @@ export function MobileBackground({ src, objectPosition = 'center', effects = 'no
             transform: scale(1);
           }
           50% {
-            transform: scale(1.04);
+            transform: scale(1.09);
           }
         }
         @keyframes waterfallShimmer {

@@ -10,7 +10,12 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <PageWrapper mobileBackground="/images/wallpaper-identity.webp">
+    <PageWrapper mobileBackgrounds={[
+      '/images/wallpaper-identity.webp',
+      '/images/inner-code.webp',
+      '/images/wallpaper-stormcash.webp',
+      '/images/wallpaper-contact.webp',
+    ]}>
       <AboutPageContent />
     </PageWrapper>
   );

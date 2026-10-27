@@ -10,7 +10,12 @@ export const metadata: Metadata = {
 
 export default function LumiCastPage() {
     return (
-        <PageWrapper mobileBackground="/images/wallpaper-lumicast.webp">
+        <PageWrapper mobileBackgrounds={[
+            '/images/wallpaper-lumicast.webp',
+            '/images/descent-projects.webp',
+            '/images/hollow-world.webp',
+            '/images/wallpaper-stormcash.webp',
+        ]}>
             <LumiCastPageClient />
         </PageWrapper>
     );

@@ -1,18 +1,21 @@
 'use client';
 
-import { ReactNode, useEffect, useRef } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Navigation } from './navigation';
 import { Footer } from './footer';
 
 interface PageWrapperProps {
   children: ReactNode;
-  mobileBackground?: string;
+  mobileBackgrounds?: string[];
 }
 
-export function PageWrapper({ children, mobileBackground }: PageWrapperProps) {
+export function PageWrapper({ children, mobileBackgrounds }: PageWrapperProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useRef(false);
+  const [tileCount, setTileCount] = useState(2);
+  const parallaxRef = useRef<number | null>(null);
+  const parallaxContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     reducedMotion.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -32,38 +35,105 @@ export function PageWrapper({ children, mobileBackground }: PageWrapperProps) {
     return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
   }, []);
 
+  // Calculate tile count based on page height
+  useEffect(() => {
+    if (!mobileBackgrounds || mobileBackgrounds.length === 0) return;
+
+    const updateTileCount = () => {
+      const pageHeight = document.documentElement.scrollHeight;
+      const vh = window.innerHeight;
+      const tilesNeeded = Math.ceil(pageHeight / (vh * 0.9)) + 1;
+      setTileCount(Math.max(tilesNeeded, 2));
+    };
+
+    const resizeObserver = new ResizeObserver(() => {
+      updateTileCount();
+    });
+
+    resizeObserver.observe(document.body);
+    updateTileCount();
+
+    return () => resizeObserver.disconnect();
+  }, [mobileBackgrounds]);
+
+  // Parallax effect for inner pages
+  useEffect(() => {
+    if (!mobileBackgrounds || mobileBackgrounds.length === 0 || reducedMotion.current || !parallaxContainerRef.current) return;
+
+    let ticking = false;
+
+    const updateParallax = () => {
+      const scrollY = window.scrollY;
+      if (parallaxContainerRef.current) {
+        parallaxContainerRef.current.style.transform = `translateY(${scrollY * 0.15}px)`;
+      }
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateParallax);
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [mobileBackgrounds]);
+
   return (
     <div className="min-h-screen flex flex-col relative isolate overflow-x-clip">
-      {mobileBackground && (
+      {mobileBackgrounds && mobileBackgrounds.length > 0 && (
         <>
           {/* Solid dark fallback */}
           <div className="fixed inset-0 z-0 bg-neutral-950" />
-          {/* Fixed full-screen wallpaper with dark tint and living effects - only for inner pages */}
+          {/* Tiled wallpaper stack for inner pages - mobile only */}
           <div
-            ref={containerRef}
-            className="fixed inset-0 sm:hidden z-0 overflow-hidden"
-            style={{ animationPlayState: 'paused' }}
+            ref={parallaxContainerRef}
+            className="absolute inset-0 sm:hidden z-0 overflow-hidden"
           >
-            <Image
-              src={mobileBackground}
-              alt=""
-              aria-hidden="true"
-              fill
-              sizes="100vw"
-              className="object-cover object-center pointer-events-none"
-              style={{ animation: 'breathe 28s ease-in-out infinite' }}
-            />
+            <div className="absolute inset-0">
+              {Array.from({ length: tileCount }).map((_, i) => {
+                const imageIndex = i % mobileBackgrounds.length;
+                const imageSrc = mobileBackgrounds[imageIndex];
+                return (
+                  <div
+                    key={i}
+                    className="absolute left-0 right-0"
+                    style={{
+                      top: `${i * 100}svh`,
+                      height: '100svh',
+                    }}
+                  >
+                    <Image
+                      src={imageSrc}
+                      alt=""
+                      aria-hidden="true"
+                      fill
+                      sizes="100vw"
+                      className="object-cover object-center pointer-events-none"
+                      style={{
+                        maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+                        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+                        animation: reducedMotion.current ? 'none' : `breathe 20s ease-in-out infinite`,
+                        animationDelay: `${i * 2}s`,
+                      }}
+                    />
+                  </div>
+                );
+              })}
+            </div>
             {/* Light dark tint */}
             <div className="absolute inset-0 bg-neutral-950/25" aria-hidden="true" />
-            {/* Drifting light dots */}
-            {!reducedMotion.current && Array.from({ length: 12 }).map((_, i) => (
+            {/* Drifting light dots - reduced to 6 and dimmer */}
+            {!reducedMotion.current && Array.from({ length: 6 }).map((_, i) => (
               <div
                 key={i}
                 className="absolute rounded-full blur-sm"
                 style={{
                   width: `${2 + Math.random() * 2}px`,
                   height: `${2 + Math.random() * 2}px`,
-                  background: i % 3 === 0 ? 'rgba(191,90,242,0.6)' : i % 3 === 1 ? 'rgba(10,132,255,0.6)' : 'rgba(251,191,36,0.6)',
+                  background: i % 3 === 0 ? 'rgba(191,90,242,0.3)' : i % 3 === 1 ? 'rgba(10,132,255,0.3)' : 'rgba(251,191,36,0.3)',
                   bottom: `${10 + Math.random() * 40}%`,
                   left: `${5 + Math.random() * 25}%`,
                   animation: `drift ${12 + Math.random() * 8}s ease-out infinite`,
@@ -72,42 +142,23 @@ export function PageWrapper({ children, mobileBackground }: PageWrapperProps) {
                 aria-hidden="true"
               />
             ))}
-            {/* Light sweep */}
-            {!reducedMotion.current && (
-              <div
-                className="absolute inset-0 mix-blend-screen"
-                style={{
-                  background: 'linear-gradient(135deg, transparent 0%, rgba(191,90,242,0.12) 50%, transparent 100%)',
-                  animation: 'sweep 18s ease-in-out infinite',
-                }}
-                aria-hidden="true"
-              />
-            )}
             <style jsx global>{`
               @keyframes breathe {
                 0%, 100% {
                   transform: scale(1);
                 }
                 50% {
-                  transform: scale(1.05);
+                  transform: scale(1.06);
                 }
               }
               @keyframes drift {
                 0% {
                   transform: translateY(0) scale(1);
-                  opacity: 0.6;
+                  opacity: 0.3;
                 }
                 100% {
                   transform: translateY(-150px) scale(0.5);
                   opacity: 0;
-                }
-              }
-              @keyframes sweep {
-                0% {
-                  transform: translateX(-100%) translateY(-100%);
-                }
-                100% {
-                  transform: translateX(100%) translateY(100%);
                 }
               }
             `}</style>

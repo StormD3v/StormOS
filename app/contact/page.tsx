@@ -9,7 +9,12 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <PageWrapper mobileBackground="/images/wallpaper-contact.webp">
+    <PageWrapper mobileBackgrounds={[
+      '/images/wallpaper-contact.webp',
+      '/images/wallpaper-identity.webp',
+      '/images/inner-code.webp',
+      '/images/wallpaper-lumicast.webp',
+    ]}>
       <ContactPageContent />
     </PageWrapper>
   );

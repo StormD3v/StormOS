@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import { ScrollProgress } from '@/components/ui/scroll-progress';
+import { ScrollController } from '@/components/ui/scroll-controller';
 import '@/styles/globals.css';
 
 const inter = Inter({
@@ -66,6 +67,7 @@ export default function RootLayout({
     <html lang="en" className="dark" style={{ overscrollBehaviorY: 'none', backgroundColor: '#0a0a0a', overflowX: 'clip', maxWidth: '100%' }}>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`} style={{ overscrollBehaviorY: 'none', backgroundColor: '#0a0a0a', overflowX: 'clip', maxWidth: '100%' }}>
         <ScrollProgress />
+        <ScrollController />
         {children}
       </body>
     </html>
