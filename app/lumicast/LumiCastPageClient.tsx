@@ -25,7 +25,6 @@ export function LumiCastPageClient() {
         <>
             {/* Hero */}
             <section className="relative pt-10 sm:pt-40 pb-32 px-6 overflow-hidden">
-                <div className="absolute inset-0 bg-neutral-950 -z-20 sm:hidden" />
                 <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/12 via-accent-purple/3 to-transparent -z-10" />
                 <motion.div
                     className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-accent-purple/8 rounded-full blur-3xl -z-10"
@@ -46,7 +45,7 @@ export function LumiCastPageClient() {
                         />
                         <motion.p
                             {...reveal(0)}
-                            className="text-xs font-semibold tracking-widest uppercase text-accent-purple/70 mb-8"
+                            className="text-xs font-semibold tracking-widest uppercase text-accent-purple/70 mb-8 max-sm:text-accent-purple/60 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]"
                         >
                             Available Now
                         </motion.p>
@@ -57,10 +56,10 @@ export function LumiCastPageClient() {
                             LumiCast
                         </motion.h1>
                         <motion.div {...reveal(0.16)} className="space-y-5">
-                            <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                            <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                                 Weather, translated into decisions.
                             </p>
-                            <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                            <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                                 Not raw data. Not a radar map. Just what you actually need to know
                                 before you leave the house.
                             </p>
@@ -72,23 +71,31 @@ export function LumiCastPageClient() {
             {/* What it is */}
             <section className="py-32 px-6">
                 <Container>
-                    <div className="max-w-2xl">
-                        <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 sm:text-neutral-300 mb-10 flex items-center gap-3">
+                    <div className="max-w-2xl relative">
+                        {/* Soft dark radial gradient behind content on mobile */}
+                        <div
+                            className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"
+                            style={{
+                                background: 'radial-gradient(closest-side, rgba(7,6,11,0.55) 0%, transparent 100%)',
+                            }}
+                            aria-hidden="true"
+                        />
+                        <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 sm:text-neutral-300 mb-10 flex items-center gap-3 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                             <span className="w-8 h-px bg-accent-purple/50"></span>
                             <span>What it is</span>
                         </motion.p>
                         <motion.div {...inView(0.1)} className="space-y-6">
-                            <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                            <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                                 LumiCast is a weather application built around one question: what
                                 should I actually do today?
                             </p>
-                            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                                 Most weather apps present information. LumiCast presents decisions.
                                 It takes the forecast and translates it into plain language — carry an
                                 umbrella, leave early, skip the run. The kind of guidance you used to
                                 get from someone who had already checked.
                             </p>
-                            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                                 The interface is clean by design. No radar loops, no hourly graphs,
                                 no probability percentages. Just the day ahead, clearly stated.
                             </p>
@@ -100,22 +107,30 @@ export function LumiCastPageClient() {
             {/* Why it exists */}
             <section className="py-32 px-6">
                 <Container>
-                    <div className="max-w-2xl">
-                        <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 sm:text-neutral-300 mb-10 flex items-center gap-3">
+                    <div className="max-w-2xl relative">
+                        {/* Soft dark radial gradient behind content on mobile */}
+                        <div
+                            className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"
+                            style={{
+                                background: 'radial-gradient(closest-side, rgba(7,6,11,0.55) 0%, transparent 100%)',
+                            }}
+                            aria-hidden="true"
+                        />
+                        <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 sm:text-neutral-300 mb-10 flex items-center gap-3 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                             <span className="w-8 h-px bg-accent-purple/50"></span>
                             <span>Why it exists</span>
                         </motion.p>
                         <motion.div {...inView(0.1)} className="space-y-6">
-                            <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                            <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                                 Weather data is abundant. Useful weather communication is not.
                             </p>
-                            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                                 The gap between knowing the forecast and knowing what to do about it
                                 is surprisingly wide. LumiCast was built to close that gap — not by
                                 adding more data, but by doing the interpretation work upfront so
                                 you do not have to.
                             </p>
-                            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                                 It is also a proof of concept for a broader idea: that software can
                                 be genuinely helpful without being complicated. LumiCast is small,
                                 focused, and finished.
@@ -128,22 +143,30 @@ export function LumiCastPageClient() {
             {/* Where it is going */}
             <section className="py-32 px-6">
                 <Container>
-                    <div className="max-w-2xl">
-                        <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 sm:text-neutral-300 mb-10 flex items-center gap-3">
+                    <div className="max-w-2xl relative">
+                        {/* Soft dark radial gradient behind content on mobile */}
+                        <div
+                            className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"
+                            style={{
+                                background: 'radial-gradient(closest-side, rgba(7,6,11,0.55) 0%, transparent 100%)',
+                            }}
+                            aria-hidden="true"
+                        />
+                        <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 sm:text-neutral-300 mb-10 flex items-center gap-3 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                             <span className="w-8 h-px bg-accent-purple/50"></span>
                             <span>Where it is going</span>
                         </motion.p>
                         <motion.div {...inView(0.1)} className="space-y-6">
-                            <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                            <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                                 LumiCast is live and working. It is not under heavy active development
                                 right now. Most of the current focus is on WorldForge.
                             </p>
-                            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                                 That said, the core idea has room to grow. Location-aware defaults,
                                 smarter decision framing, a cleaner mobile experience. None of these
                                 are imminent. They will happen when the time is right.
                             </p>
-                            <p className="text-neutral-400 leading-relaxed sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                            <p className="text-neutral-400 leading-relaxed sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                                 For now, it does what it was built to do.
                             </p>
                         </motion.div>
@@ -155,11 +178,19 @@ export function LumiCastPageClient() {
             <section className="relative py-36 px-6 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/8 via-transparent to-transparent -z-10" aria-hidden="true" />
                 <Container>
-                    <div className="max-w-xl">
+                    <div className="max-w-xl relative">
+                        {/* Soft dark radial gradient behind content on mobile */}
+                        <div
+                            className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"
+                            style={{
+                                background: 'radial-gradient(closest-side, rgba(7,6,11,0.55) 0%, transparent 100%)',
+                            }}
+                            aria-hidden="true"
+                        />
                         <motion.h2 {...inView()} className="text-4xl md:text-5xl font-bold text-accent-purple mb-6 leading-tight">
                             Launch LumiCast
                         </motion.h2>
-                        <motion.p {...inView(0.1)} className="text-neutral-400 leading-relaxed text-pretty mb-12 sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                        <motion.p {...inView(0.1)} className="text-neutral-400 leading-relaxed text-pretty mb-12 sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                             The application is live. See what the day is actually asking of you.
                         </motion.p>
                         <motion.div {...inView(0.2)}>

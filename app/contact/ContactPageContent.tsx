@@ -35,14 +35,14 @@ export function ContactPageContent() {
                 <div
                     className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"
                     style={{
-                        background: 'radial-gradient(closest-side, rgba(7,6,11,0.6) 0%, transparent 100%)',
+                        background: 'radial-gradient(closest-side, rgba(7,6,11,0.55) 0%, transparent 100%)',
                     }}
                     aria-hidden="true"
                 />
                 {/* Page label */}
                 <motion.p
                     {...reveal(0)}
-                    className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500 mb-10"
+                    className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500 mb-10 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]"
                 >
                     Contact
                 </motion.p>
@@ -57,7 +57,7 @@ export function ContactPageContent() {
 
             {/* Framing — an invitation, not a pitch */}
             <motion.div {...reveal(0.1)} className="mb-16 max-w-lg space-y-4">
-                <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                     If something here is worth a conversation, start one.
                 </p>
             </motion.div>
@@ -75,7 +75,7 @@ export function ContactPageContent() {
                     <div
                         className="absolute inset-0 sm:hidden -z-10"
                         style={{
-                            background: 'radial-gradient(closest-side, rgba(7,6,11,0.65) 0%, transparent 100%)',
+                            background: 'radial-gradient(closest-side, rgba(7,6,11,0.55) 0%, transparent 100%)',
                         }}
                         aria-hidden="true"
                     />

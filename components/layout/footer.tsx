@@ -32,10 +32,8 @@ export function Footer({ className }: FooterProps) {
   return (
     <footer
       role="contentinfo"
-      className={cn('bg-neutral-950 border-t border-neutral-800/60', className)}
+      className={cn('bg-neutral-950/80 backdrop-blur-sm sm:bg-neutral-950 sm:backdrop-blur-none border-t border-neutral-800/60', className)}
     >
-      {/* Mobile backdrop blur wrapper */}
-      <div className="absolute inset-0 sm:hidden -z-20 bg-neutral-950/80 backdrop-blur-sm" aria-hidden="true" />
       <div className="mx-auto px-6 sm:px-8 lg:px-10 max-w-7xl py-14 pb-8 relative">
         {/* Soft dark gradient behind footer text on mobile */}
         <div

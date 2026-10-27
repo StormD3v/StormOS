@@ -36,7 +36,7 @@ export function AboutPageContent() {
                 <div
                     className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"
                     style={{
-                        background: 'radial-gradient(closest-side, rgba(7,6,11,0.6) 0%, transparent 100%)',
+                        background: 'radial-gradient(closest-side, rgba(7,6,11,0.55) 0%, transparent 100%)',
                     }}
                     aria-hidden="true"
                 />
@@ -53,11 +53,12 @@ export function AboutPageContent() {
                 <motion.div {...reveal(0.04)} className="mb-12">
                     <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border border-neutral-800">
                         <Image
-                            src="/images/friday-gift-azunda.jpg"
+                            src="/images/friday-gift-azunda-v2.jpg"
                             alt="Portrait of Friday Gift Chinechenum Azunda, known online as StormD3v"
                             width={176}
                             height={176}
-                            className="w-full h-full object-cover object-top"
+                            className="w-full h-full object-cover"
+                            style={{ objectPosition: '50% 82%' }}
                             priority
                         />
                     </div>
@@ -73,15 +74,15 @@ export function AboutPageContent() {
 
                 {/* Identity — person first, alias second, philosophy third */}
                 <motion.div {...reveal(0.1)} className="space-y-6 mb-16">
-                    <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                    <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                         Known online as StormD3v.
                     </p>
-                    <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                    <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                         Storm-OS is the personal environment through which long-term ideas are designed,
                         built and maintained. Some ideas cannot be rushed without losing what makes them
                         worth building. Storm-OS is the framework that makes patience possible.
                     </p>
-                    <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                    <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                         WorldForge, LumiCast, and StormCash are the active projects within that environment.
                         Future work appears when it is ready, not before.
                     </p>
@@ -89,13 +90,13 @@ export function AboutPageContent() {
 
                 {/* Right now */}
                 <motion.div {...reveal(0.18)} className="pt-12 space-y-6 mb-16">
-                    <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500">
+                    <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                         Right now
                     </p>
-                    <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                    <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                         Most of the current focus is on WorldForge.
                     </p>
-                    <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                    <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                         It is a long-running project, the kind that cannot be rushed without losing
                         what makes it worth building. When it is ready, it will feel that way.
                     </p>

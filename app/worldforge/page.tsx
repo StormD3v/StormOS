@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function WorldForgePage() {
   return (
-    <PageWrapper>
+    <PageWrapper mobileBackground="/images/wallpaper-worldforge.webp">
       <WorldForgePageClient />
     </PageWrapper>
   );

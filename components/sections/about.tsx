@@ -65,11 +65,12 @@ export function About() {
           >
             <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-neutral-800">
               <Image
-                src="/images/friday-gift-azunda.jpg"
+                src="/images/friday-gift-azunda-v2.jpg"
                 alt="Portrait of Friday Gift Chinechenum Azunda, known online as StormD3v"
                 width={128}
                 height={128}
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: '50% 82%' }}
                 priority
               />
             </div>
