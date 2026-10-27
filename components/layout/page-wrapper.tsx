@@ -4,13 +4,15 @@ import { ReactNode, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Navigation } from './navigation';
 import { Footer } from './footer';
+import { DesktopBackground } from '@/components/ui/desktop-background';
 
 interface PageWrapperProps {
   children: ReactNode;
   mobileBackgrounds?: string[];
+  enableDesktopBackground?: boolean;
 }
 
-export function PageWrapper({ children, mobileBackgrounds }: PageWrapperProps) {
+export function PageWrapper({ children, mobileBackgrounds, enableDesktopBackground }: PageWrapperProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useRef(false);
   const [tileCount, setTileCount] = useState(2);
@@ -62,7 +64,7 @@ export function PageWrapper({ children, mobileBackgrounds }: PageWrapperProps) {
       {mobileBackgrounds && mobileBackgrounds.length > 0 && (
         <>
           {/* Solid dark fallback */}
-          <div className="fixed inset-0 z-0 bg-neutral-950" />
+          <div className="fixed inset-0 z-0 bg-neutral-950 sm:hidden" />
           {/* Tiled wallpaper stack container - positioned absolutely to not affect document height */}
           <div className="absolute top-0 left-0 right-0 bottom-0 sm:hidden z-0 overflow-hidden pointer-events-none">
             <div className="absolute inset-0">
@@ -138,6 +140,7 @@ export function PageWrapper({ children, mobileBackgrounds }: PageWrapperProps) {
           </div>
         </>
       )}
+      {enableDesktopBackground && <DesktopBackground />}
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-neutral-100 focus:text-neutral-950 focus:rounded-md focus:text-sm focus:font-medium"

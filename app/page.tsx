@@ -13,7 +13,7 @@ export default function HomePage() {
           The homepage already exists beneath it — the overlay introduces the space,
           then lifts. No blocking. No loading screen. */}
       <ArrivalOverlay />
-      <PageWrapper>
+      <PageWrapper enableDesktopBackground>
         <div className="overflow-x-clip">
           <Hero />
           <Building />

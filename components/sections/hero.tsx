@@ -25,7 +25,7 @@ export function Hero() {
       aria-labelledby="hero-headline"
     >
       {/* Solid dark background fallback */}
-      <div className="absolute inset-0 bg-neutral-950 -z-30" />
+      <div className="absolute inset-0 bg-neutral-950 -z-30 sm:hidden" />
 
       {/* Mobile background image with seamless blending */}
       <MobileBackground src="/images/hero-mobile.webp" objectPosition="bottom" priority />

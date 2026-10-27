@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function WorldForgePage() {
   return (
-    <PageWrapper mobileBackgrounds={[
+    <PageWrapper enableDesktopBackground mobileBackgrounds={[
       '/images/wallpaper-worldforge.webp',
       '/images/hollow-world.webp',
       '/images/descent-projects.webp',
