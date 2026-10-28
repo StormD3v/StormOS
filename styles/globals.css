@@ -174,4 +174,58 @@
   .text-pretty {
     text-wrap: pretty;
   }
+
+  /* Orbiting light hover effect - desktop only */
+  @property --orbit-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  @media (hover: hover) and (min-width: 640px) {
+    @media (prefers-reduced-motion: no-preference) {
+      .hover-orbit {
+        position: relative;
+        isolation: isolate;
+      }
+
+      .hover-orbit::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        padding: 3px;
+        border-radius: inherit;
+        z-index: 20;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 200ms ease;
+        background: conic-gradient(
+          from var(--orbit-angle),
+          transparent 0deg,
+          transparent 250deg,
+          rgba(191, 90, 242, 0.3) 300deg,
+          rgba(220, 150, 255, 1) 355deg,
+          transparent 360deg
+        );
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask-composite: exclude;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        filter: drop-shadow(0 0 6px rgba(191, 90, 242, 0.9));
+        animation: orbit 3s linear infinite;
+        animation-play-state: paused;
+      }
+
+      .hover-orbit:hover::before {
+        opacity: 1;
+        animation-play-state: running;
+      }
+
+      @keyframes orbit {
+        to {
+          --orbit-angle: 360deg;
+        }
+      }
+    }
+  }
 }

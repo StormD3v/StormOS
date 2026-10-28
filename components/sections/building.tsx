@@ -177,7 +177,7 @@ function FlagshipCard({ project }: { project: typeof projects[0] }) {
             className={cn(
                 'group relative h-full min-h-[260px] sm:min-h-[360px] rounded-2xl bg-neutral-900 max-sm:bg-white/[0.06] max-sm:backdrop-blur-md',
                 'border border-accent-purple/20 max-sm:border-white/15 p-8 overflow-hidden',
-                isNavigable && 'transition-all duration-300 group-hover:border-accent-purple/50 group-hover:-translate-y-1 group-hover:shadow-[0_0_40px_rgba(191,90,242,0.10)] sm:group-hover:shadow-[0_0_50px_rgba(191,90,242,0.15)]'
+                isNavigable && 'transition-all duration-300 group-hover:border-accent-purple/50 group-hover:-translate-y-1 group-hover:shadow-[0_0_40px_rgba(191,90,242,0.10)] sm:group-hover:shadow-[0_0_50px_rgba(191,90,242,0.15)] hover-orbit'
             )}
         >
             {/* Ambient purple atmosphere (mobile only) */}
@@ -263,7 +263,7 @@ function SecondaryCard({
         <div
             className={cn(
                 'group relative h-full min-h-[140px] rounded-2xl bg-neutral-900 max-sm:bg-white/[0.06] max-sm:backdrop-blur-md border border-neutral-800 max-sm:border-white/15 p-7 overflow-hidden',
-                navigable && 'transition-all duration-300 group-hover:border-accent-purple/40 group-hover:-translate-y-0.5 group-hover:shadow-[0_0_30px_rgba(191,90,242,0.08)]'
+                navigable && 'transition-all duration-300 group-hover:border-accent-purple/40 group-hover:-translate-y-0.5 group-hover:shadow-[0_0_30px_rgba(191,90,242,0.08)] hover-orbit'
             )}
             role={navigable ? undefined : 'article'}
         >
