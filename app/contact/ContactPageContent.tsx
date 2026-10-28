@@ -6,6 +6,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 import { SiDiscord } from 'react-icons/si';
 import { Container } from '@/components/layout/container';
 import { ContactForm } from '@/components/sections/contact-form';
+import { DesktopPageHero } from '@/components/ui/desktop-page-hero';
 import { CONTACT_EMAIL } from '@/lib/constants';
 import { socialLinks } from '@/content/social-links';
 
@@ -29,7 +30,9 @@ const reveal = (delay: number) => ({
 
 export function ContactPageContent() {
     return (
-        <Container className="py-10 sm:py-32 px-6">
+        <>
+            <DesktopPageHero src="/images/contact-desktop.webp" />
+            <Container className="py-10 sm:py-32 px-6">
             <div className="max-w-2xl relative">
                 {/* Soft dark radial gradient behind content on mobile */}
                 <div
@@ -137,5 +140,6 @@ export function ContactPageContent() {
             </motion.div>
             </div>
         </Container>
+        </>
     );
 }

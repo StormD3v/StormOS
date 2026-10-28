@@ -6,6 +6,7 @@ import { Container } from '@/components/layout/container';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Github, ExternalLink } from 'lucide-react';
+import { DesktopPageHero } from '@/components/ui/desktop-page-hero';
 
 const reveal = (delay: number) => ({
   initial: { opacity: 0, y: 24 },
@@ -33,10 +34,11 @@ export function StormCashPageClient() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-10 sm:pt-40 pb-32 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/12 via-accent-purple/3 to-transparent -z-10" />
+      <section className="relative pt-10 sm:pt-40 pb-32 px-6 sm:overflow-visible overflow-hidden">
+        <DesktopPageHero src="/images/stormcash-desktop.webp" />
+        <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/12 via-accent-purple/3 to-transparent -z-10 sm:bg-transparent" />
         <motion.div
-          className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-accent-purple/8 rounded-full blur-3xl -z-10"
+          className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-accent-purple/8 rounded-full blur-3xl -z-10 sm:hidden"
           initial={{ opacity: 0.3 }}
           animate={reducedMotion ? { opacity: 0.3 } : { opacity: [0.3, 0.5, 0.3] }}
           transition={reducedMotion ? {} : { duration: 12, repeat: Infinity, ease: 'easeInOut' }}

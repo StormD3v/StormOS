@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Navigation } from './navigation';
 import { Footer } from './footer';
 import { DesktopBackground } from '@/components/ui/desktop-background';
+import { MobileBackground } from '@/components/ui/mobile-background';
 
 interface PageWrapperProps {
   children: ReactNode;
@@ -137,6 +138,27 @@ export function PageWrapper({ children, mobileBackgrounds, enableDesktopBackgrou
                 }
               }
             `}</style>
+          </div>
+          {/* Desktop tiled wallpaper stack using MobileBackground component */}
+          <div className="hidden sm:block absolute top-0 left-0 right-0 bottom-0 overflow-hidden pointer-events-none" style={{ zIndex: -20 }}>
+            {Array.from({ length: tileCount }).map((_, i) => {
+              if (i === 0) return null; // Skip first tile (covered by DesktopPageHero)
+              const imageIndex = i % mobileBackgrounds.length;
+              const imageSrc = mobileBackgrounds[imageIndex];
+              const effects = i % 2 === 1 ? 'embers' : 'none';
+              return (
+                <div
+                  key={`desktop-${i}`}
+                  className="absolute left-0 right-0"
+                  style={{
+                    top: `${i * 100 - 40}svh`,
+                    height: '140svh',
+                  }}
+                >
+                  <MobileBackground src={imageSrc} effects={effects} extend />
+                </div>
+              );
+            })}
           </div>
         </>
       )}
