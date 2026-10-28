@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Container } from '@/components/layout/container';
 import { ArrowUpRight } from 'lucide-react';
@@ -174,16 +175,40 @@ function FlagshipCard({ project }: { project: typeof projects[0] }) {
     return (
         <div
             className={cn(
-                'group relative h-full min-h-[260px] rounded-2xl bg-neutral-900',
+                'group relative h-full min-h-[260px] sm:min-h-[360px] rounded-2xl bg-neutral-900',
                 'border border-accent-purple/20 p-8 overflow-hidden',
-                isNavigable && 'transition-all duration-300 group-hover:border-accent-purple/50 group-hover:-translate-y-1 group-hover:shadow-[0_0_40px_rgba(191,90,242,0.10)]'
+                isNavigable && 'transition-all duration-300 group-hover:border-accent-purple/50 group-hover:-translate-y-1 group-hover:shadow-[0_0_40px_rgba(191,90,242,0.10)] sm:group-hover:shadow-[0_0_50px_rgba(191,90,242,0.15)]'
             )}
         >
-            {/* Ambient purple atmosphere */}
+            {/* Ambient purple atmosphere (mobile only) */}
             <div
-                className="absolute inset-0 bg-gradient-to-br from-accent-purple/8 via-transparent to-transparent pointer-events-none"
+                className="absolute inset-0 bg-gradient-to-br from-accent-purple/8 via-transparent to-transparent pointer-events-none sm:hidden"
                 aria-hidden="true"
             />
+
+            {/* Desktop background image */}
+            <div className="hidden sm:block absolute inset-0 overflow-hidden pointer-events-none">
+                <div
+                    className="absolute inset-0 transition-transform duration-500 sm:group-hover:scale-[1.03] motion-reduce:transform-none"
+                >
+                    <Image
+                        src="/images/wallpaper-worldforge.webp"
+                        alt=""
+                        fill
+                        sizes="100%"
+                        className="object-cover opacity-70"
+                        aria-hidden="true"
+                    />
+                </div>
+                {/* Bottom-only dark gradient for text readability */}
+                <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                        background: 'linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.4) 45%, rgba(10,10,10,0) 100%)',
+                    }}
+                    aria-hidden="true"
+                />
+            </div>
 
             <div className="relative flex flex-col h-full">
                 <div className="flex items-start justify-between mb-6">
@@ -209,7 +234,7 @@ function FlagshipCard({ project }: { project: typeof projects[0] }) {
                     {project.displayName ?? project.title}
                 </h3>
 
-                <p className="text-neutral-400 text-base leading-relaxed max-w-md mt-auto sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                <p className="text-neutral-400 text-base leading-relaxed max-w-md mt-auto sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)] sm:text-lg">
                     {project.description}
                 </p>
             </div>
@@ -227,38 +252,73 @@ function SecondaryCard({
     badge: ReturnType<typeof getStatusBadge>;
     navigable: boolean;
 }) {
+    // Map project ID to wallpaper image
+    const wallpaperMap: Record<string, string> = {
+        lumicast: '/images/wallpaper-lumicast.webp',
+        stormcash: '/images/wallpaper-stormcash.webp',
+    };
+    const wallpaperSrc = wallpaperMap[project.id];
+
     return (
         <div
             className={cn(
-                'group h-full min-h-[140px] rounded-2xl bg-neutral-900 border border-neutral-800 p-7',
-                navigable && 'transition-all duration-300 group-hover:border-accent-purple/40 group-hover:-translate-y-0.5'
+                'group relative h-full min-h-[140px] rounded-2xl bg-neutral-900 border border-neutral-800 p-7 overflow-hidden',
+                navigable && 'transition-all duration-300 group-hover:border-accent-purple/40 group-hover:-translate-y-0.5 group-hover:shadow-[0_0_30px_rgba(191,90,242,0.08)]'
             )}
             role={navigable ? undefined : 'article'}
         >
-            <div className="mb-5 flex items-center justify-between">
-                <span
-                    className={cn(
-                        'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium',
-                        badge.className
-                    )}
-                    role="status"
-                >
-                    {badge.label}
-                </span>
-                {navigable && (
-                    <ArrowUpRight
-                        size={16}
-                        className="text-neutral-600 group-hover:text-accent-purple transition-colors duration-200"
+            {/* Desktop background image */}
+            {wallpaperSrc && (
+                <div className="hidden sm:block absolute inset-0 overflow-hidden pointer-events-none">
+                    <div
+                        className="absolute inset-0 transition-transform duration-500 sm:group-hover:scale-[1.03] motion-reduce:transform-none"
+                    >
+                        <Image
+                            src={wallpaperSrc}
+                            alt=""
+                            fill
+                            sizes="100%"
+                            className="object-cover opacity-20"
+                            aria-hidden="true"
+                        />
+                    </div>
+                    {/* Left-to-right dark gradient for text readability */}
+                    <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                            background: 'linear-gradient(to right, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.5) 50%, rgba(10,10,10,0.25) 100%)',
+                        }}
                         aria-hidden="true"
                     />
-                )}
+                </div>
+            )}
+
+            <div className="relative">
+                <div className="mb-5 flex items-center justify-between">
+                    <span
+                        className={cn(
+                            'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium',
+                            badge.className
+                        )}
+                        role="status"
+                    >
+                        {badge.label}
+                    </span>
+                    {navigable && (
+                        <ArrowUpRight
+                            size={16}
+                            className="text-neutral-600 group-hover:text-accent-purple transition-colors duration-200"
+                            aria-hidden="true"
+                        />
+                    )}
+                </div>
+                <h3 className="text-xl font-semibold text-neutral-100 mb-3">
+                    {project.displayName ?? project.title}
+                </h3>
+                <p className="text-neutral-500 text-sm leading-relaxed sm:text-neutral-500 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                    {project.description}
+                </p>
             </div>
-            <h3 className="text-xl font-semibold text-neutral-100 mb-3">
-                {project.displayName ?? project.title}
-            </h3>
-            <p className="text-neutral-500 text-sm leading-relaxed sm:text-neutral-500 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
-                {project.description}
-            </p>
         </div>
     );
 }
