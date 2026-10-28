@@ -22,14 +22,21 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col px-6 relative"
+      className="min-h-screen flex flex-col px-6 relative sm:overflow-visible"
       aria-labelledby="hero-headline"
     >
       {/* Solid dark background fallback */}
       <div className="absolute inset-0 bg-neutral-950 -z-30 sm:hidden" />
 
       {/* Desktop background image - wide hero background with living animation */}
-      <div className="hidden sm:block absolute inset-0 pointer-events-none -z-20 overflow-hidden">
+      <div
+        className="hidden sm:block absolute inset-0 pointer-events-none -z-20 overflow-hidden"
+        style={{
+          bottom: '-25svh',
+          maskImage: 'linear-gradient(to bottom, transparent 0%, black 8%, black 62%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 8%, black 62%, transparent 100%)',
+        }}
+      >
         <motion.div
           className="absolute inset-0"
           animate={
@@ -57,10 +64,6 @@ export function Hero() {
             sizes="100vw"
             priority
             className="object-cover object-center pointer-events-none"
-            style={{
-              maskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
-            }}
           />
         </motion.div>
       </div>

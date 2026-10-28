@@ -63,7 +63,7 @@ export function Building() {
     return (
         <section id="building" className="py-28 px-6 relative">
             {/* Solid dark background fallback */}
-            <div className="absolute inset-0 bg-neutral-950 -z-30" />
+            <div className="absolute inset-0 bg-neutral-950 -z-30 sm:bg-transparent" />
 
             {/* Mobile background image with seamless blending and effects */}
             <MobileBackground src="/images/descent-projects.webp" effects="none" />

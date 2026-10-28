@@ -98,7 +98,7 @@ export function WorldForgePageClient() {
                             aria-hidden="true"
                         />
                         <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 mb-10 flex items-center gap-3 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
-                            <span className="w-8 h-px bg-accent-purple/50"></span>
+                            <span className="w-8 h-px bg-accent-purple/50 sm:hidden"></span>
                             <span>What it is</span>
                         </motion.p>
                         <motion.div {...inView(0.1)} className="space-y-6">
@@ -126,7 +126,7 @@ export function WorldForgePageClient() {
             </section>
 
             {/* Where it is now */}
-            <section className="py-32 px-6 border-t border-neutral-800/60">
+            <section className="py-32 px-6 border-t border-neutral-800/60 sm:border-t-0">
                 <Container>
                     <div className="max-w-2xl relative">
                         {/* Soft dark radial gradient behind content on mobile */}
@@ -138,7 +138,7 @@ export function WorldForgePageClient() {
                             aria-hidden="true"
                         />
                         <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 mb-10 flex items-center gap-3 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
-                            <span className="w-8 h-px bg-accent-purple/50"></span>
+                            <span className="w-8 h-px bg-accent-purple/50 sm:hidden"></span>
                             <span>Where it is now</span>
                         </motion.p>
                         <motion.div {...inView(0.1)} className="space-y-6">
@@ -167,7 +167,7 @@ export function WorldForgePageClient() {
             {/* Waitlist — The First Crossing */}
             <section
                 id="waitlist"
-                className="relative py-36 px-6 overflow-hidden border-t border-neutral-800/60"
+                className="relative py-36 px-6 overflow-hidden border-t border-neutral-800/60 sm:border-t-0"
             >
                 <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/8 via-transparent to-transparent -z-10" aria-hidden="true" />
                 <Container>
@@ -209,7 +209,7 @@ export function WorldForgePageClient() {
             </section>
 
             {/* Follow development */}
-            <section className="py-32 px-6 border-t border-neutral-800/60">
+            <section className="py-32 px-6 border-t border-neutral-800/60 sm:border-t-0">
                 <Container>
                     <div className="max-w-xl relative">
                         {/* Soft dark radial gradient behind content on mobile */}
@@ -253,7 +253,7 @@ export function WorldForgePageClient() {
             </section>
 
             {/* Enter WorldForge */}
-            <section className="relative py-36 px-6 overflow-hidden border-t border-neutral-800/60">
+            <section className="relative py-36 px-6 overflow-hidden border-t border-neutral-800/60 sm:border-t-0">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/8 via-transparent to-transparent -z-10" aria-hidden="true" />
                 <Container>
                     <div className="max-w-xl relative">
