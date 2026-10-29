@@ -161,7 +161,7 @@ export function StormCashPageClient() {
                 This is a concept demonstrator and portfolio project. It does not move real money and is not a regulated financial service.
               </p>
               <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
-                What works: user authentication, account creation, deposits, withdrawals, cross-user transfers, concurrent transfer safety, double-entry ledger, and real-time settlement UI. The transaction explorer shows blockchain settlement details, but the blockchain itself is simulated.
+                What worked when it was live: user authentication, account creation, deposits, withdrawals, cross-user transfers, concurrent transfer safety, double-entry ledger, and real-time settlement UI. The transaction explorer shows blockchain settlement details, but the blockchain itself is simulated.
               </p>
               <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                 {WHAT_DOESNT_TEXT}
@@ -203,7 +203,7 @@ export function StormCashPageClient() {
                   className="bg-accent-purple hover:bg-accent-purple-dark focus:ring-accent-purple"
                 >
                   <ExternalLink size={18} className="mr-2" />
-                  Create an Account
+                  Open the live app
                 </Button>
               </a>
               <a
@@ -222,6 +222,9 @@ export function StormCashPageClient() {
                 </Button>
               </a>
             </motion.div>
+            <motion.p {...inView(0.25)} className="text-neutral-400 text-sm leading-relaxed mt-4">
+              The backend is offline to save hosting costs, so sign-up won&apos;t work right now. See the code and screenshots on <a href="https://github.com/StormD3v/StormCash" target="_blank" rel="noopener noreferrer" className="text-neutral-300 underline hover:text-neutral-200">GitHub</a>.
+            </motion.p>
           </div>
         </Container>
       </section>
