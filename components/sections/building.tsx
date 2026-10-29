@@ -87,7 +87,7 @@ export function Building() {
                 {/* Section header */}
                 <motion.div {...sectionEntrance} className="mb-10">
                     <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight">
-                        Active Projects
+                        Projects
                     </h2>
                 </motion.div>
 
