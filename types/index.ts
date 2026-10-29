@@ -13,9 +13,10 @@ export interface Project {
     live?: string;
     github?: string;
     demo?: string;
+    external?: string;
   };
   featured: boolean;
-  status: 'completed' | 'in-progress' | 'planned' | 'prototype';
+  status: 'completed' | 'in-progress' | 'planned' | 'prototype' | 'available';
   route?: string;               // Optional navigation route — only set when a dedicated page exists
   startDate?: string;
   endDate?: string;
