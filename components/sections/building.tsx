@@ -81,7 +81,7 @@ export function Building() {
             <Container>
                 {/* Section header */}
                 <motion.div {...sectionEntrance} className="mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 mb-5 leading-tight">
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight">
                         Active Projects
                     </h2>
                     <p className="text-lg text-neutral-500 max-w-xl leading-relaxed sm:text-neutral-500 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
@@ -152,10 +152,10 @@ export function Building() {
                                     }}
                                     aria-hidden="true"
                                 />
-                                <h3 className="text-base font-medium text-neutral-500 sm:text-neutral-500 mb-2 relative z-10 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                                <h3 className="text-lg font-medium text-neutral-200 sm:text-neutral-200 mb-2 relative z-10 max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                                     More coming
                                 </h3>
-                                <p className="text-neutral-600 text-sm leading-relaxed sm:text-neutral-600 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)] relative z-10">
+                                <p className="text-neutral-300 text-base leading-relaxed sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)] relative z-10">
                                     Some things need more time.
                                 </p>
                             </div>
@@ -234,7 +234,7 @@ function FlagshipCard({ project }: { project: typeof projects[0] }) {
                     {project.displayName ?? project.title}
                 </h3>
 
-                <p className="text-neutral-400 text-base leading-relaxed max-w-md mt-auto sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)] sm:text-lg">
+                <p className="text-neutral-200 text-base leading-relaxed max-w-md mt-auto sm:text-neutral-200 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)] sm:text-lg">
                     {project.description}
                 </p>
             </div>
@@ -312,10 +312,10 @@ function SecondaryCard({
                         />
                     )}
                 </div>
-                <h3 className="text-xl font-semibold text-neutral-100 mb-3">
+                <h3 className="text-xl font-bold text-white mb-3">
                     {project.displayName ?? project.title}
                 </h3>
-                <p className="text-neutral-500 text-sm leading-relaxed sm:text-neutral-500 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                <p className="text-neutral-300 text-sm leading-relaxed sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                     {project.description}
                 </p>
             </div>
