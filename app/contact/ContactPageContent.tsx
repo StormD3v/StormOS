@@ -128,7 +128,7 @@ export function ContactPageContent() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label={`View ${link.platform} profile`}
-                                        className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
+                                        className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 hover-ripple"
                                     >
                                         <Icon size={18} aria-hidden="true" />
                                     </a>

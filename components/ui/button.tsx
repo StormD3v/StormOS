@@ -37,6 +37,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           'hover:scale-[1.02] active:scale-[0.98]',
           'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-950',
           'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
+          'hover-ripple',
           variantClasses[variant],
           sizeClasses[size],
           className

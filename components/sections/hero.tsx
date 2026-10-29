@@ -168,7 +168,7 @@ export function Hero() {
           <Button
             size="lg"
             variant="secondary"
-            className="max-sm:bg-white/[0.08] max-sm:backdrop-blur-md max-sm:border-white/20 hover-orbit"
+            className="max-sm:bg-white/[0.08] max-sm:backdrop-blur-md max-sm:border-white/20 hover-ripple"
             onClick={() => scrollTo('building')}
             aria-label="See what is being built"
           >
@@ -177,7 +177,7 @@ export function Hero() {
           <Button
             size="lg"
             variant="secondary"
-            className="max-sm:bg-white/[0.08] max-sm:backdrop-blur-md max-sm:border-white/20 hover-orbit"
+            className="max-sm:bg-white/[0.08] max-sm:backdrop-blur-md max-sm:border-white/20 hover-ripple"
             onClick={() => scrollTo('contact')}
             aria-label="Get in touch"
           >

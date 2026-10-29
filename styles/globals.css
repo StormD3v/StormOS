@@ -214,6 +214,44 @@
           offset-distance: 100%;
         }
       }
+
+      /* Ripple hover effect - desktop only */
+      .hover-ripple {
+        position: relative;
+      }
+
+      .hover-ripple::before,
+      .hover-ripple::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        opacity: 0;
+        z-index: 0;
+      }
+
+      .hover-ripple:hover::before {
+        opacity: 0.8;
+        animation: ripple-out 1.8s ease-out infinite;
+      }
+
+      .hover-ripple:hover::after {
+        opacity: 0.8;
+        animation: ripple-out 1.8s ease-out infinite;
+        animation-delay: 0.9s;
+      }
+
+      @keyframes ripple-out {
+        from {
+          opacity: 0.8;
+          box-shadow: 0 0 0 0 rgba(191, 90, 242, 0.7);
+        }
+        to {
+          opacity: 0;
+          box-shadow: 0 0 0 22px rgba(191, 90, 242, 0);
+        }
+      }
     }
   }
 }

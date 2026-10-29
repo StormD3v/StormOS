@@ -3,7 +3,6 @@ import { ArrivalOverlay } from '@/components/sections/arrival-overlay';
 import { Hero } from '@/components/sections/hero';
 import { Building } from '@/components/sections/building';
 import { WorldForge } from '@/components/sections/worldforge';
-import { About } from '@/components/sections/about';
 import { Contact } from '@/components/sections/contact';
 
 export default function HomePage() {
@@ -18,7 +17,6 @@ export default function HomePage() {
           <Hero />
           <Building />
           <WorldForge />
-          <About />
           <Contact />
         </div>
       </PageWrapper>

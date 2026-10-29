@@ -34,7 +34,7 @@ export function Navigation() {
   const pathname = usePathname();
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
-  const activeSection = useActiveSection(['hero', 'building', 'worldforge', 'about', 'contact']);
+  const activeSection = useActiveSection(['hero', 'building', 'worldforge', 'contact']);
 
   // Body scroll lock when mobile menu is open
   useEffect(() => {
