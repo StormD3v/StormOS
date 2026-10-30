@@ -72,7 +72,7 @@ export function WorldForgePageClient() {
     return (
         <>
             {/* Hero */}
-            <section className="relative pt-40 pb-32 px-6 sm:overflow-visible overflow-hidden">
+            <section className="relative pt-40 pb-32 px-6 max-sm:pt-14 max-sm:pb-8 sm:overflow-visible overflow-hidden">
                 <DesktopPageHero src="/images/worldforge-desktop.webp" />
                 <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/12 via-accent-purple/3 to-transparent -z-10 sm:bg-transparent" />
                 <motion.div
@@ -85,7 +85,7 @@ export function WorldForgePageClient() {
                 <Container>
                     <div className="grid sm:grid-cols-2 gap-12 items-center">
                         {/* Left column: label, heading, and text */}
-                        <div className="max-w-2xl relative">
+                        <div className="max-w-2xl relative max-sm:text-center">
                             {/* Soft dark radial gradient behind content on mobile */}
                             <div
                                 className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"
@@ -96,25 +96,25 @@ export function WorldForgePageClient() {
                             />
                             <motion.p
                                 {...reveal(0)}
-                                className="section-label mb-8"
+                                className="section-label mb-8 max-sm:mb-4"
                             >
                                 Flagship Project
                             </motion.p>
                             <motion.h1
                                 {...reveal(0.08)}
-                                className="text-6xl md:text-7xl font-bold text-accent-purple mb-10 leading-tight"
+                                className="text-6xl md:text-7xl font-bold text-accent-purple mb-10 leading-tight max-sm:text-5xl"
                             >
                                 WorldForge
                             </motion.h1>
                             <motion.div {...reveal(0.16)} className="space-y-5">
-                                <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                                <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-50 max-sm:text-lg max-sm:text-readable">
                                     WorldForge is a living world, built around permanence.
                                 </p>
-                                <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                                <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                                     Every decision you make becomes part of its history.
                                     Every person who enters leaves a legacy that outlasts them.
                                 </p>
-                                <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                                <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                                     People do not simply visit WorldForge. They become part of it.
                                 </p>
                             </motion.div>
@@ -160,7 +160,7 @@ export function WorldForgePageClient() {
                 {/* Main content */}
                 <div>
                     {/* What it is */}
-                    <section id="what-it-is" className="py-32 border-t border-neutral-800/60 sm:border-t-0">
+                    <section id="what-it-is" className="py-32 max-sm:py-8 border-t border-neutral-800/60 sm:border-t-0 max-sm:border-t-0">
                         <div className="max-w-4xl relative">
                             {/* Soft dark radial gradient behind content on mobile */}
                             <div
@@ -170,27 +170,27 @@ export function WorldForgePageClient() {
                                 }}
                                 aria-hidden="true"
                             />
-                            <motion.p {...inView()} className="section-label mb-10 flex items-center gap-3">
+                            <motion.p {...inView()} className="section-label mb-10 max-sm:mb-4 flex items-center gap-3">
                                 <span className="w-8 h-px bg-accent-purple/50 sm:hidden"></span>
                                 <span>What it is</span>
                             </motion.p>
                             <motion.div {...inView(0.1)} className="space-y-6">
-                                <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-lg sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                                <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-lg sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-50 max-sm:text-lg max-sm:text-readable">
                                     WorldForge is a persistent social world. It continues whether you are
                                     present or not.
                                 </p>
-                                <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                                <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                                     The kind of world that accumulates. Where a decision made in the first month
                                     still matters in the third year. Where civilizations rise, collapse, and leave
                                     traces that future people inherit without knowing it. Your choices do not
                                     exist in isolation. They become part of a shared, permanent history.
                                 </p>
-                                <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                                <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                                     Who you are inside WorldForge is not what you claim. It is what you have done,
                                     what you have built, and what you have left behind. Legacy is the only currency
                                     that survives.
                                 </p>
-                                <p className="text-neutral-400 leading-relaxed sm:text-lg sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                                <p className="text-neutral-400 leading-relaxed sm:text-lg sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                                     There are no resets. There is only history.
                                 </p>
                             </motion.div>
@@ -198,7 +198,7 @@ export function WorldForgePageClient() {
                     </section>
 
                     {/* Where it is now */}
-                    <section id="where-it-is-now" className="py-32 border-t border-neutral-800/60 sm:border-t-0">
+                    <section id="where-it-is-now" className="py-32 max-sm:py-8 border-t border-neutral-800/60 sm:border-t-0 max-sm:border-t-0">
                         <div className="max-w-4xl relative">
                             {/* Soft dark radial gradient behind content on mobile */}
                             <div
@@ -208,25 +208,25 @@ export function WorldForgePageClient() {
                                 }}
                                 aria-hidden="true"
                             />
-                            <motion.p {...inView()} className="section-label mb-10 flex items-center gap-3">
+                            <motion.p {...inView()} className="section-label mb-10 max-sm:mb-4 flex items-center gap-3">
                                 <span className="w-8 h-px bg-accent-purple/50 sm:hidden"></span>
                                 <span>Where it is now</span>
                             </motion.p>
                             <motion.div {...inView(0.1)} className="space-y-6">
-                                <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-lg sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                                <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-lg sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-50 max-sm:text-lg max-sm:text-readable">
                                     WorldForge is in active development. It is not finished, and it may not be
                                     finished for a long time.
                                 </p>
-                                <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                                <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                                     The core systems are being designed and built to support the permanence model.
                                     That means getting the foundations right before anything else. World state.
                                     History. Identity. The mechanics that make consequences real.
                                 </p>
-                                <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                                <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                                     There is no beta date. There is no launch window. What exists right now is a
                                     growing system being built with the patience the concept requires.
                                 </p>
-                                <p className="text-neutral-400 leading-relaxed sm:text-lg sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                                <p className="text-neutral-400 leading-relaxed sm:text-lg sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                                     The First Crossing is the name for the initial group of people who will enter
                                     WorldForge before it opens to the public. That group is small by design.
                                 </p>
@@ -237,7 +237,7 @@ export function WorldForgePageClient() {
                     {/* Waitlist — The First Crossing */}
                     <section
                         id="waitlist"
-                        className="relative py-36 overflow-hidden border-t border-neutral-800/60 sm:border-t-0"
+                        className="relative py-36 max-sm:py-10 overflow-hidden border-t border-neutral-800/60 sm:border-t-0 max-sm:border-t-0"
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/8 via-transparent to-transparent -z-10" aria-hidden="true" />
                         <div className="max-w-xl relative">
@@ -249,18 +249,18 @@ export function WorldForgePageClient() {
                                 }}
                                 aria-hidden="true"
                             />
-                            <motion.p {...inView()} className="section-label mb-10">
+                            <motion.p {...inView()} className="section-label mb-10 max-sm:mb-4">
                                 The First Crossing
                             </motion.p>
                             <motion.div {...inView(0.1)} className="space-y-5 mb-12">
                                 <p className="text-2xl md:text-3xl font-bold text-accent-purple leading-tight">
                                     Join the First Crossing.
                                 </p>
-                                <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                                <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                                     A small group will enter WorldForge before it opens publicly. They will shape
                                     the first histories, build the first civilizations, and leave the first legacies.
                                 </p>
-                                <p className="text-neutral-400 leading-relaxed sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                                <p className="text-neutral-400 leading-relaxed sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                                     Leave your email. We will reach out when the time comes.
                                 </p>
                             </motion.div>
@@ -277,7 +277,7 @@ export function WorldForgePageClient() {
                     </section>
 
                     {/* Follow development */}
-                    <section id="follow-development" className="py-32 border-t border-neutral-800/60 sm:border-t-0">
+                    <section id="follow-development" className="py-32 max-sm:py-8 border-t border-neutral-800/60 sm:border-t-0 max-sm:border-t-0">
                         <div className="max-w-xl relative">
                             {/* Soft dark radial gradient behind content on mobile */}
                             <div
@@ -287,14 +287,14 @@ export function WorldForgePageClient() {
                                 }}
                                 aria-hidden="true"
                             />
-                            <motion.p {...inView()} className="section-label mb-10">
+                            <motion.p {...inView()} className="section-label mb-10 max-sm:mb-4">
                                 Follow development
                             </motion.p>
                             <motion.div {...inView(0.1)} className="space-y-5 mb-12">
-                                <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                                <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-50 max-sm:text-lg max-sm:text-readable">
                                     WorldForge is being built in public, seriously and without a deadline.
                                 </p>
-                                <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                                <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                                     Not a steady stream of updates. Just occasional signals when something real
                                     happens. If you want to follow along without committing to anything, the
                                     contact page is the right place.

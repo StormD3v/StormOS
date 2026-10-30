@@ -44,7 +44,7 @@ export function AboutPageContent() {
     return (
         <>
             <DesktopPageHero src="/images/about-desktop.webp" />
-            <Container className="py-10 sm:py-32 px-6">
+            <Container className="py-10 max-sm:pt-14 sm:py-32 px-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
                     {/* Left column: existing text, photo, social icons */}
                     <div className="max-w-2xl relative">
@@ -60,7 +60,7 @@ export function AboutPageContent() {
                         {/* Page label */}
                         <motion.p
                             {...reveal(0)}
-                            className="section-label mb-10"
+                            className="section-label mb-10 max-sm:mb-4"
                         >
                             Identity
                         </motion.p>
@@ -105,7 +105,7 @@ export function AboutPageContent() {
                         </motion.div>
 
                         {/* Right now */}
-                        <motion.div {...reveal(0.18)} className="pt-12 space-y-6 mb-16">
+                        <motion.div {...reveal(0.18)} className="pt-12 space-y-6 max-sm:space-y-4 mb-16">
                             <p className="section-label">
                                 Right now
                             </p>

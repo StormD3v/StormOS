@@ -24,7 +24,7 @@ export function WorldForge() {
   return (
     <section
       id="worldforge"
-      className="relative py-36 max-sm:pt-12 sm:pt-16 sm:pb-24 px-6"
+      className="relative py-36 max-sm:pt-8 max-sm:pb-0 sm:pt-16 sm:pb-24 px-6"
       aria-labelledby="worldforge-heading"
     >
       {/* Solid dark background fallback */}

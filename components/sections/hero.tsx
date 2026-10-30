@@ -22,7 +22,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col px-6 relative sm:overflow-visible"
+      className="min-h-screen flex flex-col px-6 relative sm:overflow-visible max-sm:min-h-[100svh] max-sm:pb-0"
       aria-labelledby="hero-headline"
     >
       {/* Solid dark background fallback */}
@@ -121,7 +121,7 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      <div className="max-w-3xl mx-auto text-center mt-[33vh] sm:mt-[40vh] relative z-10">
+      <div className="max-w-3xl mx-auto text-center mt-[33vh] sm:mt-[40vh] max-sm:mt-[25vh] relative z-10">
         {/* Soft dark radial gradient behind text block on mobile */}
         <div
           className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"
@@ -168,7 +168,7 @@ export function Hero() {
           <Button
             size="lg"
             variant="secondary"
-            className="max-sm:bg-white/[0.08] max-sm:backdrop-blur-md max-sm:border-white/20 hover-ripple"
+            className="bg-accent-purple text-white font-bold rounded-lg shadow-[0_0_24px_rgba(168,85,247,0.5)] hover:shadow-[0_0_32px_rgba(168,85,247,0.7)] hover-ripple"
             onClick={() => scrollTo('building')}
             aria-label="See what is being built"
           >
@@ -177,7 +177,7 @@ export function Hero() {
           <Button
             size="lg"
             variant="secondary"
-            className="max-sm:bg-white/[0.08] max-sm:backdrop-blur-md max-sm:border-white/20 hover-ripple"
+            className="bg-transparent border border-accent-purple text-white shadow-[0_0_24px_rgba(168,85,247,0.5)] hover:shadow-[0_0_32px_rgba(168,85,247,0.7)] hover-ripple"
             onClick={() => scrollTo('contact')}
             aria-label="Get in touch"
           >

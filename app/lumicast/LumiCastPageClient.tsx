@@ -25,7 +25,7 @@ export function LumiCastPageClient() {
     return (
         <>
             {/* Hero */}
-            <section className="relative pt-10 sm:pt-40 pb-32 px-6 sm:overflow-visible overflow-hidden">
+            <section className="relative pt-10 max-sm:pt-14 sm:pt-40 pb-32 max-sm:pb-8 px-6 sm:overflow-visible overflow-hidden">
                 <DesktopPageHero src="/images/lumicast-desktop.webp" />
                 <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/12 via-accent-purple/3 to-transparent -z-10 sm:bg-transparent" />
                 <motion.div
@@ -47,7 +47,7 @@ export function LumiCastPageClient() {
                         />
                         <motion.p
                             {...reveal(0)}
-                            className="section-label mb-8"
+                            className="section-label mb-8 max-sm:mb-4"
                         >
                             Available Now
                         </motion.p>
@@ -71,7 +71,7 @@ export function LumiCastPageClient() {
             </section>
 
             {/* What it is */}
-            <section className="py-32 px-6">
+            <section className="py-32 max-sm:py-8 px-6">
                 <Container>
                     <div className="max-w-2xl relative">
                         {/* Soft dark radial gradient behind content on mobile */}
@@ -82,7 +82,7 @@ export function LumiCastPageClient() {
                             }}
                             aria-hidden="true"
                         />
-                        <motion.p {...inView()} className="section-label mb-10 flex items-center gap-3">
+                        <motion.p {...inView()} className="section-label mb-10 max-sm:mb-4 flex items-center gap-3">
                             <span className="w-8 h-px bg-accent-purple/50 sm:hidden"></span>
                             <span>What it is</span>
                         </motion.p>
@@ -107,7 +107,7 @@ export function LumiCastPageClient() {
             </section>
 
             {/* Why it exists */}
-            <section className="py-32 px-6">
+            <section className="py-32 max-sm:py-8 px-6">
                 <Container>
                     <div className="max-w-2xl relative">
                         {/* Soft dark radial gradient behind content on mobile */}
@@ -118,7 +118,7 @@ export function LumiCastPageClient() {
                             }}
                             aria-hidden="true"
                         />
-                        <motion.p {...inView()} className="section-label mb-10 flex items-center gap-3">
+                        <motion.p {...inView()} className="section-label mb-10 max-sm:mb-4 flex items-center gap-3">
                             <span className="w-8 h-px bg-accent-purple/50 sm:hidden"></span>
                             <span>Why it exists</span>
                         </motion.p>
@@ -143,7 +143,7 @@ export function LumiCastPageClient() {
             </section>
 
             {/* Where it is going */}
-            <section className="py-32 px-6">
+            <section className="py-32 max-sm:py-8 px-6">
                 <Container>
                     <div className="max-w-2xl relative">
                         {/* Soft dark radial gradient behind content on mobile */}
@@ -154,7 +154,7 @@ export function LumiCastPageClient() {
                             }}
                             aria-hidden="true"
                         />
-                        <motion.p {...inView()} className="section-label mb-10 flex items-center gap-3">
+                        <motion.p {...inView()} className="section-label mb-10 max-sm:mb-4 flex items-center gap-3">
                             <span className="w-8 h-px bg-accent-purple/50 sm:hidden"></span>
                             <span>Where it is going</span>
                         </motion.p>
@@ -177,7 +177,7 @@ export function LumiCastPageClient() {
             </section>
 
             {/* Launch LumiCast */}
-            <section className="relative py-36 px-6 overflow-hidden">
+            <section className="relative py-36 max-sm:py-8 px-6 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/8 via-transparent to-transparent -z-10" aria-hidden="true" />
                 <Container>
                     <div className="max-w-xl relative">

@@ -32,7 +32,7 @@ export function ContactPageContent() {
     return (
         <>
             <DesktopPageHero src="/images/contact-desktop.webp" />
-            <Container className="py-10 sm:py-32 px-6">
+            <Container className="py-10 max-sm:pt-14 sm:py-32 px-6">
             <div className="max-w-2xl relative">
                 {/* Soft dark radial gradient behind content on mobile */}
                 <div
@@ -45,7 +45,7 @@ export function ContactPageContent() {
                 {/* Page label */}
                 <motion.p
                     {...reveal(0)}
-                    className="section-label mb-10"
+                    className="section-label mb-10 max-sm:mb-4"
                 >
                     Contact
                 </motion.p>

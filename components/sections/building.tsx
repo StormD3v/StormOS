@@ -31,7 +31,7 @@ const cardEntrance = (index: number) => ({
 
 export function Building() {
     return (
-        <section id="building" className="py-28 max-sm:pb-12 sm:pt-20 sm:pb-12 px-6 relative">
+        <section id="building" className="py-28 max-sm:pt-8 max-sm:pb-8 sm:pt-20 sm:pb-12 px-6 relative">
             {/* Solid dark background fallback */}
             <div className="absolute inset-0 bg-neutral-950 -z-30 sm:bg-transparent" />
 
@@ -115,7 +115,7 @@ export function Building() {
                 </motion.div>
 
                 {/* Mobile: horizontal swipeable row */}
-                <div className="sm:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory -mx-6 px-6 scrollbar-hide">
+                <div className="sm:hidden flex gap-4 overflow-x-auto overflow-y-hidden snap-x snap-mandatory -mx-6 px-6 py-4 scrollbar-hide">
                     {projects.filter(p => p.featured).slice(0, 5).map((project, index) => {
                         const badge = getStatusBadge(project.status);
                         return (

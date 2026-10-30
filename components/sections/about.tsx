@@ -25,7 +25,7 @@ const visibleSocials = IDENTITY_SOCIALS
 
 export function About() {
   return (
-    <section id="about" className="py-24 px-6 relative">
+    <section id="about" className="py-24 max-sm:py-8 px-6 relative">
       {/* Solid dark background fallback */}
       <div className="absolute inset-0 bg-neutral-950 -z-30" />
 
@@ -50,7 +50,7 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
-            className="section-label mb-10"
+            className="section-label mb-10 max-sm:mb-4"
           >
             Identity
           </motion.p>
