@@ -113,6 +113,25 @@ export function WorldForge() {
               </p>
             </motion.div>
 
+            {/* Mobile demo video */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.25, ease: [0.215, 0.61, 0.355, 1] }}
+              className="sm:hidden mb-10"
+            >
+              <video
+                src="/worldforge-demo-mobile.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="mx-auto w-[70%] max-w-[280px] rounded-2xl border border-white/10 shadow-[0_0_40px_rgba(191,90,242,0.15)]"
+              />
+            </motion.div>
+
             {/* CTA — scrolls to and focuses the waitlist form below */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
