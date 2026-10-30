@@ -175,6 +175,15 @@
     text-wrap: pretty;
   }
 
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Orbiting light hover effect - desktop only */
   @media (hover: hover) and (min-width: 640px) {
     @media (prefers-reduced-motion: no-preference) {

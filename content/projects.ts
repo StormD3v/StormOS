@@ -43,6 +43,20 @@ export const projects: Project[] = [
     route: '/lumicast',
   },
   {
+    id: 'cookie-chain',
+    title: 'Cookie Chain cApp',
+    displayName: 'Cookie Chain cApp',
+    description: 'Swap, balances and activity feed, built for the Cookie Chain bounty.',
+    tags: ['TypeScript', 'JavaScript', 'Vite', 'Vercel'],
+    technologies: [],
+    links: {
+      external: 'https://cookie-chain-app-stormd3v-projects.vercel.app/',
+      github: 'https://github.com/StormD3v/cookie-chain-app',
+    },
+    featured: true,
+    status: 'available',
+  },
+  {
     id: 'stormcash',
     title: 'StormCash',
     displayName: 'StormCash',
@@ -58,20 +72,6 @@ export const projects: Project[] = [
     startDate: '2024-07-01',
   },
   {
-    id: 'cookie-chain',
-    title: 'Cookie Chain cApp',
-    displayName: 'Cookie Chain cApp',
-    description: 'Swap, balances and activity feed, built for the Cookie Chain bounty.',
-    tags: ['TypeScript', 'JavaScript', 'Vite', 'Vercel'],
-    technologies: [],
-    links: {
-      external: 'https://cookie-chain-app-stormd3v-projects.vercel.app/',
-      github: 'https://github.com/StormD3v/cookie-chain-app',
-    },
-    featured: false,
-    status: 'available',
-  },
-  {
     id: 'stormframe',
     title: 'StormFrame',
     displayName: 'StormFrame',
@@ -81,7 +81,7 @@ export const projects: Project[] = [
     links: {
       external: 'https://stormframe.vercel.app',
     },
-    featured: false,
+    featured: true,
     status: 'available',
   },
 ];

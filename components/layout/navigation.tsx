@@ -9,10 +9,8 @@ import { cn } from '@/lib/utils';
 import { useActiveSection } from '@/hooks/use-active-section';
 
 const navLinks = [
-  { name: 'Projects', href: '/#building', sectionId: 'building' },
-  { name: 'WorldForge', href: '/worldforge', sectionId: undefined },
-  { name: 'LumiCast', href: '/lumicast', sectionId: undefined },
-  { name: 'StormCash', href: '/stormcash', sectionId: undefined },
+  { name: 'Core', href: '/#building', sectionId: 'building' },
+  { name: 'Projects', href: '/projects', sectionId: undefined },
   { name: 'Identity', href: '/about', sectionId: undefined },
   { name: 'Contact', href: '/contact', sectionId: undefined },
 ];
@@ -34,7 +32,7 @@ export function Navigation() {
   const pathname = usePathname();
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
-  const activeSection = useActiveSection(['hero', 'building', 'worldforge', 'contact']);
+  const activeSection = useActiveSection(['hero', 'building', 'contact']);
 
   // Body scroll lock when mobile menu is open
   useEffect(() => {
