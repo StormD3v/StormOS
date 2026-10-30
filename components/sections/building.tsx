@@ -67,7 +67,7 @@ function getStatusBadge(status: string) {
 
 export function Building() {
     return (
-        <section id="building" className="py-28 px-6 relative">
+        <section id="building" className="py-28 sm:pt-20 sm:pb-12 px-6 relative">
             {/* Solid dark background fallback */}
             <div className="absolute inset-0 bg-neutral-950 -z-30 sm:bg-transparent" />
 

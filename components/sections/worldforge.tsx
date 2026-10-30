@@ -24,7 +24,7 @@ export function WorldForge() {
   return (
     <section
       id="worldforge"
-      className="relative py-36 px-6"
+      className="relative py-36 sm:pt-16 sm:pb-24 px-6"
       aria-labelledby="worldforge-heading"
     >
       {/* Solid dark background fallback */}
@@ -62,20 +62,20 @@ export function WorldForge() {
       />
 
       <Container>
+        {/* Module label - centered above grid */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
+          className="text-xs font-semibold tracking-widest uppercase text-accent-purple/60 sm:text-accent-purple sm:text-2xl sm:font-extrabold text-center mb-8"
+        >
+          Flagship
+        </motion.p>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 items-start">
           {/* Left column: text, button, and form */}
           <div className="max-w-2xl">
-            {/* Module label */}
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
-              className="text-xs font-semibold tracking-widest uppercase text-accent-purple/60 sm:text-accent-purple/60 mb-8"
-            >
-              Flagship
-            </motion.p>
-
             {/* Heading */}
             <motion.h2
               id="worldforge-heading"
