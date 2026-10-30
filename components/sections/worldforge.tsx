@@ -62,82 +62,104 @@ export function WorldForge() {
       />
 
       <Container>
-        <div className="max-w-2xl">
-          {/* Module label */}
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
-            className="text-xs font-semibold tracking-widest uppercase text-accent-purple/60 sm:text-accent-purple/60 mb-8"
-          >
-            Flagship
-          </motion.p>
-
-          {/* Heading */}
-          <motion.h2
-            id="worldforge-heading"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
-            className="text-5xl md:text-6xl font-bold text-accent-purple mb-10 leading-tight"
-          >
-            WorldForge
-          </motion.h2>
-
-          {/* Core copy — describe a place, not software */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.7, delay: 0.15, ease: [0.215, 0.61, 0.355, 1] }}
-            className="space-y-7 mb-14"
-          >
-            <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
-              WorldForge is a living world, built around permanence.
-            </p>
-            <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
-              Every decision you make becomes part of its history, and every person who
-              enters leaves a legacy that outlasts them. Civilizations rise, collapse, and
-              leave traces that future people inherit. Nothing is erased. Nothing resets.
-            </p>
-            <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
-              Identity here is not what you claim. It is what you do, over time,
-              in a world that remembers.
-            </p>
-            <p className="text-base text-neutral-500 leading-relaxed sm:text-neutral-500 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
-              Some worlds deserve to last. WorldForge is being built to be one of them.
-            </p>
-          </motion.div>
-
-          {/* CTA — scrolls to and focuses the waitlist form below */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.215, 0.61, 0.355, 1] }}
-            className="mb-12"
-          >
-            <Button
-              size="lg"
-              variant="primary"
-              onClick={handleJoinClick}
-              className="bg-accent-purple hover:bg-accent-purple-dark focus:ring-accent-purple"
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 items-start">
+          {/* Left column: text, button, and form */}
+          <div className="max-w-2xl">
+            {/* Module label */}
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
+              className="text-xs font-semibold tracking-widest uppercase text-accent-purple/60 sm:text-accent-purple/60 mb-8"
             >
-              Join the First Crossing
-            </Button>
-          </motion.div>
+              Flagship
+            </motion.p>
 
-          {/* Waitlist form — inline, no surrounding card */}
+            {/* Heading */}
+            <motion.h2
+              id="worldforge-heading"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
+              className="text-5xl md:text-6xl font-bold text-accent-purple mb-10 leading-tight"
+            >
+              WorldForge
+            </motion.h2>
+
+            {/* Core copy — describe a place, not software */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.215, 0.61, 0.355, 1] }}
+              className="space-y-7 mb-14"
+            >
+              <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                WorldForge is a living world, built around permanence.
+              </p>
+              <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                Every decision you make becomes part of its history, and every person who
+                enters leaves a legacy that outlasts them. Civilizations rise, collapse, and
+                leave traces that future people inherit. Nothing is erased. Nothing resets.
+              </p>
+              <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+                Identity here is not what you claim. It is what you do, over time,
+                in a world that remembers.
+              </p>
+              <p className="text-base text-neutral-500 leading-relaxed sm:text-neutral-500 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                Some worlds deserve to last. WorldForge is being built to be one of them.
+              </p>
+            </motion.div>
+
+            {/* CTA — scrolls to and focuses the waitlist form below */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3, ease: [0.215, 0.61, 0.355, 1] }}
+              className="mb-12"
+            >
+              <Button
+                size="lg"
+                variant="primary"
+                onClick={handleJoinClick}
+                className="bg-accent-purple hover:bg-accent-purple-dark focus:ring-accent-purple"
+              >
+                Join the First Crossing
+              </Button>
+            </motion.div>
+
+            {/* Waitlist form — inline, no surrounding card */}
+            <motion.div
+              ref={waitlistRef}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <WaitlistForm />
+            </motion.div>
+          </div>
+
+          {/* Right column: demo video */}
           <motion.div
-            ref={waitlistRef}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
+            className="hidden sm:block self-center"
           >
-            <WaitlistForm />
+            <video
+              src="/worldforge-demo.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="w-full rounded-2xl border border-white/10 object-cover shadow-[0_0_40px_rgba(191,90,242,0.15)]"
+            />
           </motion.div>
         </div>
       </Container>
