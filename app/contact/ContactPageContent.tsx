@@ -45,7 +45,7 @@ export function ContactPageContent() {
                 {/* Page label */}
                 <motion.p
                     {...reveal(0)}
-                    className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500 mb-10 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]"
+                    className="section-label mb-10"
                 >
                     Contact
                 </motion.p>

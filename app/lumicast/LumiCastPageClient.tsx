@@ -47,7 +47,7 @@ export function LumiCastPageClient() {
                         />
                         <motion.p
                             {...reveal(0)}
-                            className="text-xs font-semibold tracking-widest uppercase text-accent-purple/70 mb-8 max-sm:text-accent-purple/60 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]"
+                            className="section-label mb-8"
                         >
                             Available Now
                         </motion.p>
@@ -82,7 +82,7 @@ export function LumiCastPageClient() {
                             }}
                             aria-hidden="true"
                         />
-                        <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 sm:text-neutral-300 mb-10 flex items-center gap-3 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                        <motion.p {...inView()} className="section-label mb-10 flex items-center gap-3">
                             <span className="w-8 h-px bg-accent-purple/50 sm:hidden"></span>
                             <span>What it is</span>
                         </motion.p>
@@ -118,7 +118,7 @@ export function LumiCastPageClient() {
                             }}
                             aria-hidden="true"
                         />
-                        <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 sm:text-neutral-300 mb-10 flex items-center gap-3 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                        <motion.p {...inView()} className="section-label mb-10 flex items-center gap-3">
                             <span className="w-8 h-px bg-accent-purple/50 sm:hidden"></span>
                             <span>Why it exists</span>
                         </motion.p>
@@ -154,7 +154,7 @@ export function LumiCastPageClient() {
                             }}
                             aria-hidden="true"
                         />
-                        <motion.p {...inView()} className="text-sm font-semibold tracking-widest uppercase text-neutral-300 sm:text-neutral-300 mb-10 flex items-center gap-3 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                        <motion.p {...inView()} className="section-label mb-10 flex items-center gap-3">
                             <span className="w-8 h-px bg-accent-purple/50 sm:hidden"></span>
                             <span>Where it is going</span>
                         </motion.p>

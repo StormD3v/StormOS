@@ -175,6 +175,21 @@
     text-wrap: pretty;
   }
 
+  .section-label {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent-purple);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+  }
+
+  @media (min-width: 640px) {
+    .section-label {
+      font-size: 1.125rem;
+    }
+  }
+
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;

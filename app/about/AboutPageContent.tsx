@@ -60,7 +60,7 @@ export function AboutPageContent() {
                         {/* Page label */}
                         <motion.p
                             {...reveal(0)}
-                            className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500 mb-10 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]"
+                            className="section-label mb-10"
                         >
                             Identity
                         </motion.p>
@@ -106,7 +106,7 @@ export function AboutPageContent() {
 
                         {/* Right now */}
                         <motion.div {...reveal(0.18)} className="pt-12 space-y-6 mb-16">
-                            <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                            <p className="section-label">
                                 Right now
                             </p>
                             <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
