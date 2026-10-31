@@ -7,6 +7,7 @@ import { SiDiscord } from 'react-icons/si';
 import { Container } from '@/components/layout/container';
 import { ContactForm } from '@/components/sections/contact-form';
 import { DesktopPageHero } from '@/components/ui/desktop-page-hero';
+import { Button } from '@/components/ui/button';
 import { CONTACT_EMAIL } from '@/lib/constants';
 import { socialLinks } from '@/content/social-links';
 
@@ -60,20 +61,22 @@ export function ContactPageContent() {
 
             {/* Framing — an invitation, not a pitch */}
             <motion.div {...reveal(0.1)} className="mb-16 max-w-lg space-y-4">
-                <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-200 sm:text-readable max-sm:text-neutral-50 max-sm:text-lg max-sm:text-readable">
                     If something here is worth a conversation, start one.
                 </p>
             </motion.div>
 
             <motion.div
                 {...reveal(0.15)}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-16"
+                className="grid grid-cols-1 lg:grid-cols-[1fr_300px] lg:gap-12"
             >
                 {/* Contact form — no Card wrapper */}
-                <ContactForm />
+                <div className="max-w-xl">
+                    <ContactForm />
+                </div>
 
                 {/* Direct contact */}
-                <div className="flex flex-col gap-8 pt-1 relative">
+                <div className="flex flex-col gap-8 pt-1 relative lg:sticky lg:top-28 lg:self-start lg:bg-neutral-900/60 lg:border lg:border-white/10 lg:rounded-2xl lg:p-6">
                     {/* Soft dark radial gradient behind contact info on mobile */}
                     <div
                         className="absolute inset-0 sm:hidden -z-10"
@@ -84,13 +87,13 @@ export function ContactPageContent() {
                     />
                     {/* Email */}
                     <div className="relative z-10">
-                        <p className="text-xs font-semibold tracking-widest uppercase text-neutral-600 sm:text-neutral-600 mb-3 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                        <p className="text-xs font-semibold tracking-widest uppercase text-accent-purple font-bold mb-3 max-sm:text-readable">
                             Email
                         </p>
                         <a
                             href={`mailto:${CONTACT_EMAIL}`}
                             aria-label={`Send email to ${CONTACT_EMAIL}`}
-                            className="inline-flex items-center gap-2.5 text-neutral-400 hover:text-neutral-100 transition-colors duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 rounded-sm sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]"
+                            className="inline-flex items-center gap-2.5 text-neutral-400 hover:text-neutral-100 transition-colors duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 rounded-sm sm:text-neutral-400 max-sm:text-neutral-200 max-sm:text-readable"
                         >
                             <Mail size={16} aria-hidden="true" />
                             <span className="text-sm">{CONTACT_EMAIL}</span>
@@ -99,7 +102,7 @@ export function ContactPageContent() {
 
                     {/* Social */}
                     <div className="relative z-10">
-                        <p className="text-xs font-semibold tracking-widest uppercase text-neutral-600 sm:text-neutral-600 mb-3 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                        <p className="text-xs font-semibold tracking-widest uppercase text-accent-purple font-bold mb-3 max-sm:text-readable">
                             Elsewhere
                         </p>
                         <div className="flex items-center gap-2.5" role="list" aria-label="Social profiles">
@@ -135,6 +138,27 @@ export function ContactPageContent() {
                                 );
                             })}
                         </div>
+                    </div>
+
+                    {/* Community */}
+                    <div className="relative z-10">
+                        <p className="text-xs font-semibold tracking-widest uppercase text-accent-purple font-bold mb-3 max-sm:text-readable">
+                            Community
+                        </p>
+                        <a
+                            href="https://chat.whatsapp.com/BLkZaFtyXzNEgt5WFH63hA"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Join the WorldForge community on WhatsApp"
+                        >
+                            <Button
+                                size="lg"
+                                variant="secondary"
+                                className="border border-neutral-700 hover:border-neutral-600"
+                            >
+                                Join the WorldForge community
+                            </Button>
+                        </a>
                     </div>
                 </div>
             </motion.div>

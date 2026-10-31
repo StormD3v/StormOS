@@ -49,14 +49,14 @@ export function Footer({ className }: FooterProps) {
           {/* Brand */}
           <div>
             <p className="text-base font-bold text-neutral-100 tracking-tight mb-3">StormD3v</p>
-            <p className="text-neutral-500 text-sm leading-relaxed sm:text-neutral-500 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+            <p className="text-neutral-500 text-sm leading-relaxed sm:text-neutral-500 max-sm:text-neutral-300 max-sm:text-readable">
               Long-term ideas. Built inside Storm-OS.
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500 mb-4 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+            <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500 mb-4 max-sm:text-neutral-300 max-sm:text-readable">
               Navigate
             </p>
             <ul className="space-y-2.5">
@@ -64,7 +64,7 @@ export function Footer({ className }: FooterProps) {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-neutral-400 hover:text-neutral-100 text-sm transition-colors duration-fast sm:text-neutral-400 max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]"
+                    className="text-neutral-400 hover:text-neutral-100 text-sm transition-colors duration-fast sm:text-neutral-400 max-sm:text-neutral-200 max-sm:text-readable"
                   >
                     {link.name}
                   </Link>
@@ -75,7 +75,7 @@ export function Footer({ className }: FooterProps) {
 
           {/* Social — GitHub, X, Discord only */}
           <div>
-            <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500 mb-4 max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+            <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 sm:text-neutral-500 mb-4 max-sm:text-neutral-300 max-sm:text-readable">
               Elsewhere
             </p>
             <div className="flex gap-3 items-center">
@@ -123,7 +123,7 @@ export function Footer({ className }: FooterProps) {
         </div>
 
         <div className="mt-12 pt-8 border-t border-neutral-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
-          <p className="text-neutral-600 text-sm sm:text-neutral-600 max-sm:text-neutral-400 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+          <p className="text-neutral-600 text-sm sm:text-neutral-600 max-sm:text-neutral-400 max-sm:text-readable">
             © {new Date().getFullYear()} StormD3v. All rights reserved.
           </p>
         </div>

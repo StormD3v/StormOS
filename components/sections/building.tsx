@@ -160,10 +160,10 @@ export function Building() {
                                 }}
                                 aria-hidden="true"
                             />
-                            <h3 className="text-lg font-medium text-neutral-200 mb-2 relative z-10 max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                            <h3 className="text-lg font-medium text-neutral-200 mb-2 relative z-10 max-sm:text-neutral-200 max-sm:text-readable">
                                 More coming
                             </h3>
-                            <p className="text-neutral-300 text-base leading-relaxed max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)] relative z-10">
+                            <p className="text-neutral-300 text-base leading-relaxed max-sm:text-neutral-200 max-sm:text-readable relative z-10">
                                 Some things need more time.
                             </p>
                         </div>

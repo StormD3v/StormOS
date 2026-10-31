@@ -34,7 +34,7 @@ export function StormCashPageClient() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-10 max-sm:pt-14 sm:pt-40 pb-32 max-sm:pb-8 px-6 sm:overflow-visible overflow-hidden">
+      <section className="relative pt-10 max-sm:pt-14 sm:pt-40 pb-32 sm:pb-12 max-sm:pb-8 px-6 sm:overflow-visible overflow-hidden">
         <DesktopPageHero src="/images/stormcash-desktop.webp" />
         <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/12 via-accent-purple/3 to-transparent -z-10 sm:bg-transparent" />
         <motion.div
@@ -67,10 +67,10 @@ export function StormCashPageClient() {
               StormCash
             </motion.h1>
             <motion.div {...reveal(0.16)} className="space-y-5">
-              <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+              <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed text-pretty sm:text-neutral-100 sm:text-readable max-sm:text-neutral-50 max-sm:text-readable">
                 A payment prototype built around settlement finality.
               </p>
-              <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+              <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-200 sm:text-readable max-sm:text-neutral-200 max-sm:text-readable">
                 A transfer either completes fully or never starts.
               </p>
             </motion.div>
@@ -79,7 +79,7 @@ export function StormCashPageClient() {
       </section>
 
       {/* What it is */}
-      <section className="py-32 max-sm:py-8 px-6">
+      <section className="py-32 sm:py-16 max-sm:py-8 px-6">
         <Container>
           <div className="max-w-2xl relative">
             {/* Soft dark radial gradient behind content on mobile */}
@@ -95,13 +95,13 @@ export function StormCashPageClient() {
               <span>What it is</span>
             </motion.p>
             <motion.div {...inView(0.1)} className="space-y-6">
-              <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+              <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-100 sm:text-readable max-sm:text-neutral-50 max-sm:text-lg max-sm:text-readable">
                 StormCash is a financial technology prototype exploring what payment infrastructure would look like if settlement finality were the primary design constraint.
               </p>
-              <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+              <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-200 sm:text-readable max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                 {TRANSFER_PROBLEM_TEXT}
               </p>
-              <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+              <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-200 sm:text-readable max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                 StormCash prototypes an architecture that treats this as a solvable problem: atomic transfers, observable settlement stages, and an experience that approaches the simplicity of sending a message.
               </p>
             </motion.div>
@@ -110,7 +110,7 @@ export function StormCashPageClient() {
       </section>
 
       {/* Architecture */}
-      <section className="py-32 max-sm:py-8 px-6">
+      <section className="py-32 sm:py-16 max-sm:py-8 px-6">
         <Container>
           <div className="max-w-2xl relative">
             {/* Soft dark radial gradient behind content on mobile */}
@@ -126,13 +126,13 @@ export function StormCashPageClient() {
               <span>Architecture</span>
             </motion.p>
             <motion.div {...inView(0.1)} className="space-y-6">
-              <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+              <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-100 sm:text-readable max-sm:text-neutral-50 max-sm:text-lg max-sm:text-readable">
                 Django handles identity. FastAPI handles money. Both services share one PostgreSQL database and the same JWT secret — tokens issued by Django are validated by FastAPI on every request.
               </p>
-              <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+              <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-200 sm:text-readable max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                 Balances are never stored. They are always computed from the sum of ledger entries. This mirrors how real bank ledgers work and ensures consistency across all operations.
               </p>
-              <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+              <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-200 sm:text-readable max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                 The system supports user authentication, account creation, deposits, withdrawals, and cross-user transfers with real-time settlement UI. Concurrent transfer safety is enforced through database-level locking.
               </p>
             </motion.div>
@@ -141,7 +141,7 @@ export function StormCashPageClient() {
       </section>
 
       {/* What's real vs simulated */}
-      <section className="py-32 max-sm:py-8 px-6">
+      <section className="py-32 sm:py-16 max-sm:py-8 px-6">
         <Container>
           <div className="max-w-2xl relative">
             {/* Soft dark radial gradient behind content on mobile */}
@@ -157,13 +157,13 @@ export function StormCashPageClient() {
               <span>{WHATS_REAL_SECTION_TITLE}</span>
             </motion.p>
             <motion.div {...inView(0.1)} className="space-y-6">
-              <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+              <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-100 sm:text-readable max-sm:text-neutral-50 max-sm:text-lg max-sm:text-readable">
                 This is a concept demonstrator and portfolio project. It does not move real money and is not a regulated financial service.
               </p>
-              <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+              <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-200 sm:text-readable max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                 What worked when it was live: user authentication, account creation, deposits, withdrawals, cross-user transfers, concurrent transfer safety, double-entry ledger, and real-time settlement UI. The transaction explorer shows blockchain settlement details, but the blockchain itself is simulated.
               </p>
-              <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+              <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-200 sm:text-readable max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                 {WHAT_DOESNT_TEXT}
               </p>
             </motion.div>
@@ -172,7 +172,7 @@ export function StormCashPageClient() {
       </section>
 
       {/* View the code */}
-      <section className="relative py-36 max-sm:py-8 px-6 overflow-hidden">
+      <section className="relative py-36 sm:py-16 max-sm:py-8 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/8 via-transparent to-transparent -z-10" aria-hidden="true" />
         <Container>
           <div className="max-w-xl relative">
@@ -187,7 +187,7 @@ export function StormCashPageClient() {
             <motion.h2 {...inView()} className="text-4xl md:text-5xl font-bold text-accent-purple mb-6 leading-tight">
               View the code
             </motion.h2>
-            <motion.p {...inView(0.1)} className="text-neutral-400 leading-relaxed text-pretty mb-12 sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+            <motion.p {...inView(0.1)} className="text-neutral-400 leading-relaxed text-pretty mb-12 sm:text-neutral-200 sm:text-readable max-sm:text-neutral-200 max-sm:text-readable">
               The entire prototype is open source. Explore the architecture, see how the settlement engine works, and understand the design decisions.
             </motion.p>
             <motion.div {...inView(0.2)} className="flex flex-col sm:flex-row gap-4">

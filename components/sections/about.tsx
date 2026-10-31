@@ -25,7 +25,7 @@ const visibleSocials = IDENTITY_SOCIALS
 
 export function About() {
   return (
-    <section id="about" className="py-24 max-sm:py-8 px-6 relative">
+    <section id="about" className="py-24 sm:py-16 max-sm:py-8 px-6 relative">
       {/* Solid dark background fallback */}
       <div className="absolute inset-0 bg-neutral-950 -z-30" />
 
@@ -84,15 +84,15 @@ export function About() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.215, 0.61, 0.355, 1] }}
             className="space-y-6 mb-16"
           >
-            <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+            <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-100 sm:text-readable max-sm:text-neutral-50 max-sm:text-lg max-sm:text-readable">
               Friday Gift Chinechenum Azunda. Known online as StormD3v.
             </p>
-            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-200 sm:text-readable max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
               Storm-OS is the personal environment through which long-term ideas are designed,
               built and maintained. WorldForge, LumiCast, and StormCash are the active projects within it.
               Future work appears when it is ready.
             </p>
-            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-200 sm:text-readable max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
               No roadmap. No release schedule. Work earns its way into existence.
             </p>
           </motion.div>

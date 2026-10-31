@@ -121,7 +121,7 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      <div className="max-w-3xl mx-auto text-center mt-[33vh] sm:mt-[40vh] max-sm:mt-[25vh] relative z-10">
+      <div className="max-w-3xl mx-auto text-center mt-[33vh] sm:mt-[17vh] max-sm:mt-[25vh] relative z-10">
         {/* Soft dark radial gradient behind text block on mobile */}
         <div
           className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"

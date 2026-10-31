@@ -90,15 +90,15 @@ export function AboutPageContent() {
 
                         {/* Identity — person first, alias second, philosophy third */}
                         <motion.div {...reveal(0.1)} className="space-y-6 mb-16">
-                            <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                            <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-100 sm:text-readable max-sm:text-neutral-50 max-sm:text-lg max-sm:text-readable">
                                 Known online as StormD3v.
                             </p>
-                            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-200 sm:text-readable max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                                 Storm-OS is the personal environment through which long-term ideas are designed,
                                 built and maintained. Some ideas cannot be rushed without losing what makes them
                                 worth building. Storm-OS is the framework that makes patience possible.
                             </p>
-                            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-200 sm:text-readable max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                                 WorldForge, LumiCast, and StormCash are the active projects within that environment.
                                 Future work appears when it is ready, not before.
                             </p>
@@ -109,10 +109,10 @@ export function AboutPageContent() {
                             <p className="section-label">
                                 Right now
                             </p>
-                            <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                            <p className="text-lg text-neutral-300 leading-relaxed text-pretty sm:text-neutral-100 sm:text-readable max-sm:text-neutral-50 max-sm:text-lg max-sm:text-readable">
                                 Most of the current focus is on WorldForge.
                             </p>
-                            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+                            <p className="text-neutral-400 leading-relaxed text-pretty sm:text-lg sm:text-neutral-200 sm:text-readable max-sm:text-neutral-100 max-sm:text-[17px] max-sm:leading-relaxed max-sm:text-readable">
                                 It is a long-running project, the kind that cannot be rushed without losing
                                 what makes it worth building. When it is ready, it will feel that way.
                             </p>

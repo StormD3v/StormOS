@@ -96,19 +96,19 @@ export function WorldForge() {
               transition={{ duration: 0.7, delay: 0.15, ease: [0.215, 0.61, 0.355, 1] }}
               className="space-y-7 max-sm:space-y-4 mb-14"
             >
-              <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 sm:!text-shadow-none max-sm:text-xl max-sm:text-neutral-200 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+              <p className="text-xl md:text-2xl text-neutral-300 leading-relaxed text-pretty sm:text-neutral-300 max-sm:text-xl max-sm:text-neutral-200 max-sm:text-readable">
                 WorldForge is a living world, built around permanence.
               </p>
-              <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-base max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+              <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 max-sm:text-base max-sm:text-neutral-300 max-sm:text-readable">
                 Every decision you make becomes part of its history, and every person who
                 enters leaves a legacy that outlasts them. Civilizations rise, collapse, and
                 leave traces that future people inherit. Nothing is erased. Nothing resets.
               </p>
-              <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 sm:!text-shadow-none max-sm:text-base max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+              <p className="text-lg text-neutral-400 leading-relaxed text-pretty sm:text-neutral-400 max-sm:text-base max-sm:text-neutral-300 max-sm:text-readable">
                 Identity here is not what you claim. It is what you do, over time,
                 in a world that remembers.
               </p>
-              <p className="text-base text-neutral-500 leading-relaxed sm:text-neutral-500 sm:!text-shadow-none max-sm:text-base max-sm:text-neutral-300 max-sm:text-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+              <p className="text-base text-neutral-500 leading-relaxed sm:text-neutral-500 max-sm:text-base max-sm:text-neutral-300 max-sm:text-readable">
                 Some worlds deserve to last. WorldForge is being built to be one of them.
               </p>
             </motion.div>
