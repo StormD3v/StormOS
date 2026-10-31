@@ -52,6 +52,16 @@ export function ContactForm({ className }: ContactFormProps) {
             noValidate
             className={cn('space-y-6', className)}
         >
+            {/* Honeypot field - hidden from users, visible to bots */}
+            <input
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden
+                className="absolute -left-[9999px] w-[1px] h-[1px] overflow-hidden"
+                {...register('website')}
+            />
+
             <div>
                 <label htmlFor="contact-name" className="block text-sm font-medium text-neutral-300 sm:text-neutral-300 mb-2">
                     Name

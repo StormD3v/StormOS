@@ -88,9 +88,10 @@ export function ProjectDrawer({ sections, links, currentSlug }: ProjectDrawerPro
 
       {/* Drawer */}
       <div
-        className={`fixed right-0 top-0 h-full w-[85vw] max-w-sm bg-neutral-950/95 border-l border-white/10 p-6 z-50 lg:hidden transition-transform duration-300 ${
+        className={`fixed right-0 top-0 h-full w-[85vw] max-w-sm bg-neutral-950/95 border-l border-white/10 pt-20 p-6 z-50 lg:hidden transition-transform duration-300 overflow-y-auto overscroll-contain ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         } ${reducedMotion ? 'transition-none' : ''}`}
+        style={{ paddingTop: 'calc(5rem + env(safe-area-inset-top))' }}
       >
         {/* Close button */}
         <button
@@ -101,7 +102,7 @@ export function ProjectDrawer({ sections, links, currentSlug }: ProjectDrawerPro
           <X size={20} />
         </button>
 
-        <div className="space-y-8 pt-8">
+        <div className="space-y-8">
           {/* Links */}
           {links && links.length > 0 && (
             <div>
