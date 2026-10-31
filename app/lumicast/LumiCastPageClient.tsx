@@ -5,6 +5,9 @@ import { useReducedMotion } from 'framer-motion';
 import { Container } from '@/components/layout/container';
 import { Button } from '@/components/ui/button';
 import { DesktopPageHero } from '@/components/ui/desktop-page-hero';
+import { ProjectSidePanel } from '@/components/ProjectSidePanel';
+import { ProjectPager } from '@/components/ProjectPager';
+import { ProjectDrawer } from '@/components/ProjectDrawer';
 
 const reveal = (delay: number) => ({
     initial: { opacity: 0, y: 24 },
@@ -18,6 +21,16 @@ const inView = (delay = 0) => ({
     viewport: { once: true, margin: '-80px' },
     transition: { duration: 0.6, delay, ease: [0.215, 0.61, 0.355, 1] as const },
 });
+
+const sections = [
+    { id: 'what-it-is', label: 'What it is' },
+    { id: 'why-it-exists', label: 'Why it exists' },
+    { id: 'where-it-is-going', label: 'Where it is going' },
+];
+
+const links = [
+    { label: 'Launch LumiCast', href: 'https://real-weather-rho.vercel.app/', external: true },
+];
 
 export function LumiCastPageClient() {
     const reducedMotion = useReducedMotion();
@@ -70,10 +83,13 @@ export function LumiCastPageClient() {
                 </Container>
             </section>
 
-            {/* What it is */}
-            <section className="py-32 sm:py-16 max-sm:py-8 px-6">
-                <Container>
-                    <div className="max-w-2xl relative">
+            {/* Content sections with sticky side panel */}
+            <Container className="lg:grid lg:grid-cols-[minmax(0,48rem)_300px] lg:gap-20 px-6">
+                {/* Main content */}
+                <div>
+                    {/* What it is */}
+                    <section id="what-it-is" className="py-32 sm:py-16 max-sm:py-8 border-t border-neutral-800/60 sm:border-t-0 max-sm:border-t-0">
+                        <div className="max-w-2xl relative">
                         {/* Soft dark radial gradient behind content on mobile */}
                         <div
                             className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"
@@ -103,12 +119,10 @@ export function LumiCastPageClient() {
                             </p>
                         </motion.div>
                     </div>
-                </Container>
-            </section>
+                </section>
 
-            {/* Why it exists */}
-            <section className="py-32 sm:py-16 max-sm:py-8 px-6">
-                <Container>
+                {/* Why it exists */}
+                <section id="why-it-exists" className="py-32 sm:py-16 max-sm:py-8 border-t border-neutral-800/60 sm:border-t-0 max-sm:border-t-0">
                     <div className="max-w-2xl relative">
                         {/* Soft dark radial gradient behind content on mobile */}
                         <div
@@ -139,12 +153,10 @@ export function LumiCastPageClient() {
                             </p>
                         </motion.div>
                     </div>
-                </Container>
-            </section>
+                </section>
 
-            {/* Where it is going */}
-            <section className="py-32 sm:py-16 max-sm:py-8 px-6">
-                <Container>
+                {/* Where it is going */}
+                <section id="where-it-is-going" className="py-32 sm:py-16 max-sm:py-8 border-t border-neutral-800/60 sm:border-t-0 max-sm:border-t-0">
                     <div className="max-w-2xl relative">
                         {/* Soft dark radial gradient behind content on mobile */}
                         <div
@@ -173,13 +185,11 @@ export function LumiCastPageClient() {
                             </p>
                         </motion.div>
                     </div>
-                </Container>
-            </section>
+                </section>
 
-            {/* Launch LumiCast */}
-            <section className="relative py-36 sm:py-16 max-sm:py-8 px-6 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/8 via-transparent to-transparent -z-10" aria-hidden="true" />
-                <Container>
+                {/* Launch LumiCast */}
+                <section className="relative py-36 sm:py-16 max-sm:py-8 border-t border-neutral-800/60 sm:border-t-0 max-sm:border-t-0">
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/8 via-transparent to-transparent -z-10" aria-hidden="true" />
                     <div className="max-w-xl relative">
                         {/* Soft dark radial gradient behind content on mobile */}
                         <div
@@ -195,7 +205,7 @@ export function LumiCastPageClient() {
                         <motion.p {...inView(0.1)} className="text-neutral-400 leading-relaxed text-pretty mb-12 sm:text-neutral-200 sm:text-readable max-sm:text-neutral-200 max-sm:text-readable">
                             The application is live. See what the day is actually asking of you.
                         </motion.p>
-                        <motion.div {...inView(0.2)}>
+                        <motion.div {...inView(0.2)} className="lg:hidden">
                             <a
                                 href="https://real-weather-rho.vercel.app/"
                                 target="_blank"
@@ -211,8 +221,15 @@ export function LumiCastPageClient() {
                             </a>
                         </motion.div>
                     </div>
-                </Container>
-            </section>
+                </section>
+                </div>
+
+                {/* Sticky side panel */}
+                <ProjectSidePanel sections={sections} links={links} currentSlug="lumicast" />
+            </Container>
+
+            {/* Mobile drawer */}
+            <ProjectDrawer sections={sections} links={links} currentSlug="lumicast" />
         </>
     );
 }

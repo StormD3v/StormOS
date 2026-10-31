@@ -6,6 +6,9 @@ import { Container } from '@/components/layout/container';
 import { Button } from '@/components/ui/button';
 import { WaitlistForm } from '@/components/sections/waitlist-form';
 import { DesktopPageHero } from '@/components/ui/desktop-page-hero';
+import { ProjectPager } from '@/components/ProjectPager';
+import { ProjectDrawer } from '@/components/ProjectDrawer';
+import { ProjectSidePanel } from '@/components/ProjectSidePanel';
 import Link from 'next/link';
 
 const reveal = (delay: number) => ({
@@ -31,7 +34,6 @@ const sections = [
 export function WorldForgePageClient() {
     const reducedMotion = useReducedMotion();
     const waitlistRef = useRef<HTMLDivElement>(null);
-    const [activeSection, setActiveSection] = useState<string>('');
 
     function handleJoinClick() {
         if (!waitlistRef.current) return;
@@ -42,37 +44,15 @@ export function WorldForgePageClient() {
         }, 400);
     }
 
-    function scrollToSection(id: string) {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
-        }
-    }
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveSection(entry.target.id);
-                    }
-                });
-            },
-            { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' }
-        );
-
-        sections.forEach((section) => {
-            const element = document.getElementById(section.id);
-            if (element) observer.observe(element);
-        });
-
-        return () => observer.disconnect();
-    }, []);
+    const links = [
+        { label: 'Join the waitlist', href: '#waitlist', onClick: handleJoinClick },
+        { label: 'Join the community', href: 'https://chat.whatsapp.com/BLkZaFtyXzNEgt5WFH63hA', external: true },
+    ];
 
     return (
         <>
             {/* Hero */}
-            <section className="relative pt-40 pb-32 sm:pb-12 px-6 max-sm:pt-14 max-sm:pb-8 sm:overflow-visible overflow-hidden">
+            <section className="relative pt-40 pb-32 sm:pb-12 px-6 lg:px-0 max-sm:pt-14 max-sm:pb-8 sm:overflow-visible overflow-hidden">
                 <DesktopPageHero src="/images/worldforge-desktop.webp" />
                 <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/12 via-accent-purple/3 to-transparent -z-10 sm:bg-transparent" />
                 <motion.div
@@ -156,7 +136,7 @@ export function WorldForgePageClient() {
             </section>
 
             {/* Content sections with sticky side panel */}
-            <Container className="lg:grid lg:grid-cols-[1fr_300px] lg:gap-12 lg:px-6 px-6">
+            <Container className="lg:grid lg:grid-cols-[minmax(0,48rem)_300px] lg:gap-20 lg:px-8 px-6">
                 {/* Main content */}
                 <div>
                     {/* What it is */}
@@ -320,59 +300,7 @@ export function WorldForgePageClient() {
                 </div>
 
                 {/* Sticky side panel */}
-                <aside className="hidden lg:block self-start lg:sticky lg:top-28">
-                    <div className="bg-neutral-900/60 border border-white/10 rounded-2xl p-6 space-y-8">
-                        {/* Links */}
-                        <div>
-                            <p className="section-label mb-4">Links</p>
-                            <div className="space-y-3">
-                                <Button
-                                    size="md"
-                                    variant="primary"
-                                    onClick={handleJoinClick}
-                                    className="w-full bg-accent-purple hover:bg-accent-purple-dark focus:ring-accent-purple"
-                                >
-                                    Join the waitlist
-                                </Button>
-                                <a
-                                    href="https://chat.whatsapp.com/BLkZaFtyXzNEgt5WFH63hA"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="block"
-                                >
-                                    <Button
-                                        size="md"
-                                        variant="secondary"
-                                        className="w-full"
-                                    >
-                                        Join the community
-                                    </Button>
-                                </a>
-                            </div>
-                        </div>
-
-                        {/* On this page */}
-                        <div>
-                            <p className="section-label mb-4">On this page</p>
-                            <ul className="space-y-2">
-                                {sections.map((section) => (
-                                    <li key={section.id}>
-                                        <button
-                                            onClick={() => scrollToSection(section.id)}
-                                            className={`text-sm transition-colors duration-fast ${
-                                                activeSection === section.id
-                                                    ? 'text-accent-purple font-semibold'
-                                                    : 'text-neutral-400 hover:text-neutral-200'
-                                            }`}
-                                        >
-                                            {section.label}
-                                        </button>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-                </aside>
+                <ProjectSidePanel sections={sections} links={links} currentSlug="worldforge" />
             </Container>
 
             {/* Enter WorldForge */}
@@ -413,6 +341,9 @@ export function WorldForgePageClient() {
                     </div>
                 </Container>
             </section>
+
+            {/* Mobile drawer */}
+            <ProjectDrawer sections={sections} links={links} currentSlug="worldforge" />
         </>
     );
 }

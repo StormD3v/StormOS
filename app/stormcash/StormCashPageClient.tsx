@@ -7,6 +7,9 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Github, ExternalLink } from 'lucide-react';
 import { DesktopPageHero } from '@/components/ui/desktop-page-hero';
+import { ProjectSidePanel } from '@/components/ProjectSidePanel';
+import { ProjectPager } from '@/components/ProjectPager';
+import { ProjectDrawer } from '@/components/ProjectDrawer';
 
 const reveal = (delay: number) => ({
   initial: { opacity: 0, y: 24 },
@@ -27,6 +30,17 @@ const TRANSFER_PROBLEM_TEXT = "Modern bank transfers were built around 1970s bat
 const WHATS_REAL_SECTION_TITLE = "What's real vs simulated";
 
 const WHAT_DOESNT_TEXT = "What doesn't: real blockchain connectivity, real fiat on/off ramps, and multi-currency support. These are explicitly marked as vision items in the project roadmap.";
+
+const sections = [
+    { id: 'what-it-is', label: 'What it is' },
+    { id: 'architecture', label: 'Architecture' },
+    { id: 'whats-real', label: "What's real vs simulated" },
+];
+
+const links = [
+    { label: 'Open the live app', href: 'https://stormcash.vercel.app/', external: true },
+    { label: 'GitHub Repository', href: 'https://github.com/StormD3v/StormCash', external: true },
+];
 
 export function StormCashPageClient() {
   const reducedMotion = useReducedMotion();
@@ -78,10 +92,13 @@ export function StormCashPageClient() {
         </Container>
       </section>
 
-      {/* What it is */}
-      <section className="py-32 sm:py-16 max-sm:py-8 px-6">
-        <Container>
-          <div className="max-w-2xl relative">
+      {/* Content sections with sticky side panel */}
+      <Container className="lg:grid lg:grid-cols-[minmax(0,48rem)_300px] lg:gap-20 px-6">
+        {/* Main content */}
+        <div>
+          {/* What it is */}
+          <section id="what-it-is" className="py-32 sm:py-16 max-sm:py-8 border-t border-neutral-800/60 sm:border-t-0 max-sm:border-t-0">
+            <div className="max-w-2xl relative">
             {/* Soft dark radial gradient behind content on mobile */}
             <div
               className="absolute left-0 right-0 -top-20 -bottom-20 sm:hidden -z-10"
@@ -106,12 +123,10 @@ export function StormCashPageClient() {
               </p>
             </motion.div>
           </div>
-        </Container>
-      </section>
+        </section>
 
-      {/* Architecture */}
-      <section className="py-32 sm:py-16 max-sm:py-8 px-6">
-        <Container>
+        {/* Architecture */}
+        <section id="architecture" className="py-32 sm:py-16 max-sm:py-8 border-t border-neutral-800/60 sm:border-t-0 max-sm:border-t-0">
           <div className="max-w-2xl relative">
             {/* Soft dark radial gradient behind content on mobile */}
             <div
@@ -137,12 +152,10 @@ export function StormCashPageClient() {
               </p>
             </motion.div>
           </div>
-        </Container>
-      </section>
+        </section>
 
-      {/* What's real vs simulated */}
-      <section className="py-32 sm:py-16 max-sm:py-8 px-6">
-        <Container>
+        {/* What's real vs simulated */}
+        <section id="whats-real" className="py-32 sm:py-16 max-sm:py-8 border-t border-neutral-800/60 sm:border-t-0 max-sm:border-t-0">
           <div className="max-w-2xl relative">
             {/* Soft dark radial gradient behind content on mobile */}
             <div
@@ -168,13 +181,11 @@ export function StormCashPageClient() {
               </p>
             </motion.div>
           </div>
-        </Container>
-      </section>
+        </section>
 
-      {/* View the code */}
-      <section className="relative py-36 sm:py-16 max-sm:py-8 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/8 via-transparent to-transparent -z-10" aria-hidden="true" />
-        <Container>
+        {/* View the code */}
+        <section className="relative py-36 sm:py-16 max-sm:py-8 border-t border-neutral-800/60 sm:border-t-0 max-sm:border-t-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/8 via-transparent to-transparent -z-10" aria-hidden="true" />
           <div className="max-w-xl relative">
             {/* Soft dark radial gradient behind content on mobile */}
             <div
@@ -190,7 +201,7 @@ export function StormCashPageClient() {
             <motion.p {...inView(0.1)} className="text-neutral-400 leading-relaxed text-pretty mb-12 sm:text-neutral-200 sm:text-readable max-sm:text-neutral-200 max-sm:text-readable">
               The entire prototype is open source. Explore the architecture, see how the settlement engine works, and understand the design decisions.
             </motion.p>
-            <motion.div {...inView(0.2)} className="flex flex-col sm:flex-row gap-4">
+            <motion.div {...inView(0.2)} className="flex flex-col sm:flex-row gap-4 lg:hidden">
               <a
                 href="https://stormcash.vercel.app/"
                 target="_blank"
@@ -226,8 +237,15 @@ export function StormCashPageClient() {
               The backend is offline to save hosting costs, so sign-up won&apos;t work right now. See the code and screenshots on <a href="https://github.com/StormD3v/StormCash" target="_blank" rel="noopener noreferrer" className="text-neutral-300 underline hover:text-neutral-200">GitHub</a>.
             </motion.p>
           </div>
-        </Container>
-      </section>
+        </section>
+        </div>
+
+        {/* Sticky side panel */}
+        <ProjectSidePanel sections={sections} links={links} currentSlug="stormcash" />
+      </Container>
+
+      {/* Mobile drawer */}
+      <ProjectDrawer sections={sections} links={links} currentSlug="stormcash" />
     </>
   );
 }
