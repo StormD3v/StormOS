@@ -51,7 +51,7 @@ export function Building() {
                 {/* Section header */}
                 <motion.div {...sectionEntrance} className="mb-10 max-sm:mb-6">
                     <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight">
-                        Preview
+                        Projects
                     </h2>
                 </motion.div>
 
@@ -107,7 +107,7 @@ export function Building() {
                         <Button
                             size="lg"
                             variant="secondary"
-                            className="border border-neutral-700"
+                            className="bg-transparent border border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-white hover:shadow-[0_0_32px_rgba(168,85,247,0.7)]"
                         >
                             View all projects
                         </Button>
@@ -176,7 +176,7 @@ export function Building() {
                         <Button
                             size="lg"
                             variant="secondary"
-                            className="border border-neutral-700"
+                            className="bg-transparent border border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-white hover:shadow-[0_0_32px_rgba(168,85,247,0.7)] max-sm:bg-accent-purple max-sm:text-white max-sm:border-transparent max-sm:shadow-[0_0_24px_rgba(168,85,247,0.5)] shimmer"
                         >
                             View all projects
                         </Button>

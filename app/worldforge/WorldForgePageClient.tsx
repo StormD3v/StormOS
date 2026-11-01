@@ -105,7 +105,7 @@ export function WorldForgePageClient() {
                                 className="sm:hidden mt-10"
                             >
                                 <video
-                                    src="/worldforge-demo-mobile.mp4"
+                                    src="/worldforge-demo-mobile.mp4?v=4"
                                     autoPlay
                                     muted
                                     loop
@@ -122,7 +122,7 @@ export function WorldForgePageClient() {
                             className="hidden sm:block"
                         >
                             <video
-                                src="/worldforge-demo.mp4"
+                                src="/worldforge-demo.mp4?v=4"
                                 autoPlay
                                 muted
                                 loop

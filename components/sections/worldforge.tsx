@@ -122,7 +122,7 @@ export function WorldForge() {
               className="sm:hidden mb-10"
             >
               <video
-                src="/worldforge-demo-mobile.mp4"
+                src="/worldforge-demo-mobile.mp4?v=4"
                 autoPlay
                 muted
                 loop
@@ -171,7 +171,7 @@ export function WorldForge() {
             className="hidden sm:block self-center"
           >
             <video
-              src="/worldforge-demo.mp4"
+              src="/worldforge-demo.mp4?v=4"
               autoPlay
               muted
               loop

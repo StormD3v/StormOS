@@ -91,7 +91,7 @@ export function Footer({ className }: FooterProps) {
                       <span
                         key={link.platform}
                         aria-label={`Discord username: ${link.username ?? link.platform}`}
-                        className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 cursor-default"
+                        className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-[#7983F5] hover:bg-white/20 hover:-translate-y-0.5 hover:shadow-[0_0_16px_rgba(168,85,247,0.4)] transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
                       >
                         <Icon size={18} aria-hidden="true" />
                       </span>
@@ -105,7 +105,7 @@ export function Footer({ className }: FooterProps) {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`View ${link.platform} profile`}
-                      className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 hover-ripple"
+                      className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-neutral-100 hover:bg-white/20 hover:-translate-y-0.5 hover:shadow-[0_0_16px_rgba(168,85,247,0.4)] transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
                     >
                       <Icon size={18} aria-hidden="true" />
                     </a>
@@ -114,7 +114,7 @@ export function Footer({ className }: FooterProps) {
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
                 aria-label="Email Storm"
-                className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 hover-ripple"
+                className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-neutral-100 hover:bg-white/20 hover:-translate-y-0.5 hover:shadow-[0_0_16px_rgba(168,85,247,0.4)] transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
               >
                 <Mail size={18} aria-hidden="true" />
               </a>

@@ -92,7 +92,7 @@ export function Contact() {
                 </div>
 
                 {/* Social — from content configuration */}
-                <div className="relative z-10">
+                <div className="relative z-10 mt-8">
                   <p className="text-xs font-semibold tracking-widest uppercase text-neutral-600 sm:text-neutral-600 mb-3">
                     Elsewhere
                   </p>
@@ -108,7 +108,7 @@ export function Contact() {
                             key={link.platform}
                             role="listitem"
                             aria-label={`Discord username: ${link.username ?? link.platform}`}
-                            className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 cursor-default"
+                            className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-[#7983F5] hover:bg-white/20 hover:-translate-y-0.5 hover:shadow-[0_0_16px_rgba(168,85,247,0.4)] transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
                           >
                             <Icon size={18} aria-hidden="true" />
                           </span>
@@ -123,7 +123,7 @@ export function Contact() {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={`View ${link.platform} profile`}
-                          className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 hover-ripple"
+                          className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-neutral-100 hover:bg-white/20 hover:-translate-y-0.5 hover:shadow-[0_0_16px_rgba(168,85,247,0.4)] transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
                         >
                           <Icon size={18} aria-hidden="true" />
                         </a>
@@ -151,7 +151,7 @@ export function Contact() {
                 </div>
 
                 {/* Social — from content configuration */}
-                <div className="relative z-10">
+                <div className="relative z-10 mt-8 max-sm:hidden">
                   <p className="text-xs font-semibold tracking-widest uppercase text-neutral-600 sm:text-neutral-600 mb-3 max-sm:text-neutral-300 max-sm:text-readable">
                     Elsewhere
                   </p>
@@ -167,7 +167,7 @@ export function Contact() {
                             key={link.platform}
                             role="listitem"
                             aria-label={`Discord username: ${link.username ?? link.platform}`}
-                            className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 cursor-default"
+                            className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-[#7983F5] hover:bg-white/20 hover:-translate-y-0.5 hover:shadow-[0_0_16px_rgba(168,85,247,0.4)] transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
                           >
                             <Icon size={18} aria-hidden="true" />
                           </span>
@@ -182,7 +182,7 @@ export function Contact() {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={`View ${link.platform} profile`}
-                          className="p-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-500 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 hover-ripple"
+                          className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-neutral-100 hover:bg-white/20 hover:-translate-y-0.5 hover:shadow-[0_0_16px_rgba(168,85,247,0.4)] transition-all duration-fast focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-purple focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950"
                         >
                           <Icon size={18} aria-hidden="true" />
                         </a>
